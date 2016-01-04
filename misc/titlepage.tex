@@ -22,7 +22,10 @@
 {\centering im Studiengang \studycourse \par}
 \bigskip
 {\centering 
-    zur Erlangung des Grades akademischen Grades \degree \par}
+    \ifundefined{\degree}
+    zur Erlangung des Grades akademischen Grades \degree \par
+    \fi
+}
 
 %*** Betreuer Informationen ***
 \bigskip\bigskip\bigskip
