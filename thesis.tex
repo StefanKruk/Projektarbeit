@@ -20,6 +20,12 @@
 
 \input{misc/titlepage}
 
+% ***************************** BACK MATTER ***********************************
+\pagestyle{empty}
+
+\addcontentsline{toc}{chapter}{\protect\numberline{}Eidesstattliche Erklärung}
+\include{misc/affirmation}
+
 % ***************************** FRONT MATTER **********************************
 \setcounter{page}{1}
 \pagenumbering{roman}
@@ -52,11 +58,5 @@
 \appendix
 \baselineskip=18pt
 \include{misc/appendix}
-
-% ***************************** BACK MATTER ***********************************
-\pagestyle{empty}
-
-\addcontentsline{toc}{chapter}{\protect\numberline{}Eidesstattliche Erklärung}
-\include{misc/affirmation}
 
 \end{document}
