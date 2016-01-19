@@ -6,12 +6,11 @@
 % ****************************** PREAMBLE **********************************
 \input{preamble/packages}
 
+\input{preamble/macros}
+
 \input{preamble/personal}
 
 \input{preamble/setup}
-
-\input{preamble/macros}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ************************** BEGINN OF DOCUMENT *******************************
@@ -23,7 +22,6 @@
 % ***************************** BACK MATTER ***********************************
 \pagenumbering{roman}
 
-\addcontentsline{toc}{chapter}{\protect\numberline{}Eidesstattliche Erklärung}
 \include{misc/affirmation}
 
 % ***************************** FRONT MATTER **********************************
@@ -35,7 +33,7 @@
 \include{misc/abstract}
 
 % ***************************** MAIN MATTER ***********************************
-\pagestyle{fancy}
+%%\pagestyle{fancy}
 \pagenumbering{arabic}
 
 \include{chapter/chapter1}
