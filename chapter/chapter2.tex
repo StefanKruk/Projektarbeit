@@ -1,98 +1,27 @@
-\chapter{Theorie neuronaler Netze}
-\label{chap:theorie}
+\chapter{Problemanalyse}
+\label{chap:analyse}
+Jedes Internet-Unternehmen fängt klein an und wächst mit der Zeit. In dieser Zeit muss das Unternehmen viele Probleme bewältigen. Es muss die Produkte, welches das Unternehmen verkauft, weiterentwickeln und auf die Bedürfnisse der Nutzer reagieren. In unserer heutigen Zeit, in der das Internet das bevorzugte Informationsmedium ist, können sich Nutzer sehr schnell von einem Produkt zu einem anderen wechseln. Um das zu verhindern, muss ein Produkt immer aktuell sein.
 
-\section{Die formalen Neuronen}
-In diesen Abschnitten geht es um die mathematischen Grundlagen der zu
-behandelnden Problemstellung. Hier können Definitionen und Sätze
-auftauchen, wobei die Sätze teils bewiesen werden sollten (falls einfach
-und für das weitere Verständnis wesentlich) oder ihre Beweise sauber
-zitiert werden. Beispiele: \\
-\begin{definition}[Formales Neuron]
-Ein formales Neuron ist eine Funktion
-$\kappa: \RR^n \to \RR^m$, die erzeugt wird durch die Verkettung 
-einer sogenannten {\sl Transferfunktion} 
-$\sigma: \RR \to \RR$ mit einer sogenannten
-{\sl Aktivierungsfunktion} $A: \RR^n \to \RR$:
-\begin{equation}
-\begin{array}{rl}
-\kappa: \ \ \ & \RR^n \to \RR^m \ , \\
-        & \ \ \ \vec x \mapsto 
-        \big( \sigma(A(\vec x)), \sigma(A(\vec x)), \ \ldots \ ,
-                               \sigma(A(\vec x)) \big) \ . 
-\end{array} 
-\end{equation}			       
-\end{definition}
+\section{Herkömmliche Produkte}
+Herkömmliche Software-Produkte wurden auf CDs/DVDs verkauft und änderten sich daher nie. Um ein aktuelles Produkt zu erhalten, musste die Software in einer aktuellen Version erworben werden und auch diese änderte sich dann nicht. Ggf. wurden Patches zu einem billigeren Preis angeboten, wodurch eine Software geändert und mit neuen Features ausgestattet werden konnte.
 
-\begin{theorem}[Dichtheitssatz für hyperbolische Aktivierung]
-Es sei $f: \RR^n \to \RR$ stetig, $K \subset \RR^n$ kompakt
-und $\sigma: \RR \to \RR$ eine stetige Sigmoidalfunktion.
-Dann gibt es für alle $\epsilon > 0$ Parameter
-\begin{equation}
-\begin{array}{rl}
-& q \in \NN, \\
-& d_{kp} \in \RR, \ \ 1 \le k \le n , \ 1 \le p \le q , \\
-& \rho_p \in \RR, \ \ \ 1 \le p \le q , \\
-& g_p \in \RR, \ \ \ 1 \le p \le q , 
-\end{array}\end{equation}
-so dass für alle $\vec x \in K$ gilt
-\begin{equation}
-\left| f(\vec x ) - \sum_{p=1}^q g_p \sigma 
-\left( \rho_p \prod\limits_{k=1}^n (x_k-d_{kp}) \right) \right| \ < \ \epsilon .
-\end{equation}
-Definiert man nun
-\begin{equation}
-\sigma_{\pi}(\vec x ) := \sigma(\prod_{k=1}^n x_k) \ ,
-\end{equation}
-so lässt sich dies auch kurz schreiben als
-\begin{equation}
-H_{\sigma}  :=	\overline{span} \; \left\{ \sigma_{\pi}(\rho ( \vec x - \vec d \, )) \; : \;
-\vec d \in \RR^n, \; \rho \in \RR \right\}	=  C(\RR^n ) \ ,
-\end{equation}
-wobei $\overline{span}$ den Abschluss bezüglich der Topologie der
-gleichmäßigen Konvergenz auf kompakten Mengen bezeichnet.
-\end{theorem}
-\noindent
-\begin{proof}
-Vergleiche die Originalarbeiten \cite{Lenze_Note_1994,Pinkus_TDI_1996} oder \cite[][S.\ 163ff]{Lenze_Einfuehrung_2003}.
-\end{proof}
-\\
-\noindent
-Auch Zeichnungen (vgl. \autoref{fig:neuron}) können sinnvoll sein und
-eingebunden werden: 
+Die Informationen welche den Nutzern zur Verfügung standen war außerdem sehr gering, wodurch ein Produktwechsel selten war. Durch die kosten, welche aufgewandt werden mussten, um ein Produkt zu kaufen, war es sehr selten, dass Nutzer sich schnell entschieden ein anderes Produkt zu nutzen.
 
-\begin{figure}[htb]
-%\centerline{\includegraphics[width=8cm]{feubild1}}
-\caption[Reales Neuron]{\label{fig:neuron}Reales Neuron (Schematische Skizze)}
-\end{figure}
+\section{Derzeitige Produkte}
+Wie bereits erwähnt ist das Internet das heute bevorzugte Medium, um Informationen über Produkte und andere Dinge zu erhalten. Nutzer können innerhalb von Minuten Produkte vergleichen und durch Demos diese testen, meistens sogar mit vollem Funktionsumfang. Durch SaaS (Software-as-a-Service) ist auch das wechseln von Produkten nach dem "bezahlen" möglich, da man beim SaaS-Model nur das Zahlt, was man auch wirklich nutzt.
 
-\section{Die Topologie neuronaler Strukturen}
+Aus genau diesen Gründen, muss sich ein Internet-Unternehmen sehr schnell anpassen und auf die Bedürfnisse der Nutzer reagieren. Schafft ein Unternehmen dieses nicht, kann es schnell dazuführen, dass es Insolvent wird.
 
-\section{Der Ausführ-Modus}
+\section{Aktuelles Beispiel: \ebay}
+Ein Modernes und aktives Internet-Unternehmen ist \ebay und darf man der Seite \cite{highscalability} glauben, so startet die Seite 1995 als Monolithische Perl Applikation. Selbst wenn diese Informationen nicht auf \ebay zutreffen sollten, so dient es uns doch als gutes Beispiel einer realen Problemstellung.
 
-\section{Der Lern-Modus}
-Um Algorithmen zu erläutern kann es sinnvoll sein Pseudocode zu verwenden. Ein Beispiel dafür ist der \autoref{pseu:berechne}. 
-\begin{pseudocode} 
-\caption{Berechne $y = x^n$}
-\label{pseu:berechne}
-\begin{algorithmic}[1]
-    \Require $n \geq 0 \vee x \neq 0$
-    \Ensure $y = x^n$
-    \State $y \Leftarrow 1$
-    \If{$n < 0$}
-        \State $X \Leftarrow 1 / x$
-        \State $N \Leftarrow -n$
-    \Else
-        \State $X \Leftarrow x$
-        \State $N \Leftarrow n$
-    \EndIf
-    \While{$N \neq 0$}
-        \If{$N$ ist gerade}
-            \State $X \Leftarrow X \times X$
-            \State $N \Leftarrow N / 2$
-        \Else
-            \State $y \Leftarrow y \times X$
-            \State $N \Leftarrow N - 1$
-        \EndIf
-    \EndWhile
-\end{algorithmic}
-\end{pseudocode}
+Laut Wikipedia (https://en.wikipedia.org/wiki/EBay) wurde \ebay 1995 von Pierre Omidyar unter dem Namen \textit{ActionWeb} gegründet und wurde 1997 in \ebay umbenannt. \ebay wurde wie oben schon angesprochen als Monolithische Perl Anwendung implementiert. Mit der Steigerung der Reichweite und der täglichen Benutzung, hatte man sich dann aber dazu entschlossen auf C++ als Code-Basis umzusteigen und die Seite mit CGI zu implementieren. Mittlerweile war \ebay ein großes und sich rasant entwickelndes Unternehmen. Das bedeutet aber auch, dass \ebay ständig auf das Verhalten der Nutzer reagieren und sich anpassen muss. Man versuchte also eine Monolithische Applikation mit der Fähigkeit auszustatten, auf Änderungen schnell zu reagieren, implementieren und deployen. Aber ein Monolith zu deployen, bedeutet, entweder die gesamte Infrastruktur für Wartungszwecke offline zu nehmen und die Applikation neu zu deployen, oder Server im Parallel betrieb laufen zu lassen und jeden neuen Traffic auf die neue Version zu routen. Die letzte Methode bietet jedoch einige Schwierigkeiten, denn es könnten Änderungen eingebaut worden sein, welche im Konflikt mit der alten Version stehen. Dann muss in jedem Fall die erste Variante gewählt werden und die gesamte Infrastruktur offline genommen werden.
+
+Beide Varianten der Änderungen sind jedoch zeitaufwendig und  schwierig, denn nicht nur das deployen könnte Probleme bereiten, sondern auch die darauf folgende Ausführung des Programms. Ändert man Code in Monolithischen Applikationen kann das auch Auswirkungen auf bestehende Teile des Codes haben, welche vorher, ohne Probleme, funktioniert haben. Werden Tests vernachlässigt oder wird nicht ausreichend getestet, kann es leicht passieren, dass sich ungewollt Fehler einschleichen, wodurch dann eine Version in betrieb genommen wird, welche Fehler enthält. Darauf folgend müssten diese wieder behoben werden und die Anwendung erneut deployed werden.
+
+Im Falle einer Monolithischen Architektur bedeutet das viele Änderungen und neue Features. Oft passiert es daher, dass Code Stücke zurückbleiben, welche nicht mehr benötigt werden. Irgendwann ist die Applikation daher so groß, dass sie nicht mehr Wartbar ist und neue Features nur noch schwer zu implementieren sind. Entstehen Fehler in solch einer Anwendung ist es um so schwerer diese zu finden und zu beheben. Schließlich hat sich \ebay entschlossen ihre "Anwendung" in Java neu zu implementieren. Dieses mal jedoch mit dem Hintergrund einer leicht erweiterbaren und wartbaren Architektur.
+
+\section{Das Problem}
+Das Problem besteht also darin, "eine Anwendung" flexibel und einfach erweiterbar zu gestalten, damit ein Unternehmen schnell auf Änderungen und die veränderten Bedürfnisse der Nutzer reagieren kann. Damit solch eine Software ebenfalls gut Wartbar ist, sollten Redundanzen möglichst vermieden werden. Hier steigen wir in Modularität ein, denn damit eine Software möglichst einfach Wartbar ist, sollte jeder Code mit einem bestimmten Kontext in ein eigenes Modul gepackt werden. So können zum Beispiel alle Codestücke einer bestimmten Berechnung in ein Modul gepackt werden, wodurch diese dann nur an einer zentralen Stellen geändert werden muss. Wenn die Module jedoch auch von verschiedenen Applikationen genutzt werden, müssen diese in Libraries ausgelagert werden. Auch hier hat man wieder nur eine zentrale Stelle, an der Änderungen vorgenommen werden müssen, um die Berechnung anzupassen oder zu ändern. Jedoch besteht hier das Problem, dass wenn Änderungen durchgeführt werden, diese noch lange nicht in jeder laufenden Applikation zu finden sind. Dazu müssen diese nämlich erst einmal neu gebaut und deployed werden, damit diese Produktiv werden.
+
+Um dieses Vorgehen zu vereinfachen hat man sich dazu entschieden, diese Libraries in eigene Applikationen (Services) zu verpacken und diese über eine Schnittstelle anzubieten. Das sorgt dafür, dass jede Software, welche dieses Modul benötigt, sie nicht mehr eigenständig implementieren muss, sondern den dafür vorgesehenen Service aufrufe kann, um die nötigen Informationen zu erhalten. Diese Services werden auch als Microservices bezeichnet, da sie nur einem bestimmten Zweck dienen, dafür ihre Aufgabe aber besonders gut erledigen. Hierbei kann man unter anderem von einer \SOA\ (SOA) sprechen. Es sollte jedoch darauf geachtet werden, dass weder zu viel, noch zu wenig in ein Service gepackt wird. Welche Größe genau richtig ist, wird im Kapitel \secref{chap:grundlagen} weiter erläutert.

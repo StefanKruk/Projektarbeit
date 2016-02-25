@@ -2,11 +2,24 @@
 \label{chap:einleitung}
 
 \section{Motivation}
-In einem Unternehmen sind oft verschiedene Softwareprodukte im Einsatz. Damit ein reibungsloser Ablauf der internen Prozesse gewährleistet werden kann, sollte im Idealfall Software Interoperabel sein und so ohne weitere Probleme mit einander Arbeiten. Eine Lösung ist die \SOA. Dabei wird ein ganzer Geschäftsprozess in einer Monolithischen Anwendung, welcher zu einem bestimmten Kontext gehört, abgebildet. Eine andere Lösung sind Microservices. Diese Services sind, wie der Name schon sagt, in kleine und selbständige Anwendungen aufgeteilt, die nur eine bestimmte Aufgabe haben. Außerdem enthalten sie nur die reine Businesslogik. Damit Microservices für einen bestimmten Kontext genutzt werden können, müssen sie zusätzlich Orchestriert werden.
+In fast jedem Unternehmen wird Software eingesetzt und oft wird neue Software eingeführt oder, was deutlich seltener der Fall ist, alte Software durch neue ausgetauscht. In jedem Fall muss sich die neue Software in die bestehenden Prozesse und Architekturen integrieren lassen, damit sie genutzt werden kann.
 
-In dieser Arbeit sollen die Vor- und Nachteile beider Lösungen, unter anderem durch eine Implementierung, erörtert und danach miteinander verglichen werden. Abschließend werden die Ergebnisse präsentiert.
+Kleinere Unternehmen haben es daher deutlich einfacher, denn sie besitzen meistens nur einen Zentralen Server mit wenig Software. Große Unternehmen hingegen haben es da deutlich schwerer. Deren Infrastruktur basiert nicht auf einen Server, sondern auf ganze Rechenzentren weltweit, in denen die Server stehen, die sie nutzen. Damit Unternehmenssoftware miteinander, anstatt gegen- oder parallel zueinander arbeiten können, sollten Gedanken darüber gemacht werden, wie Software in dem Unternehmen aufgebaut sein soll. Große Systeme sind meist heterogen und haben gewollt oder ungewollt Redundanzen. Das kann anfangen mit der Berechnung eines bestimmten, unternehmensweiten, Zinssatzes, bis hin zu ganzen Prozessen welche doppelt in Software abgebildet werden. Dies verkompliziert die Wartung und Optimierung bestimmter Prozesse enorm.
 
-\section{Ausgangssituation}
+Nehmen wir das Beispiel der Zinsberechnung. Soll diese Berechnung angepasst oder verändert werden, muss dies in jeder Software geschehen, welche diese Zinsen berechnet. Wählt man jedoch eine geeignete Softwarearchitektur, kann dieses vorgehen deutlich vereinfacht werden. Eine Lösung könnte sein, Microservices zu nutzen. Eine andere könnten \SOA en sein. Bei beiden Modellen basiert das vorgehen darauf, dass kleine Services vorhanden sind, welche bestimmte aufgaben übernehmen und die entsprechenden Programme auf diese Services zurückgreifen, anstatt sie selber zu implementieren.
 
+\section{Ausgangssituation}\label{sec:ausgangssituation}
+Folgende Institute sind gegeben:
+\begin{itemize}
+    \item Einwohnermeldeamt
+    \item Standesamt
+    \item KFZ-Zulassungsstelle
+    \item Polizei
+\end{itemize}
+Diese Institute müssen Möglichkeiten haben, um bestimmte Daten voneinander abzufragen. Zum Beispiel muss der Fahrzeughalter und sein derzeitiger Wohnort bei einem vergehen mit dem PKW ermittelt werden können. Dazu muss die Polizei zunächst einmal mit Hilfe des Kennzeichens den Fahrzeughalter über die KFZ-Zulassungsstelle ermitteln. Anschließend muss dieser über das Einwohnermeldeamt ausfindig gemacht werden.
 
+Ein weiteres Beispiel: Zwei Personen Heiraten Standesamtlich. Somit ändert sich der Nachnamen von mindestens einer Person. Das Standesamt muss also das Einwohnermeldeamt darüber informieren, dass sich der Nachname dieser Person/en ändert.
 \section{Vorgehen}
+Zunächst werden die Grundlagen von Microservices und \SOA , sowie monolithischen Architekturen erläutert. Darauf aufbauend wird der Kontext, welcher im Kapitel \secref{sec:ausgangssituation} beschrieben wurde, mit dem Microservice-Modell und dem \SOA\ Modell implementiert und beide Architekturen miteinander verglichen.
+
+Abschließend wird noch einmal das Ziel dieser Arbeit erläutert. Danach werden die Ergebnisse präsentiert, bewertet und ein Fazit daraus gezogen. Zuletzt wird ein Ausblick über die weiteren Möglichkeiten der Architekturen erläutert.
