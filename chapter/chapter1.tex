@@ -2,24 +2,26 @@
 \label{chap:einleitung}
 
 \section{Motivation}
+\label{sec:motivation}
 In fast jedem Unternehmen wird Software eingesetzt und oft wird neue Software eingeführt oder, was deutlich seltener der Fall ist, alte Software durch neue ausgetauscht. In jedem Fall muss sich die neue Software in die bestehenden Prozesse und Architekturen integrieren lassen, damit sie genutzt werden kann.
 
 Kleinere Unternehmen haben es daher deutlich einfacher, denn sie besitzen meistens nur einen Zentralen Server mit wenig Software. Große Unternehmen hingegen haben es da deutlich schwerer. Deren Infrastruktur basiert nicht auf einen Server, sondern auf ganze Rechenzentren weltweit, in denen die Server stehen, die sie nutzen. Damit Unternehmenssoftware miteinander, anstatt gegen- oder parallel zueinander arbeiten können, sollten Gedanken darüber gemacht werden, wie Software in dem Unternehmen aufgebaut sein soll. Große Systeme sind meist heterogen und haben gewollt oder ungewollt Redundanzen. Das kann anfangen mit der Berechnung eines bestimmten, unternehmensweiten, Zinssatzes, bis hin zu ganzen Prozessen welche doppelt in Software abgebildet werden. Dies verkompliziert die Wartung und Optimierung bestimmter Prozesse enorm.
 
 Nehmen wir das Beispiel der Zinsberechnung. Soll diese Berechnung angepasst oder verändert werden, muss dies in jeder Software geschehen, welche diese Zinsen berechnet. Wählt man jedoch eine geeignete Softwarearchitektur, kann dieses vorgehen deutlich vereinfacht werden. Eine Lösung könnte sein, Microservices zu nutzen. Eine andere könnten \SOA en sein. Bei beiden Modellen basiert das vorgehen darauf, dass kleine Services vorhanden sind, welche bestimmte aufgaben übernehmen und die entsprechenden Programme auf diese Services zurückgreifen, anstatt sie selber zu implementieren.
 
-\section{Ausgangssituation}\label{sec:ausgangssituation}
-Folgende Institute sind gegeben:
-\begin{itemize}
-    \item Einwohnermeldeamt
-    \item Standesamt
-    \item KFZ-Zulassungsstelle
-    \item Polizei
-\end{itemize}
-Diese Institute müssen Möglichkeiten haben, um bestimmte Daten voneinander abzufragen. Zum Beispiel muss der Fahrzeughalter und sein derzeitiger Wohnort bei einem vergehen mit dem PKW ermittelt werden können. Dazu muss die Polizei zunächst einmal mit Hilfe des Kennzeichens den Fahrzeughalter über die KFZ-Zulassungsstelle ermitteln. Anschließend muss dieser über das Einwohnermeldeamt ausfindig gemacht werden.
+\section{Ausgangssituation}
+\label{sec:ausgangssituation}
+\textbf{Bei der Ausgangssituation gehen wir von einem fiktiven Szenario aus, welche ich an das aus \cite[S. 15]{EWolff2016} anlehne und im wesentlichen übernehme.}
+\\\\ 
+"Die neugegründete \textit{\gmbh} möchte einen E-Commerce-Shop, als Hauptgeschäft betreiben. Es ist eine Web-Anwendung, die sehr viele unterschiedliche Funktionalitäten anbietet. Unter anderem zählen dazu die Benutzerregistrierung und - verwaltung, sowie die Produktsuche, Überblick über die Bestellungen und der Bestellprozess."\ (vgl. \cite[S. 15]{EWolff2016})
+Das Unternehmen ist, auch wenn es ein reines IT-Unternehmen ist, Gewinn orientiert. \ref{fig:integrations-pyramide} zeigt den internen Aufbau eines typischen Unternehmens.
 
-Ein weiteres Beispiel: Zwei Personen Heiraten Standesamtlich. Somit ändert sich der Nachnamen von mindestens einer Person. Das Standesamt muss also das Einwohnermeldeamt darüber informieren, dass sich der Nachname dieser Person/en ändert.
+Die Geschäftsführung der GmbH hat bereits als Software-Entwickler in anderen Unternehmen Erfahrung mit dem Umgang und den Aufbau von E-Commerce-Shops gesammelt. Zu den Erfahrungen zählen unter anderem das programmieren, testen, deployen und weiterentwickeln der Anwendung. Während dieser Prozesse sind die Programmierer zur Erkenntnis gelangt, das bei steigender Größe der Anwendung, die Aufwände für Wartung und Weiterentwicklung stark ansteigen. Dies war auch der Grund warum das Unternehmen irgendwann Insolvenz anmelden musste. Die Kosten für Wartung und einer zeitnahen Reaktion auf die Veränderungen der Nutzerbedürfnisse konnten nicht mehr getragen werden und Anbieter wie Amazon, welche deutlich schneller, als die \gmbh ,  auf diese reagieren konnten, habe sie schließlich vom Markt gedrängt.
+
+Aus diesem Grund möchte die Geschäftsführung der neugegründeten \gmbh\ eine Software-Architektur wählen, welches schneller anpassbar und einfacher zu warten ist. Für sie kommen daher das Microservice-Modell und \SOA -Modell infrage.
+
 \section{Vorgehen}
-Zunächst werden die Grundlagen von Microservices und \SOA , sowie monolithischen Architekturen erläutert. Darauf aufbauend wird der Kontext, welcher im Kapitel \secref{sec:ausgangssituation} beschrieben wurde, mit dem Microservice-Modell und dem \SOA\ Modell implementiert und beide Architekturen miteinander verglichen.
+\label{sec:vorgehen}
+Zunächst werden die Grundlagen von Microservices und \SOA erläutert. Dabei werden grob die Unterschiede zwischen dem jeweiligen Architektur-Modell und eines Monolithischen-Modells geschildert werden. Darauf aufbauend wird der Kontext, welcher im Kapitel \secref{sec:ausgangssituation} beschrieben wurde, mit den beiden Modellen implementiert und anschließend miteinander verglichen. Zum Vergleich gehören die Unterschiede zwischen den beiden Architekturen, sowie deren jeweiligen Vor- und Nachteile. Danach werden die Vor- und Nachteile im Vergleich mit Monolithen dargestellt.
 
-Abschließend wird noch einmal das Ziel dieser Arbeit erläutert. Danach werden die Ergebnisse präsentiert, bewertet und ein Fazit daraus gezogen. Zuletzt wird ein Ausblick über die weiteren Möglichkeiten der Architekturen erläutert.
+Abschließend werden die Ergebnisse präsentiert, bewertet und ein Fazit daraus gezogen. Zuletzt wird ein Ausblick über die weiteren Möglichkeiten der Architekturen erläutert.
