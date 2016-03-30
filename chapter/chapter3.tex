@@ -29,7 +29,7 @@ Wie in \cite[S. 39 ff.]{EWolff2016:Microservices} beschrieben, stammt das Gesetz
 \label{sec:werkzeuge}
 Anders als bei Monolithischen-Projekten, bestehen Service-Orientierte-Projekte aus vielen kleinen Services, die alle einzeln verwaltet werden müssen. Das sie laufen reicht nicht aus, sie müssen auch geupdated und gewartet werden.
 
-Im folgenden sollen daher einige Werkzeuge vorgestellt werden, welche den Umgang mit Services vereinfachen. Dabei geht es um Werkzeuge, welche Entwickler vom Deployment bis zur Wartung der Applikationen unterstützen.
+Im folgenden sollen daher einige Werkzeuge vorgestellt werden, welche das bauen, prüfen, ausliefern und verwalten der einzelnen Services vereinfacht und automatisiert. Einige dieser Werkzeuge werden für die Umsetzung, der in \secref{sec:ausgangssituation}\ vorgestellten Anforderung, eingesetzt und in dem dafür vorgesehenen Kapitel weiter erläutert.
 
 \subsection{Jenkins}
 \label{subsec:jenkins}
@@ -54,14 +54,12 @@ Mit Hilfe von Vagrant kann man einfach und schnell Virtuelle Maschinen standardi
 \label{subsec:swagger}
 Die bisherigen Werkzeuge dienten dazu, Services auszuliefern, aber sie müssen, wie bereits weiter oben erwähnt, Schnittstellen anbieten, damit sie genutzt werden können. Diese müssen jedoch auch dokumentiert sein, damit ein Entwickler weiß, welche Schnittstelle er wie anzusprechen hat. Durch Swagger ist eine einfache und zentrale Dokumentation von REST-HTTP Schnittstellen möglich.
 
-%Zookeeper, etcd
-%Spring Cloud Config
-\subsection{Service Discovery - Spring}
+\subsection{Service Discovery}
 \label{subsec:ServiceDiscovery}
-Mit Swagger haben wir die Schnittstellen dokumentiert, jedoch kann es bei vielen Services problematisch werden, den richtigen zu finden. Dafür sind sogenannte Service Discovery Werkzeuge wie Spring Eureka von Netflix zuständig. Sie können außerdem dafür sorgen, dass ein Programm automatisch einen anderen Server bekommt, wenn ein genutzter Service ausfallen sollte. \footnote{\cite[vgl. S. 326 ff.]{EWolff2016:Microservices}}
+Mit Swagger haben wir die Schnittstellen dokumentiert, jedoch kann es bei vielen Services problematisch werden, den richtigen zu finden. Dafür sind sogenannte Service Discovery Werkzeuge wie Spring Eureka von Netflix oder Apache Zookeeper zuständig. Sie können außerdem dafür sorgen, dass ein Programm automatisch einen anderen Server bekommt, wenn ein genutzter Service ausfallen sollte. \footnote{\cite[vgl. S. 326 ff.]{EWolff2016:Microservices}}
 
 \subsection{ELK (ElasticSearch, LogStash, Kibana)}
 \label{subsec:elk}
-Durch Service-Orientierte Systeme gibt es viele verteilte Anwendungen. Um sie zu Warten und Fehler beheben zu können, müssen die Protokoll Dateien ausgewertet werden. Da jedoch die Services im Netzwerk verteilt sind, sind auch die Protokolle verteilt. Durch den ELK-Stack ist ein einheitliches Logging möglich.
+Durch Service-Orientierte Systeme gibt es viele verteilte Anwendungen. Um sie zu warten und Fehler beheben zu können, müssen die Protokoll Dateien ausgewertet werden. Da jedoch die Services im Netzwerk verteilt sind, sind auch die Protokolle verteilt. Durch den ELK-Stack ist ein einheitliches Logging möglich.
 Mit Hilfe von \textit{Logstash} können die Log-Dateien im von Servern im Netzwerk eingesammelt und mit \textit{Elasticsearch} zentral gespeichert werden. \textit{Kibana} ist eine Weboberfläche, mit der die gespeicherten Protokoll Daten in ein für Menschen leserliches Format angezeigt und ausgewertet werden kann.
 \footnote{\cite[vgl. S. 244 ff.]{EWolff2016:Microservices}}
