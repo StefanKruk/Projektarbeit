@@ -25,9 +25,9 @@
     \item Dokument auf das zu ofte vorkommen vom Wort "man" überprüfen
     \item Reicht die Zitierform in \secref{sec:ausgangssituation} ?
     \item richtige Überschriften Wahl (vorallem in \secref{chap:analyse})
+    \item Anführungsstiche durch glqq{} und grqq{} ersetzten.
 \end{enumerate}
 % ***************************** BACK MATTER ***********************************
-\pagenumbering{roman}
 
 \include{misc/affirmation}
 
@@ -37,32 +37,26 @@
 
 \input{misc/tables}
 
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{\numberline{}Überblick}
 \include{misc/abstract}
 
 % ***************************** MAIN MATTER ***********************************
 %%\pagestyle{fancy}
 \pagenumbering{arabic}
 
-% ***************************** Einleitung *****************************
-\include{chapter/chapter1}
+\include{chapter/chapter1}		% *** Einleitung ***
 
-% ***************************** Problemanalyse *****************************
-\include{chapter/chapter2}
+\include{chapter/chapter2}		% *** Problemanalyse ***
 
-% ***************************** Grundlagen *****************************
-\include{chapter/chapter3}
+\include{chapter/chapter3}		% *** Grundlagen ***
 
-% ***************************** Fallstudie: Microservice *****************************
-\include{chapter/chapter4}
+\include{chapter/chapter4}		% *** Fallstudie: Microservice ***
 
-% ***************************** Fallstudie: SOA *****************************
-\include{chapter/chapter5}
+\include{chapter/chapter5}		% *** Fallstudie: SOA ***
 
-% ***************************** Fazit *****************************
-\include{chapter/chapter6}
+\include{chapter/chapter6}		% *** Fazit ***
 
-% ***************************** Zusammenfassung und Ausblick *****************************
-\include{chapter/chapter7}
+\include{chapter/chapter7}		% *** Zusammenfassung und Ausblick ***
 
 
 % ***************************** BIBLIOGRAPHY **********************************
