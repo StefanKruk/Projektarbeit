@@ -1,7 +1,45 @@
 \chapter{Microservices}
 \label{chap:Microservices}
 
+\section{Überblick}
+\label{sec:überblickMicroservice }
+"Modularisierung ist nichts Neues. Schon lange werden große Systeme in kleine Module unterteilt, um Software einfacher zu erstellen, zu verstehen und weiterzuentwickeln. Das Neue: Microservices nutzen als Module einzelne Programme, die als eigene Prozesse laufen. Der Ansatz basiert auf der UNIX-Philosophie. Sie lässt sich auf drei Aspekte reduzieren:"\cite[S. 2]{EWolff2016:Microservices}
+
+\begin{itemize}
+    \item Ein Programm soll nur eine Aufgabe erledigen, und das soll es gut machen.
+    \item Programme sollen zusammenarbeiten können.
+    \item Nutze eine universelle Schnittstelle. In UNIX sind das Textströme.
+\end{itemize}
+Diese Art der Aufteilung wurde schon lange von großen Unternehmen wie Amazon oder Google genutzt und wurde zu nächst \SOA (SOA) genannt. Jedoch unterscheiden sich Microservices und SOA voneinander. Daher wird SOA im Nächsten Kapitel genauer erläutert und im Kapitel \ref{chap:ergebnisse} die Ergebnisse zusammen gefasst und beide Technologien mit einander verglichen.
+
+"Der Begriff Microservices ist nicht fest definiert.[] Als erste Näherung dienen folgende Kriterien:"\cite[S. 2]{EWolff2016:Microservices}
+
+\begin{itemize}
+    \item Microservices sind ein Modularisierungskonzept. Sie dienen dazu. ein großes Software-System aufzuteilen - und beeinflussen die Organisation und die Software-Entwicklungsprozesse.
+    \item Microservices können unabhängig von Änderungen an anderen Microservices in Produktion gebracht werden.
+    \item Microservices können in unterschiedlichen Technologien implementiert sein. Es gibt keine Einschränkung auf eine bestimmte Programmiersprache oder Plattform.
+    \item Microservices haben einen eigenen Datenhaushalt: eine eigene Datenbank - oder ein vollständig getrenntes Schema in einer gemeinsamen Datenbank.
+    \item Microservices können eigene Unterstützungsdienste mitbringen, beispielsweise eine Suchmaschine oder eine spezielle Datenbank. Natürlich gibt es eine gemeinsame Basis für alle Microservices - beispielsweise die Ausführung virtueller Maschinen.
+    \item Microservices sind eigenständige Prozesse - oder virtuelle Maschinen, um auch die Unterstützungsdienste mitzubringen.
+    \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise REST sein - oder Messaging-Lösungen.
+\end{itemize}
+
 %% PUSH-Architektur (Event Bus) / PULL-Architektur (Rest-Services)
+Im allgemeinen kann man sagen, dass Microservices, eigenständige Services sind, wie sie weiter oben und in Kapitel \secref{sec:dasProblem} beschrieben wurden.
+
+\section{Größe eines Microservice}
+\label{sec:größeMicroservice}
+"Der Name \frqq Microservices\flqq\ verrät schon, dass es um die Servicegröße geht - offensichtlich sollen die Services klein sein."\cite[S. 31]{EWolff2016:Microservices} Es gibt verschiedene Möglichkeiten die Größe von Programmen zu ermitteln. Eine Variante ist zum Beispiel das Zählen von  Lines of Code (LOC), jedoch hat diese Methode auch Nachteile. Denn die Anzahl der Codezeilen hängen stark von der verwendeten Programmiersprache ab. Einige Programmiersprachen benötigen mehr Zeilen Code, um eine bestimmte Tätigkeit abzubilden, als andere.
+\\
+Die Größe von Services sollte jedoch nicht von zentraler Bedeutung sein. Eine untere Grenze gibt es für Services nicht, solange ein Microservice ein selbständiger Prozess bleibt. "Wohl aber eine obere Grenze: Wenn der Microservice so groß ist, dass er von einem Team nicht mehr weiterentwickelt werden kann, ist sie zu groß. Ein Team sollte dabei eine Größe haben, wie sie für agile Prozesse besonders gut funktioniert. Das sind typischerweise drei bis neun Personen."\cite[S. 34]{EWolff2016:Microservices}
+\\
+Bei der Größe eines Services
+
+\section{Orchestration vs Choreographie}
+\label{sec:orchestrationvschoreographie}
+
+\section{PUSH- VS PULL-Architektur}
+\label{sec:PushPullArchitektur}
 
 % [Seite 66 EWolff2016] Technologische Wahlfreiheit
 \subsection{Herausforderung}
@@ -12,7 +50,3 @@ Wie in \cite[S. 25]{EWolff2016:Microservices} beschrieben, besteht ein wesentlic
 \label{sec:ContinuousDelivery}
 "Wer bisher nur Deployment-Monolithen betrieben hat, ist bei Microservices damit konfrontiert, dass es sehr viel mehr deploybare Artefakte gibt, weil jeder Microservice unabhängig in Produktion gebracht wird"\cite[S. 241]{EWolff2016:Microservices}
 "Unabhängiges Deployment ist ein zentrales Ziel von Microservices. Außerdem muss das Deployment automatisiert sein, weil ein manuelles Deployment oder auch nur manuelle Nacharbeitung aufgrund der großen Anzahl Microservices nicht umgesetzt werden können"\cite[S. 256]{EWolff2016:Microservices}
-
-\section{Orchestration vs Choreographie}
-\label{sec:orchestrationvschoreographie}
-
