@@ -25,6 +25,19 @@ Wie in \cite[S. 39 ff.]{EWolff2016:Microservices} beschrieben, stammt das Gesetz
 \end{center}
 "Conway möchte damit ausdrücken, dass die internen Kommunikationswege wichtig bei der Planung der Architektur ist. Jedes Team innerhalb einer Organisation trägt bei der Entwicklung der Architektur bei. Wird eine Schnittstelle zwischen zwei Teams benötigt, so müssen diese Teams auch kommunizieren können. Dabei müssen Kommunikationswege nicht immer offiziell sein. Oft gibt es informelle Kommunikationsstrukturen, die ebenfalls in diesem Kontext betrachtet werden können." \cite[vg. S. 39]{EWolff2016:Microservices}
 
+\subsection{Domain-Driven Design und Bounded Context}
+\label{sec:boundedContext}
+Arbeitet man mit Service-Orientierten Architekturen, versucht man Services, welche zu einem bestimmten Kontext gehören, möglichst nahe beieinander zu halten. Man spricht hierbei von \textit{Bounded Context}. "Bounded Context ist ein zentrales Muster in Domain-Driven Design.[..] DDD arbeitet mit großen Modellen, indem es diese in kleine verschiedene zusammengehörige Kontexte unterteilt und auf ihre Wechselwirkung unterteilt."\cite{mfowler:BoundedContext}
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/BoundedContext}\
+    \quelle\url{http://martinfowler.com/bliki/BoundedContext.html}
+    \caption[Bounded Context]{Bounded Context\\}
+    \label{fig:BoundedContext}  
+\end{figure}\noindent  
+In dieser Grafik wird noch einmal der Begriff Bounded Context genauer verdeutlicht. Es existieren zwei eigenständige Prozesse. Auf der linken Seite der Sales Kontext und auf der rechten Seite der Support Kontext. Jeder Kontext besitzt verschiedene Services, welche benötigt werden um den Prozess durchführen zu können. Lediglich zwischen den \textit{Customer} und \textit{Product} Services besteht eine Verbindung der beiden Prozesse.
+
 \section{Werkzeuge}
 \label{sec:werkzeuge}
 Anders als bei Monolithischen-Projekten, bestehen Service-Orientierte-Projekte aus vielen kleinen Services, die alle einzeln verwaltet werden müssen. Das sie laufen reicht nicht aus, sie müssen auch geupdated und gewartet werden.
