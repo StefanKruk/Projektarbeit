@@ -1,41 +1,57 @@
-\chapter{Microservices}
-\label{chap:Microservices}
+\chapter{\SOA\ (SOA)}
+\label{chap:soa}
+Der Begriff "'Service-orientierte Architektur (kurz SOA)"' ist nicht eindeutig definiert. Je nachdem welche Person in einem Unternehmen man fragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die Meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\cite[vgl. Seite 6]{100QA}
 
-\section{Überblick}
-\label{sec:überblickMicroservice}
-"Modularisierung ist nichts Neues. Schon lange werden große Systeme in kleine Module unterteilt, um Software einfacher zu erstellen, zu verstehen und weiterzuentwickeln. Das Neue: Microservices nutzen als Module einzelne Programme, die als eigene Prozesse laufen. Der Ansatz basiert auf der UNIX-Philosophie. Sie lässt sich auf drei Aspekte reduzieren:"\cite[S. 2]{EWolff2016:Microservices}
+Für einen Kaufmann ist SOA etwas anderes als für einen Analysten, damit SOA jedoch verstanden werden kann, werden zunächst einmal einige Definitionen nach \cite{100QA}\ genannt:
+\begin{enumerate}
+       \item \frqq To the chief information officer (CIO), SOA is a journey that
+       promises to reduce the lifetime cost of the application portfolio [...].\flqq \cite[vgl. Seite 6]{100QA}
+    
+       \item \frqq To the business executive, SOA is a set of services that can be exposed to their customers, partners, and other parts of the organization. Business capabilities, function, and business logic can be combined and recombined to serve the needs of the business now and tomorrow. Applications serve the business because they are composed
+       of services that can be quickly modified or redeployed in new
+       business contexts, allowing the business to quickly respond to changing
+       customer needs, business opportunities, and market conditions.\flqq \cite[vgl. Seite 6]{100QA}
+       
+       \item \frqq To the business analyst, SOA is a way of unlocking value, because business processes are no longer locked in application silos. Applications no longer operate as inhibitors to changing business needs.\flqq \cite[vgl. Seite 6]{100QA}
+       
+       \item \frqq To the chief architect or enterprise architect, SOA is a means to
+       create dynamic, highly configurable and collaborative applications
+       built for change. SOA reduces IT complexity and rigidity. SOA becomes the solution to stop the gradual entropy that makes applications
+       brittle and difficult to change. SOA reduces lead times and costs
+       because reduced complexity makes modifying and testing applications
+       easier when they are structured using services.\flqq \cite[vgl. Seite ]{100QA}
+\end{enumerate}
+Jeder der genannten Rollen hat eine eigene klare Definition von dem was Service-orientierte Architektur ist. Jeder der Definitionen ist jedoch nur ein Teil dessen für was SOA verwendet werden kann.
 
-\begin{itemize}
-    \item Ein Programm soll nur eine Aufgabe erledigen, und das soll es gut machen.
-    \item Programme sollen zusammenarbeiten können.
-    \item Nutze eine universelle Schnittstelle. In UNIX sind das Textströme.
-\end{itemize}
-Diese Art der Aufteilung wurde schon lange von großen Unternehmen wie Amazon oder Google genutzt und wurde zu nächst \SOA (SOA) genannt. Jedoch unterscheiden sich Microservices und SOA voneinander. Daher wird SOA im Nächsten Kapitel genauer erläutert und im Kapitel \ref{chap:ergebnisse} die Ergebnisse zusammen gefasst und beide Technologien mit einander verglichen.
-\\\\
-Der Begriff Microservices ist nicht eindeutig definiert. Als erste Näherung dienen, nach Eberhard Wolff \cite[S. 2]{EWolff2016:Microservices}, folgende Kriterien:
+\section{Grundlagen}
+\label{sec:Grundlagen}
+Bevor jedoch damit angefangen werden kann SOA in ein Unternehmen einzuführen, muss zunächst einmal geklärt werden, welches Ziel hinter \SOA en stehen. Zunächst einmal sei erwähnt, das SOA nicht das Ziel hat die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die Unternehmensweiten Geschäftsprozesse optimieren und eine Wertschöpfungskette erzeugen.
 
-\begin{itemize}
-    \item Microservices sind ein Modularisierungskonzept. Sie dienen dazu. ein großes Software-System aufzuteilen - und beeinflussen die Organisation und die Software-Entwicklungsprozesse.
-    \item Microservices können unabhängig von Änderungen an anderen Microservices in Produktion gebracht werden.
-    \item Microservices können in unterschiedlichen Technologien implementiert sein. Es gibt keine Einschränkung auf eine bestimmte Programmiersprache oder Plattform.
-    \item Microservices haben einen eigenen Datenhaushalt: eine eigene Datenbank - oder ein vollständig getrenntes Schema in einer gemeinsamen Datenbank.
-    \item Microservices können eigene Unterstützungsdienste mitbringen, beispielsweise eine Suchmaschine oder eine spezielle Datenbank. Natürlich gibt es eine gemeinsame Basis für alle Microservices - beispielsweise die Ausführung virtueller Maschinen.
-    \item Microservices sind eigenständige Prozesse - oder virtuelle Maschinen, um auch die Unterstützungsdienste mitzubringen.
-    \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise REST sein - oder Messaging-Lösungen.
-\end{itemize}
-Obwohl der Begriff nicht eindeutig definiert ist, liegt jedoch bei jedem Service-orientierten Systemen, ein Verteiltes System zu Grunde und auch die damit verbundenen Probleme und Herausforderungen.
+\subsection{Unternehmens Komponenten}
+\label{subsec:UnternehmensKomponenten}
+Dazu müssen zunächst einmal alle Komponenten eines Unternehmens identifiziert werden. Die nachstehende Abbildung (\ref{fig:UnternehmensKomponenten}) zeigt ein Beispiel dieser Identifizierung:
 
-\section{Gr"o\ss e von Microservices}
-\label{sec:groesseMicroservice}
-"Der Name \frqq Microservices\flqq\ verrät schon, dass es um die Servicegröße geht - offensichtlich sollen die Services klein sein."\cite[S. 31]{EWolff2016:Microservices} Es gibt verschiedene Möglichkeiten die Größe von Programmen zu ermitteln. Eine Variante ist zum Beispiel das Zählen von  Lines of Code (LOC), jedoch hat diese Methode auch Nachteile. Denn die Anzahl der Codezeilen hängen stark von der verwendeten Programmiersprache ab. Einige Programmiersprachen benötigen mehr Zeilen Code, um eine bestimmte Tätigkeit abzubilden, als andere.
-\\
-Die Größe von Services sollte jedoch nicht von zentraler Bedeutung sein, denn eine untere Grenze gibt es für Services nicht. "Wohl aber eine obere Grenze: Wenn der Microservice so groß ist, dass er von einem Team nicht mehr weiterentwickelt werden kann, ist sie zu groß. Ein Team sollte dabei eine Größe haben, wie sie für agile Prozesse besonders gut funktioniert. Das sind typischerweise drei bis neun Personen."\cite[S. 34]{EWolff2016:Microservices}
-\\
-Bei der Größe eines Services ist jedoch darauf zu achten, das ein Service nicht zu viele oder zu wenige Funktionen besitzt. Wie bereits beschrieben, sind Microservices modulare, lose gekoppelte Services. Wird ein Service zu klein angesetzt, können daraus Abhängigkeiten zu anderen Services entstehen und damit das gesetzt der losen Kopplung verletzten. Besitzt hingegen ein Service zu viele Funktionen, wird es meistens nicht mehr als Microservice angesehen, da es nicht eine, sondern mehrere Aufgaben übernimmt und diese wahrscheinlich nicht mehr gut erledigen kann.
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/UnternehmensKomponenten}\
+    \quelle\url{http://www.jot.fm/issues/issue_2008_05/column5/}
+    \caption[Unternehmens Komponenten]{Unternehmens Komponenten\\}
+    \label{fig:UnternehmensKomponenten}  
+\end{figure} 
+\newpage
+Aus diesen Komponenten müssen nun die Geschäftsprozesse identifiziert werden. Daraus ergeben sich anschließend die Komponenten, welche unter einander kommunizieren müssen. Die in der Abbildung Rot dargestellten Komponenten sind schließlich das Resultat aus der Analyse.
 
-\section{Orchestration vs Choreographie}
-\label{sec:orchestrationvschoreographie}
-Möchte man ein Microservice System aufbauen, stellt sich immer wieder die Frage, wie einzelne Services Strukturiert werden und wie diese unter einander kommunizieren sollen. Ein bestimmter Vorgang startet in der Regel bei einem Service. Nun muss man entscheiden ob weitere Services hinzugezogen, beziehungsweise informiert werden müssen. Je nach Anwendungsfall muss man sich zwischen Service Orchestration und Choreographie entscheiden. Dabei ist es fast unmöglich ein ganzes Microservice-System aus nur einem der beiden Varianten zu bauen.
+\subsection{Wertschöpfungskette}
+\label{subsec:Wertschoepfungskette}
+\frqq Die Wertschöpfungskette stellt die zusammenhängenden Unternehmensaktivitäten des betrieblichen Gütererstellungsprozesses grafisch dar.\flqq \cite{gabler}
+
+SOA soll dabei helfen die Wertschöpfungskette sowohl darzustellen, als auch sie zu verwalten und damit zu optimieren. In Abbildung \ref{fig:UnternehmensKomponenten} sind die zentralen Komponente eines Geschäftsprozesses rot markiert. Mit Hilfe von SOA werden aus diesen Komponenten eine Wertschöpfungskette gebildet.
+
+\section{Architektur}
+\label{sec:SoaArchitektur}
+Aus der oben dargestellten Auflistung können verschiedene Definitionen für Service-orientierte Architekturen entnommen werden. Die Architektur kommt der 3. Definition schon ziemlich nahe. Genauso wie Microservices sind auch die Services innerhalb einer Service-orientierten Architektur eigenständig und sollen nur eine Aufgabe erledigen. Anders als bei einem Microservice-System jedoch, bei dem die einzelnen Services untereinander kommunizieren dürfen, ist in einem SOA-System die Kommunikation zwischen einzelnen Services untersagt.
+
+Die Abbildung der Geschäftsprozesse erfolgt in einem sogenannten Enterprise-Service-Bus (Kurz ESB), welcher die einzelnen Services Orchestriert (siehe Abbildung \ref{fig:ServiceOrchestration}).
 
 \subsection{Orchestration}
 \label{subsec:orchestration}
@@ -54,11 +70,11 @@ Wie die Abbildung zeigt besteht \textbf{\underline{keine}} Verbindung zwischen:
     \item A \& C
     \item B \& C
 \end{itemize}
-Nur der "`Composite Service"' nutzt die anderen Microservice um den Geschäftsprozess abzubilden. Diese Art der Kommunikation nennt man Orchestration und wird im Kapitel \secref{chap:soa} noch einmal behandelt.
+Nur der "`Composite Service"' nutzt die anderen Services, um den Geschäftsprozess abzubilden. Diese Art der Kommunikation nennt man Orchestration.
 
 \subsection{Choreographie}
 \label{subsec:choreographie}
-Anders als bei der Orchestration können Microservices bei der Choreographie beliebig untereinander kommunizieren. Das ist vor allem dann Sinnvoll, wenn verschiedene Microservice andere Microservice über Änderungen oder andere Aktionen informieren müssen.
+Anders als bei der Orchestration können Services bei der Choreographie beliebig untereinander kommunizieren. Das ist vor allem dann Sinnvoll, wenn verschiedene Service andere Service über Änderungen oder andere Aktionen informieren müssen.
 
 \begin{figure}[htb]
     \centering 
@@ -67,30 +83,31 @@ Anders als bei der Orchestration können Microservices bei der Choreographie bel
     \label{fig:ServiceOrchestration}  
 \end{figure}
 
-% [Seite 66 EWolff2016] Technologische Wahlfreiheit
-\subsection{Herausforderung}
-\label{sec:Herausforderung}
-Wie bereits in \secref{sec:überblickMicroservice} erwähnt, liegt ein Verteiltes System zu Grunde und damit auch die Grundlegenden Probleme der Kommunikation (siehe \cite[S. 25]{EWolff2016:Microservices}).
-Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle anderen Microservices nicht mehr funktionieren. Um das zu verhindern muss klar definiert werden, was Microservices in dieser Situation tun sollen. Zusätzlich muss, sofern Datenbank Operationen eine wichtige Rolle Spielen, das Problem der einheitlichen Transaktion gelöst werden. Wenn zum Beispiel eine Operation Daten über verschiedene Microservices in Datenbanken schreibt, muss bei nicht Erreichbarkeit oder Fehlers eines Microservices eine einheitlicher Rollback durchgeführt werden, um keine inkonsistente Dateien im System zu haben.
-Eine weitere Herausforderung besteht in dem Grundkonzept von Microservices. Da nicht definiert ist, welche Programmiersprache für Microservices verwendet wird, kann ein Service zum Beispiel in Java, ein anderes in Scala ode Python geschrieben werden. Es muss daher dafür gesorgt werden, dass die einzelnen Services untereinander interoperabel sind. Um das zu gewährleisten, müssen die Schnittstellen möglichst einheitlich und auf dem gleichen Protokoll aufbauend programmiert werden. Hier bieten REST-Schnittstellen eine gute Lösung. Diese können auf dem HTTP-Protokoll aufgebaut werden. Zusätzlich bietet das HTTP-Protokoll die Möglichkeit, ein einheitliches Medium, wie zum Beispiel XML oder JSON, als Informationsträger zu nutzen. Dabei kann theoretisch jeder Microservice mit jedem anderen Microservice kommunizieren, sofern die Schnittstellen einheitlich definiert sind.
+Wie bereits oben erwähnt ist der Enterprise Service Bus die zentrale Einheit bei der Service-orientierten Architektur (SOA) über die alle Kommunikation läuft und welcher die Geschäftsprozesse abbildet. Daher ist eine Choreographie unter den Services in diesem Architekturmodell nicht möglich.
 
-\section{PUSH- VS PULL-Architektur}
-\label{sec:PushPullArchitektur}
-Grundlegend können Microservices mit Hilfe zwei verschiedener Kommunikations-Architekturen kommunizieren, PUSH- und PULL-Architektur. Dabei ist jedoch nicht ausgeschlossen, dass sobald eine Architektur gewählt worden ist, die andere nicht mehr genutzt werden kann. Genauso wie bei der Entscheidung über die Kommunikationsstruktur (siehe \secref{subsec:orchestration}), kann es von Vorteil sein, beide Architekturen zu nutzen.
-\\\\
-\textbf{PULL-Architektur}\\
-Eine PULL-Architektur basiert auf einen einfachen Request-Replay-Schema. Dementsprechend ist das Web PULL-basiert.
-Der Browser macht eine Anfrage an einen Server, dieser wiederum verarbeitet die Anfrage und liefert eine Antwort (Replay) zurück. Dies hat den Vorteil, das nicht lange auf eine Antwort gewartet werden muss und die teilhabenden Kommunikationspartner gegenseitig kennen, jedoch bringt es auch den Nachteil, dass dadurch weitgehend eine synchrone Kommunikation stattfindet und eine Antwort häufig nicht gleichzeitig an mehrere Empfänger senden kann.
-\\\\
-\textbf{PUSH-Architektur}\\
-Eine PUSH-Architektur wird eingesetzt, wenn man verschiedene Kommunikationspartner über bestimmte Ereignisse informieren möchte. Hier stehen meist nicht die Kommunikationspartner, sondern die Informationen im Vordergrund. Dafür wird meistens ein eigenständiger Service (Broadcaster) eingesetzt, der die Verteilung dieser Informationen übernimmt. Dabei kann ein Service als Informationsprovider dienen, zum Beispiel ein Nachrichten-Feed (Von einer Nachrichtenseite). Alle anderen Services abonnieren den Broadcaster und erhalten dadurch alle Nachrichten, die der Informationsprovider sendet.
-Es gibt jedoch auch den Fall, dass die Kommunikation sternförmig um den Broadcaster angeordnet sind. Dadurch ist jeder Service der diesen abonniert, sowohl Provider, als auch Consumer.
-Anders als bei PULL-basierten Systemen kann hier nicht unbedingt sichergestellt werden, dass alle Nachrichten von allen Konsumern gleichzeitig gelesen und ggf. verarbeitet werden. Jedoch können so Informationen innerhalb eines Microservice-Systems relativ zuverlässig verteilt werden.
-Der Vortiel von PUSH-Architekturen ist, dass eine asynchrone Informationsverbreitung aufgebaut werden kann. Zudem können Serviceausfälle, solange es nicht der Boradcaster oder wichtige Microservices sind, überbrückt werden, indem der Broadcaster die Nachrichten für eine bestimmte Zeit vorhält und so der Microservice, welcher nicht erreichbar war, die Nachrichten trotzdem noch erhält.
-\\\\
-Oft ist es nicht notwendig eine Antwort zu erhalten. Zum Beispiel muss eine Registrierung in unserem fiktiven Unternehmen, der \gmbh\ möglich sein. Dabei sendet der Microservice der für die Registrierung zuständig ist eine einfache Event-Nachricht, wie Benutzer XY hat sich Registriert. Im Hintergrund kann dann zum Beispiel ein anderer Microservice diese Nachricht erhalten und zusätzliche Aktionen durchführen, wie erstellen des Warenkorbs.
+\section{Enterprise Service Bus - ESB}
+\label{sec:esb}
+Der \textit{Enterprise Service Bus} ist die zentrale Einheit in einem SOA-System. Am einfachsten lässt sich das an einem Beispiel erklären.
+\\
+Man Stelle sich eine Banking-Anwendung vor, an der man sich anmeldet. Es werden daraufhin folgende Informationen angezeigt:
 
-\section{Continuous-Delivery}
-\label{sec:ContinuousDelivery}
-"Wer bisher nur Deployment-Monolithen betrieben hat, ist bei Microservices damit konfrontiert, dass es sehr viel mehr deploybare Artefakte gibt, weil jeder Microservice unabhängig in Produktion gebracht wird"\cite[S. 241]{EWolff2016:Microservices}
-"Unabhängiges Deployment ist ein zentrales Ziel von Microservices. Außerdem muss das Deployment automatisiert sein, weil ein manuelles Deployment oder auch nur manuelle Nacharbeitung aufgrund der großen Anzahl Microservices nicht umgesetzt werden können"\cite[S. 256]{EWolff2016:Microservices}
+\begin{enumerate}
+    \item Name
+    \item Kontostand
+    \item EC- und Kreditkarten
+    \item Liste der Aktienfonds
+\end{enumerate}
+
+Jede Information stammt aus einem anderen Teil des Systems und werden von verschiedenen Anwendungen über Schnittstellen bereitgestellt. Die Schnittstellen können sich dabei von Anwendung zu Anwendung unterscheiden. So kann zum Beispiel eine Anwendung die Informationen über HTTP bereitstellen, während eine andere sie über SOAP bereitstellt. So können die Informationen zum Beispiel aus einem CRM-System (Kundenbeziehungsmanagement-System) stammen oder durch PHP oder Ruby erzeugt werden.
+
+Anders als man jedoch vermuten würde, lässt man die Oberfläche, bzw. das System, nicht direkt mit den einzelnen Komponenten reden. Die gesamte Kommunikation läuft dabei über den \textit{Enterprise Service Bus} ab. Nachstehende Abbildung soll dies genauer erläutern:
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/esb-ok}\
+    \caption[ESB]{Enterprise Service Bus}
+    \quelle\url{https://zato.io/docs/intro/esb-soa-de.html}
+    \label{fig:esb}  
+\end{figure}
+\newpage
+Benötigt eine Anwendung (in der Abbildung App genannt) Informationen, konsultiert diese zunächst den ESB. Der ESB kennt die anderen Anwendungen und stellt daraufhin die angeforderten Informationen bereit.

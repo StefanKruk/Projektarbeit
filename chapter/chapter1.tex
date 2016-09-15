@@ -5,9 +5,11 @@
 \label{sec:motivation}
 Das Internet entwickelt sich rasend schnell und damit auch Online Unternehmen, welche dieses Medium nutzten. Dadurch entsteht ein enormer Wettbewerbsdruck unter den Unternehmen, denn Nutzer können sich innerhalb kürzester Zeit entscheiden ein Produkt zu nutzen oder nicht. Um den Anforderungen gerecht zu werden und eine möglichst große Preisspanne zu haben, nutzen Unternehmen zunehmend sogenannte Cloud-Angebote, bei dem der Kunde monatlich einen Betrag für die Nutzung des Dienstes zahlt. Hat ein Unternehmen eine zulange Time-to-Market (TTM) Zeit, können sich Nutzer schnell für andere, modernere Dienste entscheiden. 
 
-"Die Zeitspanne des Time-to-Market kann ein sehr bedeutsamer Faktor für den Erfolg des Unternehmens darstellen und ist daher nicht zu vernachlässigen. Kurze Entwicklungszeiträume bei der Time-to-Market garantieren dem Unternehmen nämlich einen Vorteil gegenüber der Konkurrenz. Hier geht es darum, dem Kunden so schnell wie möglich ein neues und innovatives Produkt anbieten zu können.
-
-Um den Erfolg durch eine kurze Time-to-Market zu unterstützen und zu fördern, investieren Unternehmen in ihre Entwicklungsabteilungen. Diese können sich so nur auf ihre jeweiligen Bereiche konzentrieren. Durch eine leistungsfähige Entwicklungsabteilung kann so, in Kombination mit einem gut organisierten Projektplan und eindeutigen Zuständigkeiten, die Zeitspanne Time-to-Market so klein wie möglich gehalten werden. Gerade in Branchen, in denen Innovation eine übergeordnete Rolle spielt und der Produkt-Lebens-Zyklus generell eher kurz ausfällt, spielt eine kurze Time-to-Market eine außerordentlich wichtige Rolle." \cite{ttm}
+\begin{quotation}
+\frqq Die Zeitspanne des Time-to-Market kann ein sehr bedeutsamer Faktor für den Erfolg des Unternehmens darstellen und ist daher nicht zu vernachlässigen. Kurze Entwicklungszeiträume bei der Time-to-Market garantieren dem Unternehmen nämlich einen Vorteil gegenüber der Konkurrenz. Hier geht es darum, dem Kunden so schnell wie möglich ein neues und innovatives Produkt anbieten zu können.
+    
+Um den Erfolg durch eine kurze Time-to-Market zu unterstützen und zu fördern, investieren Unternehmen in ihre Entwicklungsabteilungen. Diese können sich so nur auf ihre jeweiligen Bereiche konzentrieren. Durch eine leistungsfähige Entwicklungsabteilung kann so, in Kombination mit einem gut organisierten Projektplan und eindeutigen Zuständigkeiten, die Zeitspanne Time-to-Market so klein wie möglich gehalten werden. Gerade in Branchen, in denen Innovation eine übergeordnete Rolle spielt und der Produkt-Lebens-Zyklus generell eher kurz ausfällt, spielt eine kurze Time-to-Market eine außerordentlich wichtige Rolle.\flqq \cite{ttm}
+\end{quotation}
 
 Zusätzlich entstehen Kosten für die Planung und Entwicklung des Produktes. Bis zur Veröffentlichung des Produktes hat das Unternehmen Geld und Zeit investiert. Je länger die Zeitspanne des TTM ist, umso erfolgreicher muss das Produkt sein, bzw. der Preis groß genug sein, damit möglichst zeitnah der Break-even-Point, also die Schwelle, ab der die Produktionskosten wieder eingenommen worden sind und ein Gewinn entsteht, erreicht wird.
 
@@ -16,8 +18,11 @@ Große Unternehmen haben dieses Problem schon früh erkannt und haben sich von M
 \section{Ausgangssituation}
 \label{sec:ausgangssituation}
 \textbf{Bei der Ausgangssituation gehen wir von einem fiktiven Szenario aus, welche ich an das aus \cite[S. 15]{EWolff2016:Microservices} anlehne und im wesentlichen übernehme.}
-\\\\ 
-"Die neugegründete \textit{\gmbh} möchte einen E-Commerce-Shop, als Hauptgeschäft betreiben. Es ist eine Web-Anwendung, die sehr viele unterschiedliche Funktionalitäten anbietet. Unter anderem zählen dazu die Benutzerregistrierung und - verwaltung, sowie die Produktsuche, Überblick über die Bestellungen und der Bestellprozess."\ (vgl. \cite[S. 15]{EWolff2016:Microservices})
+
+\begin{quotation}
+    \frqq Die neugegründete \textit{\gmbh} möchte einen E-Commerce-Shop, als Hauptgeschäft betreiben. Es ist eine Web-Anwendung, die sehr viele unterschiedliche Funktionalitäten anbietet. Unter anderem zählen dazu die Benutzerregistrierung und - verwaltung, sowie die Produktsuche, Überblick über die Bestellungen und der Bestellprozess.\flqq\ (vgl. \cite[S. 15]{EWolff2016:Microservices})
+\end{quotation}
+
 Das Unternehmen ist, auch wenn es ein reines IT-Unternehmen ist, Gewinn orientiert. \ref{fig:integrations-pyramide} zeigt den internen Aufbau eines typischen Unternehmens.
 
 Die Geschäftsführung der GmbH hat bereits als Software-Entwickler in anderen Unternehmen Erfahrung mit dem Umgang und den Aufbau von E-Commerce-Shops gesammelt. Zu den Erfahrungen zählen unter anderem das programmieren, testen, deployen und weiterentwickeln der Anwendung. Während dieser Prozesse sind die Programmierer zur Erkenntnis gelangt, das bei steigender Größe der Anwendung, die Aufwände für Wartung und Weiterentwicklung stark ansteigen. Dies war auch der Grund warum das Unternehmen irgendwann Insolvenz anmelden musste. Die Kosten für Wartung und einer zeitnahen Reaktion auf die Veränderungen der Nutzerbedürfnisse konnten nicht mehr getragen werden und Anbieter wie Amazon, welche deutlich schneller, als die \gmbh ,  auf diese reagieren konnten, habe sie schließlich vom Markt gedrängt.
@@ -28,6 +33,6 @@ Aus diesem Grund möchte die Geschäftsführung der neugegründeten \gmbh\ eine 
 \label{sec:vorgehen}
 Zunächst werden die Probleme bei der Verwendung von Monolithischen Architekturmodellen, unter dem Aspekt der Softwareentwicklung und Wartung analysiert. Darauf aufbauend soll die Grundlegende Problematik herausgearbeitet werden. Anschließend werden die Grundlagen zur Verwendung von Service orientierten Architekturen und deren Vorteile, aufbauend auf die zuvor erläuterte Problematik, erklärt. In den Grundlagen werden außerdem Werkzeuge erklärt, mit deren Hilfe solche Architekturen realisiert werden können und die Wartung vereinfachen.
 \\
-Darauf folgend wird das Architekturmodell "Microservice" unter der Verwendung von den erläuterten Werkzeugen erklärt und der Begriff Continuous Delivery eingeführt. Anschließend wird, unter Verwendung des angeeigneten Wissens aus dem Kapitel "Microservice", auf das Architekturmodell "Service-orientierte Architektur (SOA)" eingegangen.
+Darauf folgend wird das Architekturmodell "'Microservice"' unter der Verwendung von den erläuterten Werkzeugen erklärt und der Begriff Continuous Delivery eingeführt. Anschließend wird, unter Verwendung des angeeigneten Wissens aus dem Kapitel "'Microservice"', auf das Architekturmodell "'Service-orientierte Architektur (SOA)"' eingegangen.
 \\
 Abschließend werden die gewonnen Kenntnisse zusammengetragen und Ausgewertet. Dabei sollen beide Architekturmodelle verglichen und bewertet werden. Zuletzt wird das Thema noch einmal zusammengefasst und ein Ausblick auf kommende Projekte bzw. die Bachelorarbeit gegeben.
