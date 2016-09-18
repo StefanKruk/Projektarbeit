@@ -1,25 +1,18 @@
 % Das gesetzt von Conway [Seite 39 EWolff2016:Microservices]
-\chapter[Allgemeine Grundlagen]{Allgemeine Grundlagen zur Verwendung von Service-orientierten Systemen}
+\chapter[Grundlagen]{Allgemeine Grundlagen zur Verwendung von Service-orientierten Systemen}
 \label{chap:grundlagen}
-Software zu entwickeln ist nicht immer einfach. Umso größer diese ist, umso mehr Probleme können auftreten. Es bedarf einer genauen Planung und Verständnis von Infrastruktur um eine Software mit allen Anforderungen zufriedenstellend zu implementieren. 
+Software zu entwickeln ist nicht immer einfach. Umso größer diese ist, umso mehr Probleme können auftreten. Es bedarf einer genauen Planung und Verständnis von Infrastruktur um eine Software mit allen Anforderungen, zufriedenstellend zu implementieren. 
 
 Vor allem wenn es um die Weiterentwicklung und Wartung von Software geht, können große Probleme auftreten. Wurde die Architektur nicht gut gewählt oder schlecht umgesetzt, kann es das weitere Vorgehen stark beeinträchtigen, bis hin zum unmöglich machen. Es wurden daher Software-Architekturen entwickelt, welche flexibel und einfacher zu ändern sind. Außerdem kann in diesen Architekturen neue Funktionen deutlich schneller hinzugefügt werden.
 
-\section{Architektur}
+\section{Die Service-orientierte Architektur}
 \label{sec:architektur}
-Microservice-Architekturen und \SOA (SOA) Architekturen können, wenn sie richtig angewendet werden, sehr flexibel und schnell änderbar sein. Beide Architekturen zielen, wie der Name schon sagt, auf eigenständige Services ab, welche durch verschiedene Kommunikationskanäle miteinander kommunizieren und dadurch die gewünschten Geschäftsprozesse abbilden. 
+Service-orientierte Architekturen können, wenn sie richtig angewendet werden, sehr flexibel und schnell änderbar sein. Diese Architekturen zielen, wie der Name schon sagt, auf eigenständige Dienste ab, welche durch verschiedene Kommunikationskanäle miteinander kommunizieren können und dadurch die gewünschten Geschäftsprozesse abbilden. 
 \begin{quotation}
     \frqq Ein Programm soll nur eine Aufgabe erledigen, und das soll es gut machen\flqq \cite[S. 2]{EWolff2015:ContinuouosDelivery}
 \end{quotation}
 Anstatt eine einzige große Anwendung ein zu setzten, setzt man auf viele kleine, verteile, autarke Anwendungen, welche jeweils Schnittstellen nach außen hin anbieten damit der Service genutzt werden kann. Diese Schnittstellen können unter anderem durch REST-HTTP angeboten werden.
-Durch die verteilten Anwendungen funktioniert das System auch dann noch, wenn einzelne Services nicht verfügbar sind, jedoch bringt es ebenfalls die typischen Probleme von Verteilten Anwendungen mit sich, welche in \secref{chap:fallstudie} noch genauer erläutert werden.
-\\\\
-\textbf{Services kann man in drei Kategorien einteilen:}
-\begin{description}
-    \item[Producer] Ein Service der etwas Produziert oder auf eine Anfrage reagiert. Das reicht von Daten aus einer Datenbank extrahieren bis hin zu komplexen Berechnungen.
-    \item[Consumer] Ein Service oder eine Anwendung, welche einen oder mehrere Produzierende Services verwendet und entweder weiterverarbeitet oder ausgibt. Im Falle der Weiterverarbeitung ist ein Consumer ebenfalls ein Producer sein.
-    \item[Self-Contained System (SCS)] "\frqq Microservice mit UI\flqq\ oder \frqq Self-Contained System\flqq\ wie es Stefan Tilkov nennt, sind in sich abgeschlossene Systeme. [..] Sie enthalten eine UI und sollten möglichst nicht mit anderen SCS kommunizieren." \cite[vgl S. 55]{EWolff2016:Microservices}. SCS sind jedoch nur im Microservice und nicht im SOA Umfeld zu finden. Warum wird in \secref{chap:fallstudie} weiter erläutert.
-\end{description}
+Durch die verteilten Anwendungen funktioniert das System auch dann noch, wenn einzelne Dienste nicht verfügbar sind, jedoch bringt es ebenfalls die typischen Probleme von Verteilten Anwendungen mit sich, welche in \secref{chap:fallstudie} noch genauer erläutert werden.
 
 \subsection{Das Gesetzt von Conway}
 \label{subsec:conway}

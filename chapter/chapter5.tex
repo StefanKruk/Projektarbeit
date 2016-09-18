@@ -27,6 +27,13 @@ Der Begriff Microservices ist nicht eindeutig definiert. Als erste Näherung die
     \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise REST sein - oder Messaging-Lösungen.
 \end{itemize}
 Obwohl der Begriff nicht eindeutig definiert ist, liegt jedoch bei jedem Service-orientierten Systemen, ein Verteiltes System zu Grunde und auch die damit verbundenen Probleme und Herausforderungen.
+\\\\
+\textbf{Grundsätzlich kann man Microservices in drei Kategorien einteilen:}
+\begin{description}
+    \item[Producer] Ein Service der etwas Produziert oder auf eine Anfrage reagiert. Das reicht von Daten aus einer Datenbank extrahieren bis hin zu komplexen Berechnungen.
+    \item[Consumer] Ein Service oder eine Anwendung, welche einen oder mehrere Produzierende Services verwendet und entweder weiterverarbeitet oder ausgibt. Im Falle der Weiterverarbeitung ist ein Consumer ebenfalls ein Producer sein.
+    \item[Self-Contained System (SCS)] "\frqq Microservice mit UI\flqq\ oder \frqq Self-Contained System\flqq\ wie es Stefan Tilkov nennt, sind in sich abgeschlossene Systeme. [..] Sie enthalten eine UI und sollten möglichst nicht mit anderen SCS kommunizieren." \cite[vgl S. 55]{EWolff2016:Microservices}. SCS sind jedoch nur im Microservice und nicht im SOA Umfeld zu finden. Warum wird in \secref{chap:fallstudie} weiter erläutert.
+\end{description}
 
 % Eigene Datenbanken
 
