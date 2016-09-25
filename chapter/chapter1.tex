@@ -3,17 +3,17 @@
 
 \section{Motivation}
 \label{sec:motivation}
-Das Internet entwickelt sich rasend schnell und damit auch Online Unternehmen, welche dieses Medium nutzten. Dadurch entsteht ein enormer Wettbewerbsdruck unter den Unternehmen, denn Nutzer können sich innerhalb kürzester Zeit entscheiden ein Produkt zu nutzen oder nicht. Um den Anforderungen gerecht zu werden und eine möglichst große Preisspanne zu haben, nutzen Unternehmen zunehmend sogenannte Cloud-Angebote, bei dem der Kunde monatlich einen Betrag für die Nutzung des Dienstes zahlt. Hat ein Unternehmen eine zulange Time-to-Market (TTM) Zeit, können sich Nutzer schnell für andere, modernere Dienste entscheiden. 
+Die Anforderungen an Software werden zunehmend komplexer. Sie muss nicht nur funktionieren, sondern auch ggf. in kürzester Zeit erweitert oder geändert werden. Diese Anforderungen stellen besondere Herausforderungen dar. Je größer Software wird, desto schwieriger ist sie zu warten und zu pflegen. 
 
 \begin{quotation}
-\frqq Die Zeitspanne des Time-to-Market kann ein sehr bedeutsamer Faktor für den Erfolg des Unternehmens darstellen und ist daher nicht zu vernachlässigen. Kurze Entwicklungszeiträume bei der Time-to-Market garantieren dem Unternehmen nämlich einen Vorteil gegenüber der Konkurrenz. Hier geht es darum, dem Kunden so schnell wie möglich ein neues und innovatives Produkt anbieten zu können.
+\frqq Die Zeitspanne des Time-to-Market kann [dabei] ein sehr bedeutsamer Faktor für den Erfolg des Unternehmens darstellen und ist daher nicht zu vernachlässigen. Kurze Entwicklungszeiträume bei der Time-to-Market garantieren dem Unternehmen nämlich einen Vorteil gegenüber der Konkurrenz. Hier geht es darum, dem Kunden so schnell wie möglich ein neues und innovatives Produkt anbieten zu können.
     
 Um den Erfolg durch eine kurze Time-to-Market zu unterstützen und zu fördern, investieren Unternehmen in ihre Entwicklungsabteilungen. Diese können sich so nur auf ihre jeweiligen Bereiche konzentrieren. Durch eine leistungsfähige Entwicklungsabteilung kann so, in Kombination mit einem gut organisierten Projektplan und eindeutigen Zuständigkeiten, die Zeitspanne Time-to-Market so klein wie möglich gehalten werden. Gerade in Branchen, in denen Innovation eine übergeordnete Rolle spielt und der Produkt-Lebens-Zyklus generell eher kurz ausfällt, spielt eine kurze Time-to-Market eine außerordentlich wichtige Rolle.\flqq \cite{ttm}
 \end{quotation}
 
 Zusätzlich entstehen Kosten für die Planung und Entwicklung des Produktes. Bis zur Veröffentlichung des Produktes hat das Unternehmen Geld und Zeit investiert. Je länger die Zeitspanne des TTM ist, umso erfolgreicher muss das Produkt sein, bzw. der Preis groß genug sein, damit möglichst zeitnah der Break-even-Point, also die Schwelle, ab der die Produktionskosten wieder eingenommen worden sind und ein Gewinn entsteht, erreicht wird.
 
-Große Unternehmen haben dieses Problem schon früh erkannt und haben sich von Monolithischen Applikationen, bei der alle Funktionen in einer großen Applikation stecken, zu dynamischeren Architekturen weiterentwickelt. Diese Unternehmen haben angefangen Funktionen in einzelne Services zu packen und diese über Schnittstellen, wie zum Beispiel REST, anzubieten.
+Zudem gibt es in einem Unternehmen nicht nur ein Software Produkt, sondern eine viel Zahl verschiedener Produkte für unterschiedliche Anwendungsfälle. Dabei kann es passieren, dass einige Anwendungen gleiche Funktionalitäten beinhalten. Muss solch eine Funktionalität geändert werden, müssen dafür alle Anwendungen, welche diese Funktionen bereitstellen, geändert werden. Einfacher ist es daher, nur eine Anwendung zu haben, welches diese Funktionalität anbietet. Dadurch bedarf es nicht mehr die Anpassung von vielen Anwendungen, sondern nur noch von dieser einen.
 
 \section{Ausgangssituation}
 \label{sec:ausgangssituation}
