@@ -4,8 +4,8 @@ Nachdem erläutert wurde, was unter \textbf{Microservice} und \textbf{Service-or
 \\\\
 Bevor die Architekturmodelle mit einander verglichen werden können, muss erwähnt werden das ein direkter Vergleich zwischen Funktionen und den Vor- und Nachteilen der jeweiligen Modelle nicht möglich ist. Außerdem ist weder der Begriff Microservice noch Service-orientierte Architektur eindeutig definiert. Literaturen wie \cite{100QA}\ und \cite{EWolff2016:Microservices}\ bieten einen guten Ansatz, um diese beiden Begriffe grob einzuordnen.
 
-\subsection{Grundlagen}
-\label{subsec:FazitGrundlagen}
+\section{Grundlagen}
+\label{sec:FazitGrundlagen}
 Der Grundgedanke beider Architekturen ist sehr unterschiedlich. Zwar stammen beide Modellarten aus dem Bereich der "`Service orientierten Architekturen"' und auch \textit{SOA} ist eine Abkürzung dieses Begriffes, jedoch verfolgen beide Modelle verschiedene Ansätze.  
 \\\\
 SOA hat seine Grundlagen nicht in der IT, sondern in Geschäftswelt. Dies wird dadurch bestätigt, das die Zielgruppe der Befragten in Kapitel \ref{chap:soa}\ \nameref{chap:soa}\ aus dem Kaufmännischen und analytischen Bereich stammen. So wird zum Beispiel der \flqq business executive\frqq\ und der \flqq business analyst\frqq\ gefragt, wie SOA zu verstehen ist.
@@ -16,8 +16,8 @@ Während bei SOA das Geschäft und die Geschäftsprozesse im Vordergrund steht, 
 \\\\
 Grundsätzlich wurden schon viel früher Architektur-Modelle entwickelt, um die in den jeweiligen Kapiteln \ref{chap:soa} \nameref{chap:soa} und \ref{chap:Microservices} \nameref{chap:Microservices} genannten Probleme und Anforderungen umzusetzen. Ein Begriff für diese Modelle existierte jedoch noch nicht. Die jeweiligen Begriffe wurden erst später verwendet, um die jeweiligen Modelle spezifizieren und erklären zu können.
 
-\subsection{Architektur}
-\label{subsec:FazitArchitektur}
+\section{Architektur}
+\label{sec:FazitArchitektur}
 Ein großer Unterschied der beiden Modelle liegt in der Architektur. Da beide Modelle aus dem Gebiet der verteilten Anwendungen stammen, spielt die Kommunikation hinsichtlich der Architektur eine wichtige Rolle. Die Kommunikation der beiden Modelle soll daher zu einem späteren Zeitpunkt im Kapitel \ref{subsec:FazitKommunikation} \nameref{subsec:FazitKommunikation} verglichen werden und wird in diesem Kapitel außer acht gelassen.
 \\\\
 Wie bereits erwähnt liegen beide Modelle der Architektur der verteilten Anwendungen zur Grunde, jedoch unterscheiden sie sich hinsichtlich der Strukturierung. Grundsätzlich benutzen beide Modelle eigenständige Dienste, welche sich jedoch hinsichtlich ihrer Größe unterscheiden. Dies kommt dadurch zur Stande, dass beide Modelle einen unterschiedlichen Ansatz besitzen.
@@ -26,19 +26,19 @@ Wie bereits weiter oben erläutert, wird mit SOA versucht verschiedene Geschäft
 \\\\
 Das Microservice-Modell arbeitet zwar auch mit Diensten, jedoch sind diese meist nicht so groß wie im SOA-Modell. Während bei dem SOA-Modell auch ganze Anwendungen, wie ERP-Systeme als Services verwendet werden, wird mit dem Microservice-Modelle versucht eine ganze Anwendung in eigenständige  Dienste aufzuteilen. Dabei soll ein Dienst nur eine Aufgabe erledigen, diese aber jedoch besonders gut. Zudem gibt es in der Regel keine zentrale Anwendung, welche als Schnittstelle zwischen Datenbanken und Frontend dient.
 
-\subsection{Kommunikation}
-\label{subsec:FazitKommunikation}
+\section{Kommunikation}
+\label{sec:FazitKommunikation}
 Nachdem die Architektur Unterschiede erläutert wurden, werden nun die Unterschiede in der Kommunikation erläutert. Grundsätzlich liegt jedoch bei beiden Architektur-Modellen, wie auch schon in \ref{subsec:FazitArchitektur} \nameref{subsec:FazitArchitektur} erwähnt, das Modell der verteilten Anwendungen zur Grunde und auch die damit verbundenen Probleme.
 \\\\
-Die Modelle unterschieden sich jedoch hinsichtlich der Anordnung von Diensten und damit der Kommunikationsfluss innerhalb der Modelle. Grundsätzlich kann man zwischen zwei Kommunikationsflüssen unterscheiden:
+Die Modelle unterscheiden sich jedoch hinsichtlich der Anordnung von Diensten und damit der Kommunikationsfluss innerhalb der Modelle. Grundsätzlich kann man zwischen zwei Kommunikationsflüssen unterscheiden:
 \begin{enumerate}
     \item \nameref{subsec:orchestration}
     \item \nameref{subsec:choreographie}
 \end{enumerate}
 Nicht beide Kommunikationsflüsse sind in beiden Service-orientierten Architekturen möglich. In SOA ist der ESB die zentrale Einheit über welches die gesamte Kommunikation läuft. Dadurch ist nur eine Orchestration der Dienste möglich und die direkte Kommunikation  zwischen den Diensten ist nicht möglich. Bei Microservices hingegen können beide Kommunikationsflüsse realisiert werden, wodurch die Kommunikation viel dynamischer gestaltet werden kann, da jeder Dienst mit jedem anderen Dienst kommunizieren kann. Oftmals sprechen Frontend Anwendungen wie Websiten direkt mit mehreren Services um bestimmte Informationen zu erhalten.
 
-\subsection{Beteiligte Personen}
-\label{subsec:FazitBeteiligtePersonen}
+\section{Beteiligte Personen}
+\label{sec:FazitBeteiligtePersonen}
 Neben den Technischen Unterschiede, gibt es auch Unterschiede hinsichtlich der Personengruppen die beteiligt sind. Dabei geht es nicht um die Nutzer einer Software, sondern um Personen die aktiv im Prozess der jeweiligen Modelle beteiligt sind.
 \\\\
 Bei dem SOA-Modell wurden schon einige Personengruppen identifiziert, als die Unterschiede der \nameref{subsec:FazitGrundlagen} erläutert wurden. Unter anderem gehören darunter Business Executiver und Business Analysten. Weitere Personengruppen sind zum Beispiel Personen aus dem Kaufmännischen Bereich. Natürlich spielen auch Personen aus der IT-Abteilung eine Rolle, jedoch sind hier meistens nur Administratoren und Architekten mit gemeint, da SOA keinen direkten Bezug zur Entwicklung besitzt und ohne eine Entwicklungsabteilung verwendet werden kann.
