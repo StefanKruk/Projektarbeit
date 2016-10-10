@@ -21,13 +21,13 @@ Für einen Kaufmann ist SOA etwas anderes als für einen Analysten, damit SOA je
        because reduced complexity makes modifying and testing applications
        easier when they are structured using services.\flqq \cite[vgl. Seite ]{100QA}
 \end{enumerate}
-Jeder der genannten Rollen hat eine eigene klare Definition von dem was Service-orientierte Architektur ist. Jeder der Definitionen ist jedoch nur ein Teil dessen für was SOA verwendet werden kann.
+Jeder der genannten Rollen hat eine eigene klare Definition von dem was SOA ist. Jeder der Definitionen ist jedoch nur ein Teil dessen für was SOA verwendet werden kann.
 
 \section{Grundlagen}
 \label{sec:Grundlagen}
-Bevor jedoch damit angefangen werden kann SOA in ein Unternehmen einzuführen, muss zunächst einmal geklärt werden, welches Ziel hinter SOA en stehen. Zunächst sei erwähnt, dass SOA zu den "Service-orientierten Architekturen" zählt und dem Prinzip der verteilten Anwendung unterliegt. Das Ziel von SOA ist nicht die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die Unternehmensweiten Geschäftsprozesse optimieren.
+Bevor jedoch damit angefangen werden kann SOA in ein Unternehmen einzuführen, muss zunächst einmal geklärt werden, welches Ziel hinter SOA en stehen. Das Ziel von SOA ist nicht die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die Unternehmensweiten Geschäftsprozesse optimieren.
 \\\\
-Oft existieren bereits verschiedene Anwendungen wie ERP- oder COBAL-Systeme die in den jeweiligen Unternehmensprozessen eingesetzt werden. Mit SOA soll dafür gesorgt werden, das diese Systeme möglichst effizient miteinander arbeiten können.
+Oft existieren bereits verschiedene Anwendungen wie ERP- oder COBOL-Systeme die in den jeweiligen Unternehmensprozessen eingesetzt werden. Mit SOA soll dafür gesorgt werden, das diese Systeme möglichst effizient miteinander arbeiten können.
 \begin{quotation}
     \frqq The complexity of the technology infrastructure at many companies in the financial services sector makes it very hard to leverage IT services in a coordinated way across the enterprise. Many large companies have either merged or acquired other very large companies resulting in the integration of new business units with very different work cultures and widely different information infrastructurse. The need to be able to trust and understand the information about the business across its many disaggregated parts has been a prime motivator for change in the IT infrastructure at these companies.\flqq \cite[S. 17]{SOAForDummies}
 \end{quotation}
@@ -62,7 +62,7 @@ SOA soll dabei helfen die Wertschöpfungskette sowohl darzustellen, als auch sie
 
 \section{Architektur}
 \label{sec:SoaArchitektur}
-Die Architektur in einem SOA-System unterliegt der einer "Service-orientierten Architektur". Es existieren einzelne Dienste die verschiedene Funktionalitäten bereitstellen. Dienste können dabei ERP-Anwendungen, COBAL-Systeme oder eigene erstellte Applikationen sein. Dabei soll wie in jeder "Service-orientierten Architektur" die einzelnen Dienste wiederverwendbar und nur lose gekoppelt sein. Außerdem sollen keine zwei Dienste existieren, welche die selbe Funktionalität bereitstellen.
+Die Architektur in einem SOA-System unterliegt der einer "`Service-orientierten Architektur"'. Es existieren einzelne Dienste die verschiedene Funktionalitäten bereitstellen. Dienste können dabei ERP-Anwendungen, COBOL-Systeme oder eigene erstellte Applikationen sein. Dabei soll wie in jeder "`Service-orientierten Architektur"' die einzelnen Dienste wiederverwendbar und nur lose gekoppelt sein. Außerdem sollen keine zwei Dienste existieren, welche die selbe Funktionalität bereitstellen.
 \\\\
 Damit zum Beispiel ERP-Anwendungen ihre Funktionalitäten über Schnittstellen bereitstellen können, ist es oft notwendig Adapter für diese Systeme zu erstellen. Ist einmal ein Adapter erstellt worden, kann dieser von da an immer wieder neu benutzt werden. Die Abbildung der Geschäftsprozesse erfolgt darauf in einem sogenannten Enterprise-Service-Bus (Kurz ESB), welcher die einzelnen Services Orchestriert (siehe Abbildung \ref{fig:ServiceOrchestration}) und die Kommunikation steuert.
 
@@ -96,7 +96,7 @@ Anders als bei der Orchestration können Services bei der Choreographie beliebig
     \label{fig:ServiceOrchestration}  
 \end{figure}
 
-Wie bereits oben erwähnt ist der Enterprise Service Bus die zentrale Einheit bei der Service-orientierten Architektur (SOA) über die alle Kommunikation läuft und welcher die Geschäftsprozesse abbildet. Daher ist eine Choreographie unter den Services in diesem Architekturmodell nicht möglich.
+Wie bereits oben erwähnt ist der Enterprise Service Bus die zentrale Einheit einer SOA-Architektur, über die alle Kommunikation läuft und welcher die Geschäftsprozesse abbildet. Daher ist eine Choreographie unter den Services in diesem Architekturmodell nicht möglich.
 
 \section{Enterprise Service Bus - ESB}
 \label{sec:esb}

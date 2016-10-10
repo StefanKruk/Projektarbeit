@@ -14,16 +14,22 @@ Service-orientierte Architekturen können, wenn sie richtig angewendet werden, s
 Anstatt eine einzige große Anwendung ein zu setzten, setzt man auf viele kleine, verteile, autarke Anwendungen, welche jeweils Schnittstellen nach außen hin anbieten damit der Service genutzt werden kann. Diese Schnittstellen können unter anderem durch REST-HTTP angeboten werden.
 Durch die verteilten Anwendungen funktioniert das System auch dann noch, wenn einzelne Dienste nicht verfügbar sind, jedoch bringt es ebenfalls die typischen Probleme von Verteilten Anwendungen mit sich, welche in \secref{chap:fallstudie} noch genauer erläutert werden.
 
-\subsection{Das Gesetzt von Conway}
-\label{subsec:conway}
-Wie in \cite[S. 39 ff.]{EWolff2016:Microservices} beschrieben, stammt das Gesetzt von dem amerikanischen Informatiker Melvin Conway und besagt:
-\begin{center}
-    \textit{Organisationen, die Systeme designen, können nur solche Designs entwerfen, welche die Kommunikationsstruktur dieser Organisationen abbilden.}
-\end{center}
-"Conway möchte damit ausdrücken, dass die internen Kommunikationswege wichtig bei der Planung der Architektur ist. Jedes Team innerhalb einer Organisation trägt bei der Entwicklung der Architektur bei. Wird eine Schnittstelle zwischen zwei Teams benötigt, so müssen diese Teams auch kommunizieren können. Dabei müssen Kommunikationswege nicht immer offiziell sein. Oft gibt es informelle Kommunikationsstrukturen, die ebenfalls in diesem Kontext betrachtet werden können." \cite[vg. S. 39]{EWolff2016:Microservices}
+\section{Verteilte Systeme}
+\label{sec:VerteilteAnwendungen}
+\begin{quotation}
+    \frqq Ein verteiltes System ist eine Ansammlung unabhängiger Computer, die den Benutzer wie ein einzelnes kohärentes System erscheinen.\flqq\cite[S. 19]{tanenbaum:VerteilteSysteme}
+\end{quotation}
+Im Falle von Service-orientierten Architekturen wird das System auf mehrere eigenständige Computer bzw. Anwendungen aufgeteilt. Ein Vorteil von verteilten Systemen ist, dass sie zum einen sehr dynamisch und schnell anpassbar sind, zum anderen jedoch auch die Komplexität von Software in einzelne Teile zerbricht, wodurch zum Beispiel eine entfernte Präsentation möglich ist.
+Jedoch entstehen dadurch Probleme, welche in monolithischen Systemen/Anwendungen nicht vorhanden sind.
+\\\\
+Eines der wichtigsten und größten Probleme besteht dabei in der Kommunikation. Zum einen muss diese gewährleistet werden, zum anderen jedoch auch in angemessener Zeit erfolgen. Dabei muss ebenfalls darauf geachtet werden, dass Nachrichten erfolgreich zugestellt werden, selbst wenn einzelne Dienste nicht erreichbar sind.
+\\\\
+Ein weiteres Problem besteht darin, zu erkennen wenn ein Dienst ausgefallen ist. Meistens erkennt man dies nur dadurch, dass ein Teilsystem nicht funktioniert. Das ausgefallene System zu identifizieren stellt sich, wenn keine entsprechenden Vorkehrungen getroffen wurden, als schwer heraus. Zudem kann eine lange Zeit vergehen, bis das Unternehmen merkt, dass ein System ausgefallen ist.
 
 \subsection{Domain-Driven Design und Bounded Context}
 \label{sec:boundedContext}
+Domain-Driven Design beschreibt dabei die Herangehensweise zur Modellierung von komplexer Software. Dabei ist die Modellierung maßgeblich an die umzusetzende Fachlichkeit gebunden und wird durch diese beeinflusst. Das Ziel jeglicher Software ist es, eine bestimmte Anwendungsdomäne zu unterstützen. Damit dies erfolgreich geschieht, muss Software harmonisch und in höchster Form Interoperabel zur Anwendungsdomäne sein. Domain-Driven Design soll genau diesen Fall unterstützen.
+\\\\
 Arbeitet man mit Service-Orientierten Architekturen, versucht man Services, welche zu einem bestimmten Kontext gehören, möglichst nahe beieinander zu halten. Man spricht hierbei von \textit{Bounded Context}. 
 \begin{quotation}
     \frqq Bounded Context ist ein zentrales Muster in Domain-Driven Design.[..] DDD arbeitet mit großen Modellen, indem es diese in kleine verschiedene zusammengehörige Kontexte unterteilt und auf ihre Wechselwirkung unterteilt.\flqq \cite{mfowler:BoundedContext}
@@ -37,3 +43,16 @@ Arbeitet man mit Service-Orientierten Architekturen, versucht man Services, welc
     \label{fig:BoundedContext}  
 \end{figure} 
 In dieser Grafik wird noch einmal der Begriff Bounded Context genauer verdeutlicht. Es existieren zwei eigenständige Prozesse. Auf der linken Seite der Sales Kontext und auf der rechten Seite der Support Kontext. Jeder Kontext besitzt verschiedene Services, welche benötigt werden um den Prozess durchführen zu können. Lediglich zwischen den \textit{Customer} und \textit{Product} Services besteht eine Verbindung der beiden Prozesse.
+
+\subsection{Das Gesetzt von Conway}
+\label{subsec:conway}
+Spricht man von Service-orientierten Architekturen, sollte das \glqq Gesetzt von Conway\grqq\ nicht fehlen, da es Prinzipien beschreibt, nach denen Unternehmens-Architektur entworfen wird.
+\\\\
+Melvin Conway ist ein amerikanischer Informatiker und formulierte seine Beobachtungen bezüglich der Kommunikationsstrukturen und Organisationen innerhalb eines Unternehmens. Seine Beobachtung, auch \glqq Gesetzt von Conway\grqq\ genannt lautet wie folgt:
+\begin{center}
+    \textit{Organisationen, die Systeme designen, können nur solche Designs entwerfen, welche die Kommunikationsstruktur dieser Organisationen abbilden.}
+\end{center}
+
+Conway möchte damit ausdrücken, dass die internen Kommunikationswege wichtig bei der Planung der Architektur ist. Jedes Team innerhalb einer Organisation trägt bei der Entwicklung der Architektur bei. Wird eine Schnittstelle zwischen zwei Teams benötigt, so müssen diese Teams auch kommunizieren können. Dabei müssen Kommunikationswege nicht immer offiziell sein. Oft gibt es informelle Kommunikationsstrukturen, die ebenfalls in diesem Kontext betrachtet werden können.
+\\\\
+Service-orientierte Systeme arbeiten nach dem gleichen Prinzip. Dienste in diesen Systemen sind eigenständig und müssen, damit daraus eine Funktionierende Anwendung bzw. System wird, müssen diese unter einander problemlos kommunizieren können.

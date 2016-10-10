@@ -20,7 +20,7 @@ Grundsätzlich wurden schon viel früher Architektur-Modelle entwickelt, um die 
 \label{sec:FazitArchitektur}
 Ein großer Unterschied der beiden Modelle liegt in der Architektur. Da beide Modelle aus dem Gebiet der verteilten Anwendungen stammen, spielt die Kommunikation hinsichtlich der Architektur eine wichtige Rolle. Die Kommunikation der beiden Modelle soll daher zu einem späteren Zeitpunkt im Kapitel \ref{subsec:FazitKommunikation} \nameref{subsec:FazitKommunikation} verglichen werden und wird in diesem Kapitel außer acht gelassen.
 \\\\
-Wie bereits erwähnt liegen beide Modelle der Architektur der verteilten Anwendungen zur Grunde, jedoch unterscheiden sie sich hinsichtlich der Strukturierung. Grundsätzlich benutzen beide Modelle eigenständige Dienste, welche sich jedoch hinsichtlich ihrer Größe unterscheiden. Dies kommt dadurch zur Stande, dass beide Modelle einen unterschiedlichen Ansatz besitzen.
+Grundsätzlich benutzen beide Modelle eigenständige Dienste, welche sich jedoch hinsichtlich ihrer Größe unterscheiden. Dies kommt dadurch zur Stande, dass beide Modelle einen unterschiedlichen Ansatz besitzen.
 \\\\
 Wie bereits weiter oben erläutert, wird mit SOA versucht verschiedene Geschäftsprozesse miteinander zu verknüpfen und eine leichtere Kommunikation unter diesen zu ermöglichen. Dadurch sind die meisten Dienste nicht  Bestandteil einer großen Software, sondern nur Bestandteil eines Unternehmensbereiches. Oft wird daher versucht alle EDV-Komponenten miteinander zu verknüpfen ohne eine Abhängigkeit zu erschaffen. Dabei sind die einzelnen Dienste oft eigenständige Anwendungen wie ERP oder COBALD Systeme. Um dies zu ermöglichen wird bei SOA ein sogenannter "`Enterprise-Service Bus (ESB)"' eingesetzt, welcher Frontend Dienste wie eine Website mit Datenbanken und Server-Anwendungen verbindet. Der ESB bildet dabei die Zentrale Einheit einer SOA-Architektur und dient außerdem als Dienst-Register, der jegliche Dienste in einem Unternehmen kennt und weiß wie sie anzusprechen sind.
 \\\\
@@ -28,9 +28,9 @@ Das Microservice-Modell arbeitet zwar auch mit Diensten, jedoch sind diese meist
 
 \section{Kommunikation}
 \label{sec:FazitKommunikation}
-Nachdem die Architektur Unterschiede erläutert wurden, werden nun die Unterschiede in der Kommunikation erläutert. Grundsätzlich liegt jedoch bei beiden Architektur-Modellen, wie auch schon in \ref{subsec:FazitArchitektur} \nameref{subsec:FazitArchitektur} erwähnt, das Modell der verteilten Anwendungen zur Grunde und auch die damit verbundenen Probleme.
+Nachdem die Architektur Unterschiede erläutert wurden, werden nun die Unterschiede in der Kommunikation erläutert.
 \\\\
-Die Modelle unterscheiden sich jedoch hinsichtlich der Anordnung von Diensten und damit der Kommunikationsfluss innerhalb der Modelle. Grundsätzlich kann man zwischen zwei Kommunikationsflüssen unterscheiden:
+Die Modelle unterscheiden sich hinsichtlich der Anordnung von Diensten und damit der Kommunikationsfluss innerhalb der Modelle. Grundsätzlich kann man zwischen zwei Kommunikationsflüssen unterscheiden:
 \begin{enumerate}
     \item \nameref{subsec:orchestration}
     \item \nameref{subsec:choreographie}
