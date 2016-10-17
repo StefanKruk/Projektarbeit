@@ -3,29 +3,38 @@
 
 \section{Grundlagen}
 \label{sec:Grundlagen}
-Grundsätzlich ist das in dieser Arbeit behandelnde Thema für jede Person mit einer allgemeinen Informatikausbildung ohne weiteres zu verstehen. Es wird bei dieser Personengruppe, die Kenntnisse über grundsätzliche Architekturen innerhalb der IT vorausgesetzt. Zudem kann vorausgesetzt werden, dass jede Person dieser Gruppe, der englischen Sprache mächtig ist. Trotzdem wird im weiteren Verlauf einige Begriffe genauer erklärt.
+Grundsätzlich ist das in dieser Arbeit behandelnde Thema für jede Person mit einer allgemeinen Informatikausbildung ohne weiteres zu verstehen. Es wird bei dieser Personengruppe, die Kenntnisse über grundsätzliche Architekturen innerhalb der IT vorausgesetzt. Zudem kann vorausgesetzt werden, dass jede Person dieser Gruppe, der englischen Sprache mächtig ist.
+
+\subsection{Time-to-Market (TTM}
+\label{subsec:ttm}
+Unter dem Begriff Time-to-Market wird die Zeit von der Produktentwicklung bis zur Auslieferung auf dem Markt verstanden.\footnote{Vergleich mit \cite{ttm:BusinessDictionary}}  In dieser Zeit müssen Kosten für die Erstellung/Entwicklung aufgebracht werden, es werden in dieser Zeit jedoch keine Umsätze erzeugt. Daher strebt jedes Unternehmen eine möglichst geringe Time-to-Market Zeit an. Insbesondere wenn es um Wettbewerb geht, muss diese Zeit kurz gehalten werden.
+
+\subsection{Wertschöpfungskette}
+\label{subsec:Wertschoepfungskette}
+\begin{quotation}
+\frqq Die Wertschöpfungskette stellt die zusammenhängenden Unternehmensaktivitäten des betrieblichen Gütererstellungsprozesses grafisch dar.\flqq \cite{gabler}
+\end{quotation}
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/integrations-pyramide}\
+    \quelle\url{http://www.referenzportal.ch/fuehrung/vom-erp-zum-integrierten-informationssystem/}
+    \caption[Darstellung einer typischen Integrations-Pyramide]{Darstellung einer typischen Integrations-Pyramide\\}
+    \label{fig:integrations-pyramide} 
+\end{figure} 
+Das Bild zeigt eine typische Integrations-Pyramide eines Unternehmens. In dieser Pyramide ist zum einen ersichtlich das für die Wertschöpfungskette die horizontale Integration wichtig ist, zum anderen jedoch auch, dass mehrere Abteilungen eines Unternehmens in einer Wertschöpfungskette durchlaufen werden müssen.
 \\\\
-\textbf{Time-to-Market (TTM)}\\
-Unter dem Begriff Time-to-Market wird die Zeit von der Produktentwicklung bis zur Auslieferung auf dem Markt verstanden.\footnote{Vergleich mit \cite{ttm:BusinessDictionary}}  In dieser Zeit müssen Kosten für die Erstellung/Entwicklung aufgebracht werden, es wird in dieser Zeit jedoch keine Umsätze erzeugt. Daher strebt jedes Unternehmen eine möglichst geringe Time-to-Market Zeit an. Insbesondere wenn es um Wettbewerb geht, muss diese Zeit kurz gehalten werden.
-\\\\    
-\textbf{SOA}\\
-Architekturmodell aus dem Bereich der Informatik und verteilten Systemen. Mehr dazu im Kapitel \secref{chap:soa}.
-\\\\
-\textbf{Microservice}\\
-Wie SOA ein Architekturmodell der Informatik, welches auf verteilten Systemen aufbaut. Mehr dazu im Kapitel \secref{chap:Microservices}.
-\\\\    
-\textbf{Dienst (Service)}\\
-Unter einem Dienst (Service) versteht man eine eigenständige Anwendung, welche seine Dienste über Schnittstellen bereitstellt.
+Die Dauer zum durchlaufen der Wertschöpfungskette nennt man auch Time-to-Market. Wird die Kette daher in möglichst geringer Zeit durchlaufen, wird die Time-to-Market Zeitspanne verringert.
 
 \section{Begriffsabgrenzung}
 \label{sec:Begriffsabgrenzung}
 
 \subsection*{SOA}
-Sowohl SOA als auch Microservices zählen zu den "`Service-orientierten Architekturen"'.
+Sowohl SOA als auch Microservices zählen zu dem Paradigma der "`Service-orientierten Architekturen"'.
 
-Die Abkürzung SOA wird hier sowohl für die Architektur allgemein, wie auch der speziellen Ausprägung verwendet.
+Die Abkürzung SOA wird hier sowohl für das Paradigma "`Service-orientierte Architektur"' verwendet, wie auch der speziellen Herangehensweise verwendet.
 
-Um die beiden Thematiken in dieser Arbeit abzugrenzen wird "`SOA"' nur als Modell verwendet und die ausgeschriebene Variante zur Kennzeichnung der Allgemeinen Architektur.
+Um die beiden Thematiken in dieser Arbeit abzugrenzen wird der Begriff "`SOA"' nur als Herangehensweise verwendet und die ausgeschriebene Variante zur Kennzeichnung des allgemeinen Paradigmas.
 
 \subsection*{Microservice}
 Der Begriff Microservice wird einerseits zum Beschreiben eines Architekturmodells genutzt, als auch zum beschreiben von eigenständigen Diensten (Services).
@@ -48,25 +57,20 @@ Zudem gibt es in einem Unternehmen nicht nur ein Software Produkt, sondern eine 
 
 \section{Ausgangssituation}
 \label{sec:ausgangssituation}
-Bei der Ausgangssituation gehen wir von einem fiktiven Szenario aus, welche an das aus \cite[S. 15]{EWolff2016:Microservices} angelehnt ist und im wesentlichen übernehme.
-
-\begin{quotation}
-    \frqq Die neugegründete \textit{\gmbh} möchte einen E-Commerce-Shop, als Hauptgeschäft betreiben. Es ist eine Web-Anwendung, die sehr viele unterschiedliche Funktionalitäten anbietet. Unter anderem zählen dazu die Benutzerregistrierung und - verwaltung, sowie die Produktsuche, Überblick über die Bestellungen und der Bestellprozess.\flqq\ (vgl. \cite[S. 15]{EWolff2016:Microservices})
-\end{quotation}
-
-Das nächste Bild zeigt den internen Aufbau eines typischen Unternehmens:
-\newpage
-\begin{figure}[htb]
-    \centering 
-    \includegraphics[width=\linewidth]{content/images/integrations-pyramide}\
-    \quelle\url{http://www.referenzportal.ch/fuehrung/vom-erp-zum-integrierten-informationssystem/}
-    \caption[Darstellung einer typischen Integrations-Pyramide]{Darstellung einer typischen Integrations-Pyramide\\}
-    \label{fig:integrations-pyramide} 
-\end{figure} 
-
-Die Geschäftsführung der GmbH hat bereits als Software-Entwickler in anderen Unternehmen Erfahrung mit dem Umgang und den Aufbau von E-Commerce-Shops gesammelt. Zu den Erfahrungen zählen unter anderem das programmieren, testen, deployen und weiterentwickeln der Anwendung. Während dieser Prozesse sind die Programmierer zur Erkenntnis gelangt, das bei steigender Größe der Anwendung, die Aufwände für Wartung und Weiterentwicklung stark ansteigen. Dies war auch der Grund warum das Unternehmen irgendwann Insolvenz anmelden musste. Die Kosten für Wartung und einer zeitnahen Reaktion auf die Veränderungen der Nutzerbedürfnisse konnten nicht mehr getragen werden und Anbieter wie Amazon, welche deutlich schneller als das eigene Unternehmen agieren konnten, haben die Produkte des Unternehmens schließlich vom Markt gedrängt.
-
-Aus diesem Grund möchte die Geschäftsführung der neugegründeten \gmbh\ eine Software-Architektur wählen, welches schneller anpassbar und einfacher zu warten ist. Für sie kommen daher das Microservice-Modell oder das \SOA -Modell infrage.
+Bei der Ausgangssituation handelt es sich um ein fiktives Szenario, welches an ein reales Problem
+angelehnt ist.
+\\\\
+Das Unternehmen \textit{Auktionen GmbH}\ ist ein modernes und aktives Internet-Unternehmen, welches seit 1995 existiert. Wie der Name schon sagt, betreibt das Unternehmen eine Auktionsplattform im Internet. Diese wurde zunächst als monolithische Anwendung implementiert.
+\\\\
+Mit zunehmenden Nutzerzahlen und damit täglichen Benutzungen, stellte das Unternehmen fest, dass es zunehmend schwieriger wurde, auf das Verhalten der Nutzer in angemessener Zeit zu reagieren. Da die zentrale Anwendung ein monolithisches System war, war es zudem schwierig diese zu deployen.
+\\\\
+Muss eine neue Version herausgebracht werden, so bedeutet dies entweder die gesamte Infrastruktur für Wartungszwecke offline zu nehmen und die Anwendung neu zu deployen oder Server im Parallel betrieb laufen zu lassen und jeden neuen Besucher auf die neue Version zu leiten. Die letzte Methode bietet jedoch einige Schwierigkeiten, denn es könnten Änderungen eingebaut worden sein, welche im Konflikt mit der alten Version stehen. Dann muss in jedem Fall die erste Variante gewählt werden und die gesamte Infrastruktur offline genommen werden.
+\\\\
+Beide Varianten der Änderungen sind jedoch zeitaufwendig und schwierig, denn nicht nur das deployen könnte Probleme bereiten, sondern auch die darauf folgende Ausführung des Programms. Ändert man Code in Monolithischen Applikationen kann das auch Auswirkungen auf bestehende Teile des Codes haben, welche vorher, ohne Probleme, funktioniert haben. Werden Tests vernachlässigt oder wird nicht ausreichend getestet, kann es leicht passieren, dass sich Fehler einschleichen, wodurch dann eine Version in betrieb genommen wird, welche Fehler enthält. Darauf folgend müssten diese wieder behoben werden und die Anwendung erneut deployed werden.
+\\\\
+Im Falle einer Monolithischen Architektur bedeutet das viele Änderungen und neue Features. Oft passiert es daher, dass Code Stücke zurückbleiben, welche nicht mehr benötigt werden. Irgendwann ist die Applikation daher so groß, dass sie nicht mehr Wartbar ist und neue Features nur noch schwer zu implementieren sind. Entstehen Fehler in solch einer Anwendung ist es um so schwerer diese zu finden und zu beheben.
+\\\\
+Aus diesem Grund hat die \textit{Auktionen GmbH} sich entschlossen, die monolithische Strukturen nicht weiter zu entwickeln, sondern auf ein Service-orientierte Architektur umzustellen.
 
 \section{Vorgehen und Kapitel}
 \label{sec:vorgehen}

@@ -7,7 +7,7 @@ Vor allem wenn es um die Weiterentwicklung und Wartung von Software geht, könne
 
 \section{Die Service-orientierte Architektur}
 \label{sec:architektur}
-Service-orientierte Architekturen können, wenn sie richtig angewendet werden, sehr flexibel und schnell änderbar sein. Diese Architekturen zielen, wie der Name schon sagt, auf eigenständige Dienste ab, welche durch verschiedene Kommunikationskanäle miteinander kommunizieren können und dadurch die gewünschten Geschäftsprozesse abbilden. 
+Diese Architekturen zielen, wie der Name schon sagt, auf eigenständige Dienste ab, welche durch verschiedene Kommunikationskanäle miteinander kommunizieren können und dadurch die gewünschten Geschäftsprozesse abbilden. 
 \begin{quotation}
     \frqq Ein Programm soll nur eine Aufgabe erledigen, und das soll es gut machen\flqq \cite[S. 2]{EWolff2015:ContinuouosDelivery}
 \end{quotation}
@@ -28,7 +28,7 @@ Ein weiteres Problem besteht darin, zu erkennen wenn ein Dienst ausgefallen ist.
 
 \subsection{Domain-Driven Design und Bounded Context}
 \label{sec:boundedContext}
-Domain-Driven Design beschreibt dabei die Herangehensweise zur Modellierung von komplexer Software. Dabei ist die Modellierung maßgeblich an die umzusetzende Fachlichkeit gebunden und wird durch diese beeinflusst. Das Ziel jeglicher Software ist es, eine bestimmte Anwendungsdomäne zu unterstützen. Damit dies erfolgreich geschieht, muss Software harmonisch und in höchster Form Interoperabel zur Anwendungsdomäne sein. Domain-Driven Design soll genau diesen Fall unterstützen.
+Domain-Driven Design (DDD) beschreibt dabei die Herangehensweise zur Modellierung von komplexer Software. Dabei ist die Modellierung maßgeblich an die umzusetzende Fachlichkeit gebunden und wird durch diese beeinflusst. Das Ziel jeglicher Software ist es, eine bestimmte Anwendungsdomäne zu unterstützen. Damit dies erfolgreich geschieht, muss Software harmonisch und in höchster Form Interoperabel zur Anwendungsdomäne sein. Domain-Driven Design soll genau diesen Fall unterstützen.
 \\\\
 Arbeitet man mit Service-Orientierten Architekturen, versucht man Services, welche zu einem bestimmten Kontext gehören, möglichst nahe beieinander zu halten. Man spricht hierbei von \textit{Bounded Context}. 
 \begin{quotation}
@@ -56,3 +56,44 @@ Melvin Conway ist ein amerikanischer Informatiker und formulierte seine Beobacht
 Conway möchte damit ausdrücken, dass die internen Kommunikationswege wichtig bei der Planung der Architektur ist. Jedes Team innerhalb einer Organisation trägt bei der Entwicklung der Architektur bei. Wird eine Schnittstelle zwischen zwei Teams benötigt, so müssen diese Teams auch kommunizieren können. Dabei müssen Kommunikationswege nicht immer offiziell sein. Oft gibt es informelle Kommunikationsstrukturen, die ebenfalls in diesem Kontext betrachtet werden können.
 \\\\
 Service-orientierte Systeme arbeiten nach dem gleichen Prinzip. Dienste in diesen Systemen sind eigenständig und müssen, damit daraus eine Funktionierende Anwendung bzw. System wird, müssen diese unter einander problemlos kommunizieren können.
+
+\subsection{Synchrone vs Asynchrone Kommunikation}
+\label{subsec:KommunikationASynchrone}
+Die Kommunikation ist ein zentraler Bestandteil von Verteilten Systemen. Ohne Kommunikation kann kein Verteiltes System arbeiten. Der Ausfall eines Dienstes oder eines Kommunikationsweg hat die Folge, dass das System nicht mehr ordnungsgemäß arbeiten kann. Daher müssen Vorkehrungen getroffen werden, damit auch in diesem Falle das System funktioniert. Es muss grundlegend zwischen zwei Kommunikationsarten entschieden werden.
+\\\\
+Eine Kommunikationsart ist die Synchrone. Dabei werden Nachrichten zwischen zwei Anwendungen in Echtzeit versendet und empfangen. Ein Nachrichtenspeicher existiert hierbei nicht, wodurch Nachrichten verloren gehen, wenn sie nicht empfangen werden können. Die einzige Möglichkeit Fehler dieser Art abzufangen, ist es die aktuelle Aktion abzubrechen.
+\\\\
+Eine weitere Kommunikationsart ist die Asynchrone. Anders als bei der Synchronen, wird bei der Asynchronen Kommunikation ein Nachrichtenspeicher verwendet, welcher die Nachrichten entgegen nimmt und an den eigentlichen Empfänger weiterleitet. Ist der Empfänger nicht erreichbar, werden die Nachrichten solange gespeichert, bis der Empfänger sie abruft.
+
+\section{Orchestration vs Choreographie}
+\label{sec:OrchestrationVsChoregraphie}
+
+\subsection*{Orchestration}
+\label{subsec:orchestration}
+Bei der Orchestration handelt es sich um eine Komposition von Services. Ein Geschäftsprozess wird zwar mit Hilfe von mehreren Services abgebildet, jedoch ist nur ein Service dafür zuständig den Geschäftsprozess durchzuführen.
+\newpage
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/ServiceOrchestration}\
+    \caption[Orchestration]{Orchestration}
+    \label{fig:ServiceOrchestration}  
+\end{figure}
+
+Wie die Abbildung zeigt besteht \textbf{\underline{keine}} Verbindung zwischen:
+\begin{itemize}
+    \item A \& B
+    \item A \& C
+    \item B \& C
+\end{itemize}
+Nur der "`Composite Service"' nutzt die anderen Services, um den Geschäftsprozess abzubilden. Diese Art der Kommunikation nennt man Orchestration.
+        
+\subsection*{Choreographie}
+\label{subsec:choreographie}
+Anders als bei der Orchestration können Services bei der Choreographie beliebig untereinander kommunizieren. Das ist Sinnvoll, wenn verschiedene Dienste, andere Dienste über Änderungen oder andere Aktionen informieren müssen.
+        
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/ServiceChoreography}\
+    \caption[Choreographie]{Choreographie}
+    \label{fig:ServiceOrchestration}  
+\end{figure}

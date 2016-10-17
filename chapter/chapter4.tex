@@ -54,49 +54,11 @@ Dazu müssen zunächst einmal alle Komponenten eines Unternehmens identifiziert 
 \newpage
 Aus diesen Komponenten müssen nun die Geschäftsprozesse identifiziert werden. Daraus ergeben sich anschließend die Komponenten, welche unter einander kommunizieren müssen. Die in der Abbildung Rot dargestellten Komponenten sind schließlich das Resultat aus der Analyse.
 
-\subsection{Wertschöpfungskette}
-\label{subsec:Wertschoepfungskette}
-\frqq Die Wertschöpfungskette stellt die zusammenhängenden Unternehmensaktivitäten des betrieblichen Gütererstellungsprozesses grafisch dar.\flqq \cite{gabler}
-
-SOA soll dabei helfen die Wertschöpfungskette sowohl darzustellen, als auch sie zu verwalten und damit zu optimieren. In Abbildung \ref{fig:UnternehmensKomponenten} sind die zentralen Komponente eines Geschäftsprozesses rot markiert. Mit Hilfe von SOA werden aus diesen Komponenten eine Wertschöpfungskette gebildet.
-
 \section{Architektur}
 \label{sec:SoaArchitektur}
 Die Architektur in einem SOA-System unterliegt der einer "`Service-orientierten Architektur"'. Es existieren einzelne Dienste die verschiedene Funktionalitäten bereitstellen. Dienste können dabei ERP-Anwendungen, COBOL-Systeme oder eigene erstellte Applikationen sein. Dabei soll wie in jeder "`Service-orientierten Architektur"' die einzelnen Dienste wiederverwendbar und nur lose gekoppelt sein. Außerdem sollen keine zwei Dienste existieren, welche die selbe Funktionalität bereitstellen.
 \\\\
-Damit zum Beispiel ERP-Anwendungen ihre Funktionalitäten über Schnittstellen bereitstellen können, ist es oft notwendig Adapter für diese Systeme zu erstellen. Ist einmal ein Adapter erstellt worden, kann dieser von da an immer wieder neu benutzt werden. Die Abbildung der Geschäftsprozesse erfolgt darauf in einem sogenannten Enterprise-Service-Bus (Kurz ESB), welcher die einzelnen Services Orchestriert (siehe Abbildung \ref{fig:ServiceOrchestration}) und die Kommunikation steuert.
-
-\subsection{Orchestration}
-\label{subsec:orchestration}
-Bei der Orchestration handelt es sich um eine Komposition von Services. Ein Geschäftsprozess wird zwar mit Hilfe von mehreren Services abgebildet, jedoch ist nur ein Service dafür zuständig den Geschäftsprozess durchzuführen.
-\newpage
-\begin{figure}[htb]
-    \centering 
-    \includegraphics[width=\linewidth]{content/images/ServiceOrchestration}\
-    \caption[Orchestration]{Orchestration}
-    \label{fig:ServiceOrchestration}  
-\end{figure}
-\noindent
-Wie die Abbildung zeigt besteht \textbf{\underline{keine}} Verbindung zwischen:
-\begin{itemize}
-    \item A \& B
-    \item A \& C
-    \item B \& C
-\end{itemize}
-Nur der "`Composite Service"' nutzt die anderen Services, um den Geschäftsprozess abzubilden. Diese Art der Kommunikation nennt man Orchestration.
-
-\subsection{Choreographie}
-\label{subsec:choreographie}
-Anders als bei der Orchestration können Services bei der Choreographie beliebig untereinander kommunizieren. Das ist vor allem dann Sinnvoll, wenn verschiedene Service andere Service über Änderungen oder andere Aktionen informieren müssen.
-
-\begin{figure}[htb]
-    \centering 
-    \includegraphics[width=\linewidth]{content/images/ServiceChoreography}\
-    \caption[Choreographie]{Choreographie}
-    \label{fig:ServiceOrchestration}  
-\end{figure}
-
-Wie bereits oben erwähnt ist der Enterprise Service Bus die zentrale Einheit einer SOA-Architektur, über die alle Kommunikation läuft und welcher die Geschäftsprozesse abbildet. Daher ist eine Choreographie unter den Services in diesem Architekturmodell nicht möglich.
+Damit zum Beispiel ERP-Anwendungen ihre Funktionalitäten über Schnittstellen bereitstellen können, ist es oft notwendig Adapter für diese Systeme zu erstellen. Ist einmal ein Adapter erstellt worden, kann dieser von da an immer wieder neu benutzt werden.
 
 \section{Enterprise Service Bus - ESB}
 \label{sec:esb}

@@ -5,18 +5,8 @@ Betrachtet man die Ausgangssituation aus Kapitel \secref{sec:ausgangssituation} 
 \section{Herausforderungen}
 \label{sec:herausforderung}
 Oft passiert es, das ein Unternehmen große Vorstellungen von dem Unternehmens-Ziel hat. Dies führt häufig dazu, dass Software entwickelt wird, welches weit über den aktuellen Anforderungen hinaus gehen. Man möchte damit verhindern, Software an einem späteren Zeitpunkt neu zu entwickeln oder austauschen zu müssen. Jedoch kann dies zu großen Problemen führen sobald das Unternehmen wächst und den am Anfang genannten Vorstellungen näher kommt. In dieser Phase entstehen meistens Probleme, welche vorher nicht berücksichtigt worden sind, weil niemand sie kannte. Dadurch muss die vorhandene Software, welche ursprünglich für dieses Szenario ausgelegt war, geändert werden.
-
-\section[Beispiel]{Hypothetisches Beispiel in Anlehnung an ein reales Problem}
-\label{sec:beispielEbay}
-Ein Modernes und aktives Internet-Unternehmen ist \ebay . Es wurde 1995 von Pierre Omidyar unter dem Namen \textit{ActionWeb} gegründet und wurde 1997 in \ebay umbenannt. \ebay\ wurde als monolithische Perl Anwendung implementiert (siehe \cite{wiki:ebay}). 
 \\\\
-Mit der Steigerung der Reichweite und der täglichen Benutzung, hatte man sich dann aber dazu entschlossen auf C++ als Code-Basis umzusteigen und die Seite mit CGI zu implementieren. Mittlerweile war \ebay ein großes und sich rasant entwickelndes Unternehmen. Das bedeutete aber auch, dass \ebay ständig auf das Verhalten der Nutzer reagieren und sich anpassen muss. Man versuchte also eine Monolithische Applikation mit der Fähigkeit auszustatten, auf Änderungen schnell zu reagieren, implementieren und zu deployen.
-\\\\
-Aber ein Monolith zu deployen, bedeutet, entweder die gesamte Infrastruktur für Wartungszwecke offline zu nehmen und die Applikation neu zu deployen, oder Server im Parallel betrieb laufen zu lassen und jeden neuen Traffic auf die neue Version zu routen. Die letzte Methode bietet jedoch einige Schwierigkeiten, denn es könnten Änderungen eingebaut worden sein, welche im Konflikt mit der alten Version stehen. Dann muss in jedem Fall die erste Variante gewählt werden und die gesamte Infrastruktur offline genommen werden.
-\\\\
-Beide Varianten der Änderungen sind jedoch zeitaufwendig und  schwierig, denn nicht nur das deployen könnte Probleme bereiten, sondern auch die darauf folgende Ausführung des Programms. Ändert man Code in Monolithischen Applikationen kann das auch Auswirkungen auf bestehende Teile des Codes haben, welche vorher, ohne Probleme, funktioniert haben. Werden Tests vernachlässigt oder wird nicht ausreichend getestet, kann es leicht passieren, dass sich Fehler einschleichen, wodurch dann eine Version in betrieb genommen wird, welche Fehler enthält. Darauf folgend müssten diese wieder behoben werden und die Anwendung erneut deployed werden.
-\\\\
-Im Falle einer Monolithischen Architektur bedeutet das viele Änderungen und neue Features. Oft passiert es daher, dass Code Stücke zurückbleiben, welche nicht mehr benötigt werden. Irgendwann ist die Applikation daher so groß, dass sie nicht mehr Wartbar ist und neue Features nur noch schwer zu implementieren sind. Entstehen Fehler in solch einer Anwendung ist es um so schwerer diese zu finden und zu beheben. Schließlich hat sich \ebay entschlossen ihre "Anwendung" in Java neu zu implementieren. Dieses mal jedoch mit dem Hintergrund einer leicht erweiterbaren und wartbaren Architektur.
+Eine weitere Herausforderung besteht in der Umstellung auf eine Service-orientierte Architektur. Wurde, wie im Fall von der \textit{Auktionen GmbH}, zunächst auf ein monolithisches System gesetzt, ist die Umstellung auf ein Service-orientierte Architektur nicht ganz trivial. Die bestehende Anwendung muss weiter entwickelt werden, während auf die neue Architektur umgestellt wird.
 
 \section{Die zu untersuchende Fragestellung}
 \label{sec:dasProblem}
