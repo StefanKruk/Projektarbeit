@@ -1,6 +1,6 @@
 \chapter{SOA}
 \label{chap:soa}
-Der Begriff SOA ist nicht eindeutig definiert. Je nachdem welche Person in einem Unternehmen man fragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die Meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\cite[vgl. Seite 6]{100QA}
+Der Begriff SOA ist nicht eindeutig definiert. Je nachdem welche Person man in einem Unternehmen fragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die Meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\cite[vgl. Seite 6]{100QA}
 
 Für einen Kaufmann ist SOA etwas anderes als für einen Analysten, damit SOA jedoch verstanden werden kann, werden zunächst einmal einige Definitionen nach \cite{100QA}\ genannt:
 \begin{enumerate}
@@ -21,20 +21,26 @@ Für einen Kaufmann ist SOA etwas anderes als für einen Analysten, damit SOA je
        because reduced complexity makes modifying and testing applications
        easier when they are structured using services.\flqq \cite[vgl. Seite ]{100QA}
 \end{enumerate}
-Jeder der genannten Rollen hat eine eigene klare Definition von dem was SOA ist. Jeder der Definitionen ist jedoch nur ein Teil dessen für was SOA verwendet werden kann.
+Jeder der genannten Rollen hat eine eigene klare Definition von dem was SOA ist. Jeder der Definitionen ist jedoch nur ein Teil dessen für was SOA verwendet werden kann. Denn SOA ist eine Herangehensweise und kein festes Modell.
 
 \section{Grundlagen}
 \label{sec:Grundlagen}
-Bevor jedoch damit angefangen werden kann SOA in ein Unternehmen einzuführen, muss zunächst einmal geklärt werden, welches Ziel hinter SOA en stehen. Das Ziel von SOA ist nicht die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die Unternehmensweiten Geschäftsprozesse optimieren.
+Das Ziel von SOA ist nicht die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die Unternehmensweiten Geschäftsprozesse standardisieren und vereinheitlichen. Aus diesem Grund sollte SOA nicht als Modell, sondern als Herangehensweise verstanden werden.
 \\\\
-Oft existieren bereits verschiedene Anwendungen wie ERP- oder COBOL-Systeme die in den jeweiligen Unternehmensprozessen eingesetzt werden. Mit SOA soll dafür gesorgt werden, das diese Systeme möglichst effizient miteinander arbeiten können.
+Bei der Vereinheitlichung und Standardisierung spielt die Wertschöpfungskette eine wichtige Rolle, da diese die Geschäftsprozesse miteinander verbindet.
+\\\\
+Bei der Vereinigung verschiedener Geschäftsprozesse spielt die Kommunikation ebenfalls eine entscheidende Rolle. Wie in Kapitel \secref{subsec:conway}\ erwähnt, können nur solche Systeme entworfen werden, welche die Kommunikationsstrukturen der Organisation abbilden. Daher muss, wenn man SOA verwenden möchte, die nötigen Kommunikationswege geschaffen werden, um eine ordnungsgemäße und standardisierte Kommunikation zu gewährleisten.
+
+\subsection{Business und IT}
+\label{subsec:BusinessAndIT}
+Ein Zentraler Bestandteil von SOA ist die IT. IT darf nie zum selbst Zweck existieren. Sie wird immer zur Unterstützung der Geschäftsprozesse eingesetzt. Umso mehr Geschäftsprozesse existieren, umso mehr Software existiert in einem Unternehmen.
+\\\\
+Oft existieren bereits verschiedene Anwendungen wie ERP- oder COBOL-Systeme. Mit SOA soll dafür gesorgt werden, das diese Systeme möglichst effizient miteinander arbeiten können.
 \begin{quotation}
     \frqq The complexity of the technology infrastructure at many companies in the financial services sector makes it very hard to leverage IT services in a coordinated way across the enterprise. Many large companies have either merged or acquired other very large companies resulting in the integration of new business units with very different work cultures and widely different information infrastructurse. The need to be able to trust and understand the information about the business across its many disaggregated parts has been a prime motivator for change in the IT infrastructure at these companies.\flqq \cite[S. 17]{SOAForDummies}
 \end{quotation}
 
-\subsection{Business und IT}
-\label{subsec:BusinessAndIT}
-Mit SOA wird die Infrastruktur eines Unternehmens in zwei Teile geteilt. Auf der einen Seite existiert die Geschäftsschicht mit der Geschäftslogik und auf der anderen Seite die IT-Schicht, welche die Computing-Ressourcen verwaltet. Durch diesen Aufbau ist es nicht nötig, das ein Business Manager die IT-Schicht verstehen muss.
+Mit SOA wird die IT-Infrastruktur eines Unternehmens in zwei Teile geteilt. Auf der einen Seite existiert die Geschäftsschicht mit der Geschäftslogik und auf der anderen Seite die IT-Schicht, welche die Computing-Ressourcen verwaltet. Durch diesen Aufbau ist es nicht nötig, das ein Business Manager die IT-Schicht verstehen muss.
 \\\
 In der Geschäftsschicht sind nur Dienste, mit denen Kunden, Lieferanten und Business Partner interagieren. Diese Personen benötigen, genauso wie ein Business Manager, keine Wissen darüber, was in der IT-Schicht existiert oder wie diese aufgebaut ist. Andersherum sind in der IT-Schicht nur Dienste und Applikationen vorhanden, wofür die IT-Abteilung zuständig ist.
 \\\\
