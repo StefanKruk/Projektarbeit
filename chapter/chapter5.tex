@@ -24,17 +24,34 @@ Der Begriff Microservices ist nicht eindeutig definiert. Als erste Näherung die
     \item Microservices haben einen eigenen Datenhaushalt: eine eigene Datenbank - oder ein vollständig getrenntes Schema in einer gemeinsamen Datenbank.
     \item Microservices können eigene Unterstützungsdienste mitbringen, beispielsweise eine Suchmaschine oder eine spezielle Datenbank. Natürlich gibt es eine gemeinsame Basis für alle Microservices - beispielsweise die Ausführung virtueller Maschinen.
     \item Microservices sind eigenständige Prozesse - oder virtuelle Maschinen, um auch die Unterstützungsdienste mitzubringen.
-    \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise REST sein - oder Messaging-Lösungen.
+    \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise RE
+    ST sein - oder Messaging-Lösungen.
 \end{itemize}
 
 Grundsätzlich kann man Microservices in drei Kategorien einteilen:
 \begin{description}
     \item[Producer] Ein Service der etwas Produziert oder auf eine Anfrage reagiert. Das reicht von Daten aus einer Datenbank extrahieren bis hin zu komplexen Berechnungen.
     \item[Consumer] Ein Service oder eine Anwendung, welche einen oder mehrere Produzierende Services verwendet und entweder weiterverarbeitet oder ausgibt. Im Falle der Weiterverarbeitung ist ein Consumer ebenfalls ein Producer sein.
-    \item[Self-Contained System (SCS)] "\frqq Microservice mit UI\flqq\ oder \frqq Self-Contained System\flqq\ wie es Stefan Tilkov nennt, sind in sich abgeschlossene Systeme. [..] Sie enthalten eine UI und sollten möglichst nicht mit anderen SCS kommunizieren." \cite[vgl S. 55]{EWolff2016:Microservices}. SCS sind jedoch nur im Microservice und nicht im SOA Umfeld zu finden. Warum wird in \secref{chap:fallstudie} weiter erläutert.
+    \item[Self-Contained System (SCS)] "\frqq Microservice mit UI\flqq\ oder \frqq Self-Contained System\flqq\ wie es Stefan Tilkov nennt, sind in sich abgeschlossene Systeme. [..] Sie enthalten eine UI und sollten möglichst nicht mit anderen SCS kommunizieren." \cite[vgl S. 55]{EWolff2016:Microservices}.
 \end{description}
 
-% Eigene Datenbanken
+
+\section{Aufbau von Microservices}
+\label{sec:Aufbau}
+Wie bereits erwähnt, sind Microservices eigenständige Dienste. Sie müssen so gebaut sein, dass sie möglichst ohne Abhängigkeiten funktionieren. Um das zu realisieren dürfen Microservices nur lose gekoppelt sein. Damit ist gemeint, dass der Dienst seine Aufgabe selbständig erledigen kann ohne weiter Dienste in Anspruch zu nehmen. Müssen jedoch andere Dienste verwendet werden, sollte darauf geachtet werden, dass diese austauschbar bleiben und nicht fest mit miteinander verbunden sind. Ist ein Dienst fest mit einem anderen Verbunden, sollte die Notwendigkeit des Dienstes infrage gestellt werden.
+\\\\
+In direkter Konkurrenz stehen Konsumierende Dienste, welche Produzierende Dienste verwenden müssen, um die eigenen Aufgaben fertig zu stellen. Konsumierende Dienste werden jedoch häufig als Middleware verwendet, um mehrere Daten aufzubereiten. Ein Konsumierender Dienst könnte zum Beispiel die Aufgabe haben einer Webseite darzustellen oder Informationen zu aggregieren.
+\\\\
+Damit ein Dienst selbständig bleibt, besitzt dieser alle dafür notwendigen Ressourcen. Darunter zählt unter anderem eine eigene Datenbank. Dadurch kann das Schema der Datenbank frei verändert werden ohne das weitere Teile des Systems dadurch beeinflusst werden. Es ist jedoch darauf zu achten, dass die Schnittstelle des Dienstes, worüber dieser von anderen Diensten ansprechbar ist, nicht grundlegend verändert wird.
+\\\\
+Geht man von \textit{Self-Contained Systems} aus, besitzen Microservices zusätzlich noch eigene UI-Elemente. Dadurch ist nur noch ein aggregierender Dienst notwendig, welcher alle Informationen aggregiert.
+\begin{figure}[htb]
+	\centering 
+	\includegraphics[width=\linewidth]{content/images/javaee-microservices}\
+	\quelle\url{http://blog.arungupta.me/monolithic-microservices-refactoring-javaee-applications/}
+	\caption{Microservice Architektur\\}
+	\label{fig:MicroserviceArchitektur} 
+\end{figure}
 
 \section{Gr"o\ss e von Microservices}
 \label{sec:groesseMicroservice}
@@ -55,7 +72,19 @@ Je nach Anwendungsfall muss man sich zwischen Service Orchestration und Choreogr
 \subsection{Herausforderung}
 \label{sec:Herausforderung}
 Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle anderen Microservices nicht mehr funktionieren. Um das zu verhindern muss klar definiert werden, was Microservices in dieser Situation tun sollen. Zusätzlich muss, sofern Datenbank Operationen eine wichtige Rolle Spielen, das Problem der einheitlichen Transaktion gelöst werden. Wenn zum Beispiel eine Operation Daten über verschiedene Microservices in Datenbanken schreibt, muss bei nicht Erreichbarkeit oder Fehlers eines Microservices eine einheitlicher Rollback durchgeführt werden, um keine inkonsistente Dateien im System zu haben.
+\\\\
 Eine weitere Herausforderung besteht in dem Grundkonzept von Microservices. Da nicht definiert ist, welche Programmiersprache für Microservices verwendet wird, kann ein Service zum Beispiel in Java, ein anderes in Scala ode Python geschrieben werden. Es muss daher dafür gesorgt werden, dass die einzelnen Services untereinander interoperabel sind. Um das zu gewährleisten, müssen die Schnittstellen möglichst einheitlich und auf dem gleichen Protokoll aufbauend programmiert werden. Hier bieten REST-Schnittstellen eine gute Lösung. Diese können auf dem HTTP-Protokoll aufgebaut werden. Zusätzlich bietet das HTTP-Protokoll die Möglichkeit, ein einheitliches Medium, wie zum Beispiel XML oder JSON, als Informationsträger zu nutzen. Dabei kann theoretisch jeder Microservice mit jedem anderen Microservice kommunizieren, sofern die Schnittstellen einheitlich definiert sind.
+\\\\
+Bei der Kommunikation ist \nameref{subsec:conway}\ ein wichtiger Faktor, denn damit das System funktioniert, müssen die Microservices untereinander kommunizieren können.
+\newpage
+\begin{figure}[htb]
+	\centering 
+	\includegraphics[width=\linewidth]{content/images/570495-slide1}\
+	\quelle\url{https://dzone.com/articles/scalable-cloud-computing-with-microservices}
+	\caption{Monolithisch vs Microservice Architektur\\}
+	\label{fig:MonoVSMicroArchitektur} 
+\end{figure}
+Im Unterschied zu monolithischen Anwendungen, bei der alles in einer Anwendung ist, sind Microservices einer Fachlichkeit zugeordnet und werden von den jeweiligen Teams entwickelt und verwaltet. Wird eine neue Funktion benötigt, welche nicht in der eigenen Fachlichkeit liegt, muss das entsprechende Team damit beauftragt werden, diese zu implementieren.
 
 \section{PUSH- VS PULL-Architektur}
 \label{sec:PushPullArchitektur}

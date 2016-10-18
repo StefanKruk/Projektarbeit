@@ -36,10 +36,10 @@ Die Abkürzung SOA wird hier sowohl für das Paradigma "`Service-orientierte Arc
 
 Um die beiden Thematiken in dieser Arbeit abzugrenzen wird der Begriff "`SOA"' nur als Herangehensweise verwendet und die ausgeschriebene Variante zur Kennzeichnung des allgemeinen Paradigmas.
 
-\subsection*{Microservice}
-Der Begriff Microservice wird einerseits zum Beschreiben eines Architekturmodells genutzt, als auch zum beschreiben von eigenständigen Diensten (Services).
+%\subsection*{Microservice}
+%Der Begriff Microservice wird einerseits zum Beschreiben eines Architekturmodells genutzt, als auch zum beschreiben von eigenständigen Diensten (Services).
 
-Damit keine Verwechslung entsteht, wird in dieser Arbeit der Begriff "`Microservice"' verwendet, sofern das Architekturmodell gemeint ist und der Begriff "`Dienst"' oder "`Service"', wenn ein eigenständiger Dienst gemeint ist.
+%Damit keine Verwechslung entsteht, wird in dieser Arbeit der Begriff "`Microservice"' verwendet, sofern das Architekturmodell gemeint ist und der Begriff "`Dienst"' oder "`Service"', wenn ein eigenständiger Dienst gemeint ist.
 
 \section{Motivation}
 \label{sec:motivation}
@@ -64,7 +64,7 @@ Das Unternehmen \textit{Auktionen GmbH}\ ist ein modernes und aktives Internet-U
 \\\\
 Mit zunehmenden Nutzerzahlen und damit täglichen Benutzungen, stellte das Unternehmen fest, dass es zunehmend schwieriger wurde, auf das Verhalten der Nutzer in angemessener Zeit zu reagieren. Da die zentrale Anwendung ein monolithisches System war, war es zudem schwierig diese zu deployen.
 \\\\
-Muss eine neue Version herausgebracht werden, so bedeutet dies entweder die gesamte Infrastruktur für Wartungszwecke offline zu nehmen und die Anwendung neu zu deployen oder Server im Parallel betrieb laufen zu lassen und jeden neuen Besucher auf die neue Version zu leiten. Die letzte Methode bietet jedoch einige Schwierigkeiten, denn es könnten Änderungen eingebaut worden sein, welche im Konflikt mit der alten Version stehen. Dann muss in jedem Fall die erste Variante gewählt werden und die gesamte Infrastruktur offline genommen werden.
+Musste eine neue Version herausgebracht werden, so bedeutet dies entweder die gesamte Infrastruktur für Wartungszwecke offline zu nehmen und die Anwendung neu zu deployen oder Server im Parallel betrieb laufen zu lassen und jeden neuen Besucher auf die neue Version zu leiten. Die letzte Methode bietet jedoch einige Schwierigkeiten, denn es könnten Änderungen eingebaut worden sein, welche im Konflikt mit der alten Version stehen. Dann muss in jedem Fall die erste Variante gewählt werden und die gesamte Infrastruktur offline genommen werden.
 \\\\
 Beide Varianten der Änderungen sind jedoch zeitaufwendig und schwierig, denn nicht nur das deployen könnte Probleme bereiten, sondern auch die darauf folgende Ausführung des Programms. Ändert man Code in Monolithischen Applikationen kann das auch Auswirkungen auf bestehende Teile des Codes haben, welche vorher, ohne Probleme, funktioniert haben. Werden Tests vernachlässigt oder wird nicht ausreichend getestet, kann es leicht passieren, dass sich Fehler einschleichen, wodurch dann eine Version in betrieb genommen wird, welche Fehler enthält. Darauf folgend müssten diese wieder behoben werden und die Anwendung erneut deployed werden.
 \\\\
