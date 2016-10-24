@@ -1,6 +1,6 @@
 \chapter{SOA}
 \label{chap:soa}
-Der Begriff SOA ist nicht eindeutig definiert. Je nachdem welche Person man in einem Unternehmen fragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die Meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\cite[vgl. Seite 6]{100QA}
+Der Begriff SOA ist nicht eindeutig definiert. Je nachdem welche Person man in einem Unternehmen befragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die Meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\cite[vgl. Seite 6]{100QA}
 
 Für einen Kaufmann ist SOA etwas anderes als für einen Analysten, damit SOA jedoch verstanden werden kann, werden zunächst einmal einige Definitionen nach \cite{100QA}\ genannt:
 \begin{enumerate}
@@ -25,7 +25,7 @@ Jeder der genannten Rollen hat eine eigene klare Definition von dem was SOA ist.
 
 \section{Grundlagen}
 \label{sec:Grundlagen}
-Das Ziel von SOA ist nicht die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die Unternehmensweiten Geschäftsprozesse standardisieren und vereinheitlichen. Aus diesem Grund sollte SOA nicht als Modell, sondern als Herangehensweise verstanden werden.
+Das Ziel von SOA ist nicht die Entwicklung zu vereinfachen oder voran zu bringen. SOA soll die unternehmensweiten Geschäftsprozesse standardisieren und vereinheitlichen. Aus diesem Grund sollte SOA nicht als Modell, sondern als Herangehensweise verstanden werden.
 \\\\
 Bei der Vereinheitlichung und Standardisierung spielt die Wertschöpfungskette eine wichtige Rolle, da diese die Geschäftsprozesse miteinander verbindet.
 \\\\
@@ -42,7 +42,7 @@ Oft existieren bereits verschiedene Anwendungen wie ERP- oder COBOL-Systeme. Mit
     \frqq The complexity of the technology infrastructure at many companies in the financial services sector makes it very hard to leverage IT services in a coordinated way across the enterprise. Many large companies have either merged or acquired other very large companies resulting in the integration of new business units with very different work cultures and widely different information infrastructurse. The need to be able to trust and understand the information about the business across its many disaggregated parts has been a prime motivator for change in the IT infrastructure at these companies.\flqq \cite[S. 17]{SOAForDummies}
 \end{quotation}
 
-Mit SOA wird die IT-Infrastruktur eines Unternehmens in zwei Teile geteilt. Auf der einen Seite existiert die Geschäftsschicht mit der Geschäftslogik und auf der anderen Seite die IT-Schicht, welche die Computing-Ressourcen verwaltet. Durch diesen Aufbau ist es nicht nötig, das ein Business Manager die IT-Schicht verstehen muss.
+Mit SOA wird die IT-Infrastruktur eines Unternehmens in zwei Teile geteilt. Auf der einen Seite existiert die Geschäftsschicht mit der Geschäftslogik und auf der anderen Seite die IT-Schicht, welche die Computing-Ressourcen verwaltet. Durch diesen Aufbau ist es nicht nötig, dass ein Business Manager die IT-Schicht verstehen muss.
 \\\
 In der Geschäftsschicht sind nur Dienste, mit denen Kunden, Lieferanten und Business Partner interagieren. Diese Personen benötigen, genauso wie ein Business Manager, keine Wissen darüber, was in der IT-Schicht existiert oder wie diese aufgebaut ist. Andersherum sind in der IT-Schicht nur Dienste und Applikationen vorhanden, wofür die IT-Abteilung zuständig ist.
 \\\\
@@ -60,7 +60,7 @@ Dazu müssen zunächst einmal alle Komponenten eines Unternehmens identifiziert 
     \label{fig:UnternehmensKomponenten}  
 \end{figure} 
 \newpage
-Aus diesen Komponenten müssen nun die Geschäftsprozesse identifiziert werden, beginnend mit den wichtigsten. Daraus ergeben sich anschließend die Komponenten, welche unter einander kommunizieren müssen. Die in der Abbildung Rot dargestellten Komponenten sind schließlich das Resultat aus der Analyse. Hat man die Komponenten über Kommunikationswege verbunden, werden die nächsten Geschäftsprozesse identifiziert. Diese Prozedur wird solange wiederholt, bis alle Komponenten mit einander verbunden sind.
+Aus diesen Komponenten müssen nun die Geschäftsprozesse identifiziert werden, beginnend mit den Wichtigsten. Daraus ergeben sich anschließend die Komponenten, welche untereinander kommunizieren müssen. Die in der Abbildung rot dargestellten Komponenten sind schließlich das Resultat aus der Analyse. Hat man die Komponenten über Kommunikationswege verbunden, werden die nächsten Geschäftsprozesse identifiziert. Diese Prozedur wird solange wiederholt, bis alle Komponenten mit einander verbunden sind.
 
 \section{Architektur}
 \label{sec:SoaArchitektur}
@@ -68,7 +68,7 @@ Die Architektur in einem SOA-System unterliegt dem Paradigma einer "`Service-ori
 \\\\
 Damit eine ERP-Anwendungen ihre Funktionalitäten bereitstellen kann, muss ein Adapter erstellt werden. Dieser Adapter stellt die Funktionalität in Form von Schnittstellen bereit und kann als Dienst bereitgestellt werden. Der Adapter übernimmt dabei Aufgabe wie Fehler abzufangen und die Daten in angemessener Weise aufzuarbeiten, damit diese über die jeweilige Schnittstelle abgerufen werden können, sowie die eigentliche Anwendung zu steuern.
 \\\\
-Schnittstellen können dabei HTTP-Rest oder SOAP sein. Es ist jedoch auch Möglich weitere Schnittstellentechnologien zu verwenden, wie RMI. Genauso kann es möglich sein "`Message Oriented Middleware"' zu verwenden, um Informationen bereit zu stellen.
+Schnittstellen können dabei HTTP-Rest oder SOAP sein. Es ist jedoch auch möglich weitere Schnittstellentechnologien zu verwenden, wie RMI. Genauso kann es möglich sein "`Message Oriented Middleware"' zu verwenden, um Informationen bereit zu stellen.
 
 \section{Enterprise-Service Bus - ESB}
 \label{sec:esb}
