@@ -27,12 +27,13 @@
 \setcounter{page}{1}
 \pagenumbering{roman}
  
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{\numberline{}Überblick}
+\include{misc/abstract} 
+ 
 \input{misc/tables}
 
-\clearpage\phantomsection\addcontentsline{toc}{chapter}{\numberline{}Überblick}
-\include{misc/abstract}
-
 % ***************************** MAIN MATTER ***********************************
+\newpage
 %%\pagestyle{fancy}
 \pagenumbering{arabic}
 
