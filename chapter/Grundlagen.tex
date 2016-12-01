@@ -1,0 +1,101 @@
+\chapter[Grundlagen von Service-orientierten Systemen]{Allgemeine Grundlagen zur Verwendung von Service-orientierten Systemen}
+\label{chap:Grundlagen}
+Ein Service-orientiertes System, ist ein Architekturmuster, bei dem einzelne Dienste (Services) ein IT-System bilden. Es liegt dem Bereich der verteilten Systemen zur Grunde und dient oft zur Strukturierung von komplexen Systemen.
+\\\\
+Anstatt eine einzige große Anwendung ein zu setzten, setzt man auf viele kleine, verteilte, autarke Anwendungen, welche als Dienste bezeichnet werden. Diese bieten nach außen entsprechende Schnittstellen an, um den jeweiligen Dienst nutzen zu können. Dabei ist dieses Architekturmuster eine weitere Form der Modularisierung von Softwaresystemen, da einzelne Komponenten (Fachlichkeiten) durch eigenständige Anwendungen abgebildet werden.
+
+\section{Was ist ein Service?}
+\label{sec:WasIstEinService?}
+Ein Service ist in einem "`Service-orientiertem System"' eine Fachlichkeit eines gesamt Systems. Es wird versucht autarke Services zu erstellen, welche unabhängig von anderen Diensten verwaltet und verwendet werden können.. Die Größe von Diensten ist dabei jedoch nicht festgelegt und kann je nach Paradigma bzw. Definition und Unternehmen variieren.
+
+\section{Verteilte Systeme}
+\label{sec:VerteilteAnwendungen}
+Damit Service-orientierte Architekturen verstanden werden können, müssen zunächst verteilte Systeme verstanden werden. \textit{Andrew S. Tanenbaum} definiert ein verteiltes System wie folgt:
+\begin{quotation}
+    \frqq Ein verteiltes System ist eine Ansammlung unabhängiger Computer, die den Benutzer wie ein einzelnes kohärentes System erscheinen.\flqq\cite[S. 19]{tanenbaum:VerteilteSysteme}
+\end{quotation}
+Im Falle von Service-orientierten Architekturen wird das System auf mehrere eigenständige Computer bzw. Anwendungen aufgeteilt. Ein Vorteil von verteilten Systemen ist, dass sie Zum einen sehr dynamisch und schnell anpassbar sind, zum Anderen jedoch auch die Komplexität von Software in einzelne Teile zerbricht, wodurch eine entfernte Präsentation möglich ist.
+Jedoch entstehen dadurch Probleme, welche in monolithischen Systemen/Anwendungen nicht vorhanden sind.
+\\\\
+Eines der wichtigsten und größten Probleme besteht dabei in der Kommunikation. Zum Einen muss diese gewährleistet werden, zum Anderen jedoch auch in angemessener Zeit erfolgen. Dabei muss ebenfalls darauf geachtet werden, dass Nachrichten erfolgreich zugestellt werden, selbst wenn einzelne Dienste temporär nicht erreichbar sind.
+\\\\
+Ein weiteres Problem besteht darin, zu erkennen wann ein Dienst ausgefallen ist. Meistens erkennt man dies nur dadurch, dass ein Teilsystem nicht funktioniert. Das ausgefallene System zu identifizieren stellt, wenn keine entsprechenden Vorkehrungen getroffen wurden, eine nicht zu unterschätzende Problematik da. Zudem kann eine lange Zeit vergehen, bis das Unternehmen merkt, dass ein System ausgefallen ist. 
+
+\subsection{Domain-Driven Design und Bounded Context}
+\label{sec:boundedContext}
+Domain-Driven Design (DDD) beschreibt dabei die Herangehensweise zur Modellierung von komplexer Software. Dabei ist die Modellierung maßgeblich an die umzusetzende Fachlichkeit gebunden und wird durch diese beeinflusst. Das Ziel jeglicher Software ist es, eine bestimmte Anwendungsdomäne zu unterstützen. Damit dies erfolgreich geschieht, muss Software harmonisch und in höchster Form interoperabel zur Anwendungsdomäne sein. Domain-Driven Design soll genau dies gewährleisten.
+\\\\
+Arbeitet man mit Service-Orientierten Architekturen, versucht man fachliche Komponenten, welche zu einem bestimmten Kontext gehören, möglichst nahe beieinander zu halten. Man spricht hierbei von \textit{Bounded Context}. 
+\begin{quotation}
+    \frqq Bounded Context ist ein zentrales Muster in Domain-Driven Design.[..] DDD arbeitet mit großen Modellen, indem es diese in kleine verschiedene zusammengehörige Kontexte unterteilt und auf ihre Wechselwirkung unterteilt.\flqq \cite{mfowler:BoundedContext}
+\end{quotation}
+
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/BoundedContext}\
+    \quelle\url{http://martinfowler.com/bliki/BoundedContext.html}
+    \caption[Bounded Context]{Bounded Context\\}
+    \label{fig:BoundedContext}  
+\end{figure} 
+In dieser Grafik wird noch einmal der Begriff Bounded Context genauer verdeutlicht. Es existieren zwei eigenständige Prozesse. Auf der linken Seite der Sales Kontext und auf der rechten Seite der Support Kontext. Jeder Kontext besitzt verschiedene Services, welche benötigt werden um den Prozess durchführen zu können. Lediglich zwischen den \textit{Customer} und \textit{Product} Services besteht eine Verbindung der beiden Prozesse.
+
+\subsection{Das Gesetzt von Conway}
+\label{subsec:conway}
+Spricht man von "`Service-orientierten Architekturen"', sollte das \glqq Gesetzt von Conway\grqq\ nicht fehlen, da es Prinzipien beschreibt, nach denen eine Unternehmens-Architektur entworfen wird.
+\\\\
+Melvin Conway ist ein amerikanischer Informatiker und formulierte seine Beobachtungen bezüglich der Kommunikationsstrukturen und Organisationen innerhalb eines Unternehmens. Seine Beobachtung, auch \glqq Gesetzt von Conway\grqq\ genannt lautet wie folgt:
+\begin{center}
+    \textit{Organisationen, die Systeme designen, können nur solche Designs entwerfen, welche die Kommunikationsstruktur dieser Organisationen abbilden.}
+\end{center}
+
+Conway möchte damit ausdrücken, dass die internen Kommunikationswege wichtig bei der Planung der Architektur ist. Jedes Team innerhalb einer Organisation trägt zu der Entwicklung der Architektur bei. Wird eine Schnittstelle zwischen zwei Teams benötigt, so müssen diese Teams auch kommunizieren können. Dabei müssen Kommunikationswege nicht immer offiziell sein. Oft gibt es informelle Kommunikationsstrukturen, die ebenfalls in diesem Kontext betrachtet werden können.
+\\\\
+Service-orientierte Systeme arbeiten nach dem gleichen Prinzip. Dienste in diesen Systemen sind eigenständig und müssen, damit daraus eine funktionierende Anwendung bzw. System wird, unter einander problemlos kommunizieren können.
+
+\section{Kommunikation: Orchestration vs Choreographie}
+\label{sec:OrchestrationVsChoregraphie}
+
+\subsection*{Orchestration}
+\label{subsec:orchestration}
+Bei der Orchestration handelt es sich um eine Komposition von Services. Ein Geschäftsprozess wird zwar mit Hilfe von mehreren Services abgebildet, jedoch ist nur ein Service dafür zuständig den Geschäftsprozess durchzuführen.
+\newpage
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/ServiceOrchestration}\
+    \caption[Orchestration]{Orchestration}
+    \label{fig:ServiceOrchestration}  
+\end{figure}
+
+Wie die Abbildung \ref{fig:ServiceOrchestration} zeigt besteht bei der Orchestration \textbf{\underline{keine}} Verbindung zwischen:
+\begin{itemize}
+    \item A \& B
+    \item A \& C
+    \item B \& C
+\end{itemize}
+Nur der "`Composite Service"' nutzt die anderen Services, um den Geschäftsprozess abzubilden.
+
+\subsection*{Choreographie}
+\label{subsec:choreographie}
+Anders als bei der Orchestration können Services bei der Choreographie beliebig untereinander kommunizieren. Das ist sinnvoll, wenn verschiedene Dienste, sich untereinander über Änderungen oder andere Aktionen informieren müssen.
+\newpage
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/ServiceChoreography}\
+    \caption[Choreographie]{Choreographie}
+    \label{fig:ServiceChoreography}  
+\end{figure}
+So ist, wie in Abbildung \ref{fig:ServiceChoreography} zu erkennen, eine beliebige Kommunikation zwischen den einzelnen Diensten möglich.
+
+\section{Abgrenzung von monolithischen Systemen}
+\label{sec:AbgrenzungVonMonolithischenSystemen}
+Im Vergleich zu monolithischen Systemen, muss bei dem Einsatz von Service-orientierten Systemen einiges beachtet werden. So ist die Kommunikation ein wichtiger Faktor. Man muss sich nicht nur zwischen einer der beiden zuvor genannten Kommunikationsformen, Choreographie oder Orchestrierung, entscheiden, es muss zudem sichergestellt werden, dass Nachrichten zugestellt werden.
+\\\\
+Während bei einem monolithischen System alle Abhängigkeiten innerhalb der Anwendung zu finden sind, besteht die Anwendung in einem Service-orientieren System aus mehreren Diensten, welche untereinander kommunizieren. Jeder Dienst bildet dabei einen gewissen Context ab (siehe \nameref{sec:boundedContext}). Zudem ist es dadurch möglich, dass jeder Dienst eine eigene Datenbank hat, wodurch verschiedene Datenbanksysteme (SQL und NoSQL) eingesetzt werden können. In der nachfolgenden Abbildung ist einem Monolithen, ein Microservice System entgegen gesetzt.
+\begin{figure}[htb]
+    \centering 
+    \includegraphics[width=\linewidth]{content/images/fichtner_microservices_1}\
+    \quelle\url{https://jaxenter.de/wp-content/uploads/2016/10/fichtner_microservices_1.jpg}
+    \caption{Monolithisches vs Service-orientiertes System}
+    \label{fig:BoundedContext}  
+\end{figure}
+Zusätzlich zu den oben genannten unterschieden, sieht man in der Abbildung außerdem ein Monitoring-System. Während bei einem Monolithen, nur ein Monitoring-System benötigt wird, muss bei einem Service-orientiertem System, jeder Service ein Monitoring-System besitzen. Bei großen Systemen, müssen zudem die Monitoring-Informationen gebündelt werden und zentral einsehbar sein.

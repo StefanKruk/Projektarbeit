@@ -12,52 +12,7 @@
 
 \input{preamble/macros}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ****************************** Glossarie ************************************
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Befehle für Symbole
-\newglossaryentry{symb:Pi}{
-    name=$\pi$,
-    description={Die Kreiszahl.},
-    sort=symbolpi, type=symbolslist
-}
-\newglossaryentry{symb:Phi}{
-    name=$\varphi$,
-    description={Ein beliebiger Winkel.},
-    sort=symbolphi, type=symbolslist
-}
-\newglossaryentry{symb:Lambda}{
-    name=$\lambda$,
-    description={Eine beliebige Zahl, mit der der nachfolgende Ausdruck
-        multipliziert wird.},
-    sort=symbollambda, type=symbolslist
-}
-
-%Befehle für Glossar
-\newglossaryentry{glos:AD}{
-    name=Active Directory,
-    description={Active Directory ist in einem Windows 2000/" "Windows
-        Server 2003-Netzwerk der Verzeichnisdienst, der die zentrale
-        Organisation und Verwaltung aller Netzwerkressourcen erlaubt. Es
-        ermöglicht den Benutzern über eine einzige zentrale Anmeldung den
-        Zugriff auf alle Ressourcen und den Administratoren die zentral
-        organisierte Verwaltung, transparent von der Netzwerktopologie und
-        den eingesetzten Netzwerkprotokollen. Das dafür benötigte
-        Betriebssystem ist entweder Windows 2000 Server oder
-        Windows Server 2003, welches auf dem zentralen
-        Domänencontroller installiert wird. Dieser hält alle Daten des
-        Active Directory vor, wie z.B. Benutzernamen und
-        Kennwörter.}
-}
-\newglossaryentry{glos:AntwD}{name=Antwortdatei, description={Informationen zum
-        Installieren einer Anwendung oder des Betriebssystems.}}
-
-%Befehle für Abkürzungen
-\newacronym{MS}{MS}{Microsoft}
-\newacronym{CD}{CD}{Compact Disc}
-%Eine Abkürzung mit Glossareintrag
-\newacronym{AD}{AD}{Active Directory\protect\glsadd{glos:AD}}
+\input{preamble/glossarentries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ************************** BEGINN OF DOCUMENT *******************************
@@ -74,36 +29,17 @@
 
 \include{misc/abstract}
 
-% ******************************* Glossar ************************************
-%Alle Glossare ausgeben
-%\printglossaries
-
-%Glossar ausgeben
-\printglossary[style=altlist,title=Glossar]
-
-
-%Abkürzungen ausgeben
-\deftranslation[to=German]{Acronyms}{Abkürzungsverzeichnis}
-\printglossary[type=\acronymtype,style=long]
-
-%Symbole ausgeben
-\printglossary[type=symbolslist,style=long]
-\newpage
+%\include{misc/glossar}
 
 % ***************************** MAIN MATTER ***********************************
 \pagestyle{fancy}
 \pagenumbering{arabic}
 
-\include{chapter/chapter1}
+\include{chapter/Einleitung}
 
-\include{chapter/chapter2}
+\include{chapter/MonoltischeSysteme}
 
-\include{chapter/chapter3}
-
-\include{chapter/chapter4}
-
-\include{chapter/chapter5}
-
+\include{chapter/Grundlagen}
 
 % ***************************** BIBLIOGRAPHY **********************************
 \baselineskip=14pt

@@ -1,0 +1,21 @@
+\chapter{Problemanalyse von Monolithischen Systemen/Anwendungen}
+\label{chap:ProblemanalyseMonolithischeSysteme}
+In der klassischen Softwareentwicklung sind monolithische Anwendungen, oft die Grundlage für komplexe Systeme. Dabei besitzt die Anwendung alle nötigen Ressourcen und Eigenschaften, um eine bestimmte Aufgabe zu erfüllen. Dies fängt an bei der Datenverwaltung, wie zum Beispiel der Persistierung und dem laden von Daten. Dies kann zum Beispiel durch eine Datenbankschnittstelle umgesetzt werden. Dabei wird jedoch meistens nur eine einzelne Datenbank, wie zum Beispiel eine Oracle Datenbank, unterstützt. Neben der Datenverwaltung gehören noch weitere Aufgaben zu einer Anwendung, wie zum Beispiel das durchführen von verschiedenen Berechnungen auf Grundlage der vorhandenen Daten. Damit ein Benutzer, eine Anwendung benutzen kann, muss zudem ein Frontend vorhanden sein. Dies kann zum Beispiel durch eine Internetbrowser-Seite geschehen oder durch eine native Desktop Darstellung.
+
+%\begin{figure}[htb]
+%    \centering 
+%    \includegraphics[width=\linewidth]{content/images/MonolithischeAnwendung}\
+%    \caption{Darstellung einer monolithischen Anwendung}
+%    \label{fig:integrations-pyramide} 
+%\end{figure} 
+
+
+\section{Herausforderungen bei der Verwendung von monolithischen Systemen}
+\label{sec:HerausforderungenMonolithisch}
+Zu beginn der Entwicklung, stellt das erstellen einer Anwendung, auf Basis eines Pflichtenheftes keine große Herausforderung da. Es können die Anforderungen an das neue System analysiert werden und darauf aufbauend eine Programmiersprache und die interne Architektur gewählt werden.
+\\\\
+Werden hingegeben, bei einer bestehenden Anwendung, neue Anforderungen gestellt, ist man zunächst einmal an den zuvor gewählten Technologiestack gebunden. Das Korrigieren von Fehlern ist relativ einfach, im Vergleich zur Anpassbarkeit und Erweiterbarkeit des Systemes. Je nach Größe der Anwendung, kann dadurch die Umsetzung der neuen Anforderungen problematisch werden, sofern diese nicht mit den bestehenden internen Architekturen vereinbar sind. In diesem Fall kann die Anforderung dazu führen, dass die Anwendung, umgeschrieben werden muss und im schlimmsten Falle neu geschrieben werden muss.
+
+\subsection{Skalierung}
+\label{subsec:SkalierungMonolithisch}
+Skalierung ist ein wichtiges Thema von Webanwendungen. Greifen viele Benutzer auf ein und die selbe Anwendung zu, so kann es passieren, dass dies das System überlastet und alle Benutzer länger auf die Antwort des Systems warten muss. Dies kann man nicht immer durch leistungsstarke Hardware ausgleichen. Oft muss daher mehrere Instanzen des Systems existieren und ein Load Balancer die Benutzer auf die Instanzen verteilen. Nicht immer ist es jedoch möglich in kurzer Zeit eine neue Instanz zu starten, sodass zu jederzeit eine feste Anzahl von Instanzen vorhanden sein muss. Dies ist nicht nur schwer zu warten, sondern auch Kostenintensiv, da die Hardware dauerhaft in gebrauch ist. PaaS Systeme, bei denen man nach genutzter Rechenleistung zahlt, können daher sehr Kostenintensiv werden, müssten zu jederzeit, zum teil ungenutzte, Instanzen eines Systemes vorhanden sein.
