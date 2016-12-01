@@ -1,9 +1,8 @@
 % **************************** PACKAGE SETUP *******************************
 \usepackage[ngerman]{babel}          % Lokalisierung von Typographie, Silbentrennung, etc.
-
+\usepackage{geometry}                % Zum Gestallten der Seiten
 \usepackage{ucs}                     % Erweiterte Unterstützung von UTF-8-Kodierung
 \usepackage[utf8x]{inputenc}         % Unterstützung von UTF-8 in Eingabe-Dateien
-\usepackage{lmodern}
 \usepackage[T1]{fontenc}             % Zeichensatzkodierung von LaTeX (Cork-Kodierung)
 \usepackage{helvet,courier,mathptmx} % Verwendete Schriftarten
 
@@ -13,10 +12,15 @@
 \usepackage{amsthm}                  % Erweiterung der Theorem-Umgebungen
 
 \usepackage{fancyhdr}                % Erweiterte Konfiguration von Kopf/Fußzeile
-
-
-
 \usepackage{hyperref}                % Querverweise, Hyperlink, pdf-Konfiguration, etc.
+\usepackage[
+nonumberlist, %keine Seitenzahlen anzeigen
+nopostdot,    %Den Punkt am Ende jeder Beschreibung deaktivieren
+acronym,      %ein Abkürzungsverzeichnis erstellen
+toc,          %Einträge im Inhaltsverzeichnis
+section,      %im Inhaltsverzeichnis auf section-Ebene erscheinen
+%numberedsection=autolabel %Zum einfügen in das Appendix
+]{glossaries}					     % vor hyperref einbinden, um Verlinkung zu deaktiveren
 
 \usepackage{float}                   % Selbstdefinierte Floating-Umbgebungen
 \usepackage{tabularx}                % Tabellen mit einstellbarer Spaltenbreite
@@ -29,7 +33,7 @@
 \usepackage{textpos}                 % Beliebig platzierte Textboxen
 \usepackage{xcolor}                  % TeX-Engine-unabhängige Definition von Farben
 
-\usepackage[numbers]{natbib}   		 % Weiter Optionen für die Bibliographie
+\usepackage[numbers]{natbib}         % Weiter Optionen für die Bibliographie
 
 \usepackage{setspace}
 \usepackage{ellipsis}	% Korrigiert den Weiï¿½raum um Auslassungspunkte

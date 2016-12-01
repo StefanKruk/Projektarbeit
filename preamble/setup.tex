@@ -138,7 +138,7 @@ urlcolor=cyan                          % Farbe von URLs
     morecomment=[s]{<!--}{-->},
     rulecolor=\color{black}
 }
-\renewcommand{\lstlistlistingname}{Quellcode}
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 \renewcommand{\lstlistingname}{Quellcode}
 
 \AtBeginDocument{\numberwithin{lstlisting}{section}} % Nummeriere Quellcode fortlaufend je Abschnitt
@@ -160,7 +160,7 @@ urlcolor=cyan                          % Farbe von URLs
 
 % ************************** BIBLIOGRAPHY SETUP ********************************
 \bibliographystyle{dinat}    % Literaturverzeichnis nach DIN
-%\AtBeginDocument{\nocite{*}}    % Diese Zeile vor der Abgabe der Arbeit entfernen!
+\AtBeginDocument{\nocite{*}} % Diese Zeile vor der Abgabe der Arbeit entfernen!
 
 % ****************************** MATH SETUP ************************************
 \everymath{\displaystyle}    % Erzwinge \displaystyle für Mathematischen-Modus
@@ -198,16 +198,36 @@ urlcolor=cyan                          % Farbe von URLs
 \providecommand*{\pseudocodeautorefname}{Pseudocode}
 
 % ******************************* PAGE SETUP **********************************
-\setlength{\parindent}{0pt}
-\textheight23cm
-\textwidth14cm
-\voffset0cm
-\topskip0cm
-\topmargin-1.2cm
-\headheight1.0cm
-\headsep1.5cm
-\oddsidemargin1.0cm
-\evensidemargin1.0cm
+\setlength\parindent{0pt}
 \renewcommand{\baselinestretch}{1.4} 
 \widowpenalty=300
 \clubpenalty=300
+
+\geometry{
+	a4paper,
+	textwidth=14cm,
+	textheight=23cm,
+	left=3cm,
+	right=3cm,
+	top=2cm,
+%	margin=3cm,
+%	bottom=2cm
+}
+
+% ******************************* GLOSSARIE SETUP **********************************
+
+%Ein eigenes Symbolverzeichnis erstellen
+\newglossary[slg]{symbolslist}{syi}{syg}{Symbolverzeichnis}
+
+%Glossar-Befehle anschalten
+\makeglossaries
+\makeindex
+
+%Diese Befehle sortieren die Einträge in den
+%einzelnen Listen:
+%pdflatex
+%makeindex -s datei.ist -t datei.alg -o datei.acr datei.acn
+%makeindex -s datei.ist -t datei.glg -o datei.gls datei.glo
+%makeindex -s datei.ist -t datei.slg -o datei.syi datei.syg
+%pdflatex
+%pdflatex

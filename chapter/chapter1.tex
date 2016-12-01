@@ -1,80 +1,63 @@
 \chapter{Einleitung}
 \label{chap:einleitung}
-
-\section{Grundlagen}
-\label{sec:Grundlagen}
-Das in dieser Arbeit behandelnde Thema ist für jede Person mit einer allgemeinen Informatikausbildung ohne Weiteres zu verstehen. Es wird bei dieser Personengruppe, die Kenntnisse über grundsätzliche Architekturen innerhalb der IT vorausgesetzt. Zudem kann vorausgesetzt werden, dass jede Person dieser Gruppe, der englischen Sprache mächtig ist. Weiterhin sollen einige Begrifflichkeiten geklärt werden, welche für das Verstehen dieser Arbeit notwendig sind:
-
-\subsection{Time-to-Market (TTM)}
-\label{subsec:ttm}
-Unter dem Begriff Time-to-Market wird die Zeit von der Produktentwicklung bis zur Auslieferung auf dem Markt verstanden.\footnote{Vergleich mit \cite{ttm:BusinessDictionary}}  In dieser Zeit müssen Kosten für die Erstellung/Entwicklung aufgebracht werden, es werden in dieser Zeit jedoch keine Umsätze erzeugt. Daher strebt jedes Unternehmen eine möglichst geringe Time-to-Market Zeit an. Insbesondere wenn es um Wettbewerb geht, muss diese Zeit kurz gehalten werden, um neue, innovative Produkte schnell auf dem Markt zu bringen.
-
-\subsection{Wertschöpfungskette}
-\label{subsec:Wertschoepfungskette}
-\begin{quotation}
-\frqq Die Wertschöpfungskette stellt die zusammenhängenden Unternehmensaktivitäten des betrieblichen Gütererstellungsprozesses grafisch dar.\flqq \cite{gabler}
-\end{quotation}
-
-\begin{figure}[htb]
-    \centering 
-    \includegraphics[width=\linewidth]{content/images/integrations-pyramide}\
-    \quelle\url{http://www.referenzportal.ch/fuehrung/vom-erp-zum-integrierten-informationssystem/}
-    \caption[Darstellung einer typischen Integrations-Pyramide]{Darstellung einer typischen Integrations-Pyramide\\}
-    \label{fig:integrations-pyramide} 
-\end{figure} 
-Das Bild zeigt eine typische Integrations-Pyramide eines Unternehmens. In dieser Pyramide ist zum einen ersichtlich, dass für die Wertschöpfungskette die horizontale Integration wichtig ist, zum anderen jedoch auch, dass mehrere Abteilungen eines Unternehmens in einer Wertschöpfungskette durchlaufen werden müssen.
+Nur ein kurzes Beispiel, für den Umgang mit einem Glossar:
 \\\\
-Die Dauer zum durchlaufen der Wertschöpfungskette nennt man auch Time-to-Market. Wird die Kette in möglichst geringer Zeit durchlaufen, wird hierdurch die Time-to-Market Zeitspanne verringert.
+In unserem Netzwerk setzen wir auf \gls{AD}. Durch den Einsatz
+eines \gls{AD} erreichen wir bei \gls{MS}-Systemen, die mit einer
+\gls{glos:AntwD} von \gls{CD} installiert wurden, die beste Standardisierung.
 
-\section{Begriffsabgrenzung}
-\label{sec:Begriffsabgrenzung}
-
-\subsection*{SOA und "`Service-orientierte Architektur"'}
-Sowohl SOA als auch Microservices zählen zu dem Paradigma der "`Service-orientierten Architekturen"'.
-
-Die Abkürzung SOA wird hier sowohl für das Paradigma "`Service-orientierte Architektur"' verwendet, wie auch für die spezielle Herangehensweise.
-
-Um die beiden Thematiken in dieser Arbeit abzugrenzen wird der Begriff "`SOA"' für die Herangehensweise verwendet und die ausgeschriebene Variante zur Kennzeichnung des allgemeinen Paradigmas.
-
-%\subsection*{Microservice}
-%Der Begriff Microservice wird einerseits zum Beschreiben eines Architekturmodells genutzt, als auch zum beschreiben von eigenständigen Diensten (Services).
-
-%Damit keine Verwechslung entsteht, wird in dieser Arbeit der Begriff "`Microservice"' verwendet, sofern das Architekturmodell gemeint ist und der Begriff "`Dienst"' oder "`Service"', wenn ein eigenständiger Dienst gemeint ist.
+\section{Griechische Symbole}
+Berechnungen mit \gls{symb:Pi} ergeben stets ein ungenaues Ergebnis,
+denn \gls{symb:Pi} ist eine irrationale Zahl. Weiterhin gibt es noch
+\gls{symb:Phi} und \gls{symb:Lambda}.
 
 \section{Motivation}
-\label{sec:motivation}
-Die Anforderungen an Software werden zunehmend komplexer. Diese muss nicht nur funktionieren, sondern muss zum Teil in kürzester Zeit erweitert oder geändert werden, was eine besondere Herausforderung dar stellt. Dabei spielen sowohl funktionale, als auch nicht funktionale Anforderungen eine wichtige Rolle. Je komplexer Software wird, desto schwieriger ist sie zu warten und zu pflegen. 
+{\bf WICHTIGER HINWEIS:} 
+Alles in diesem {\bf Entwurf} den Aspekt
+{\bf wissenschaftliches Arbeiten} bei der Anfertigung einer
+Bachelor-/Master-Arbeit 
+Betreffende ist absolut {\bf verbindlich} und muss uneingeschränkt
+berücksichtigt werden! \\[0.1cm]
+Alles in diesem {\bf Entwurf} das 
+{\bf Layout} einer Bachelor-/Master-Arbeit Betreffende gibt die 
+{\bf persönliche} Meinung des 
+Verfassers wieder! Jede Studentin und jeder Student mag eigene Vorstellungen
+entwickeln! Hier findet man eventuell erste hilfreiche Anhaltspunkte. \\[0.1cm]
+Nun zum Überblick! Was sollte er u.\ a.\ enthalten:
+\begin{itemize}
+\itemsep -6pt
+\item Erläuterung der Problemstellung 
+\item Motivation für die Beschäftigung mit dem Problem
+\item Hinweis auf eventuell schon vorhandene Entwicklungen 
+\item Abgrenzung der eigenen Arbeit von eventuell schon vorhandenen
+      Entwicklungen 
+\item kurzer Abriss über den Inhalt der Arbeit
+\end{itemize}
 
-\begin{quotation}
-\frqq Die Zeitspanne des Time-to-Market [(TTM)] kann [dabei] ein sehr bedeutsamer Faktor für den Erfolg des Unternehmens darstellen und ist daher nicht zu vernachlässigen. Kurze Entwicklungszeiträume bei der Time-to-Market garantieren dem Unternehmen nämlich einen Vorteil gegenüber der Konkurrenz. Hier geht es darum, dem Kunden so schnell wie möglich ein neues und innovatives Produkt anbieten zu können.
-    
-Um den Erfolg durch eine kurze Time-to-Market zu unterstützen und zu fördern, investieren Unternehmen in ihre Entwicklungsabteilungen. Diese können sich so nur auf ihre jeweiligen Bereiche konzentrieren. Durch eine leistungsfähige Entwicklungsabteilung kann so, in Kombination mit einem gut organisierten Projektplan und eindeutigen Zuständigkeiten, die Zeitspanne Time-to-Market so klein wie möglich gehalten werden. Gerade in Branchen, in denen Innovation eine übergeordnete Rolle spielt und der Produkt-Lebens-Zyklus generell eher kurz ausfällt, spielt eine kurze Time-to-Market eine außerordentlich wichtige Rolle.\flqq \cite{ttm}
-\end{quotation}
+\section{Notation}
+In diesem Abschnitt wird die in dieser Arbeit verwendete Notation 
+vorgestellt und erläutert, falls sie relativ aufwendig ist.
 
-Zusätzlich entstehen Kosten für die Planung und Entwicklung des Produktes. Bis zur Veröffentlichung des Produktes hat das Unternehmen Geld und Zeit investiert. Je länger die Zeitspanne des TTM ist, umso erfolgreicher muss das Produkt sein, bzw. der Preis hoch genug sein. Daher muss die Zeitspanne des TTM möglichst gering gehalten werden, damit möglichst zeitnah die Schwelle, ab der die Erlöse und die Produktionskosten gleich hoch sind (Break-even-Point) erreicht wird. Die Time-to-Markt Zeitspanne beschreibt dabei die Zeit, in der die Wertschöpfungskette durchlaufen wird. Indem diese in möglichst geringer Zeit durchlaufen wird, wird die TTM-Zeitspanne gering gehalten. Jedes Unternehmen strebt daher eine kurze TTM Zeitspanne an.
-\\\\
-Zudem gibt es in einem Unternehmen nicht nur ein Softwareprodukt, sondern eine Vielzahl verschiedener Produkte für unterschiedliche Anwendungsfälle. Dabei kann es passieren, dass einige Anwendungen gleiche Funktionalitäten beinhalten. Müssen solche Funktionalitäten geändert werden, müssen dafür alle Anwendungen, welche diese Funktionen bereitstellen, geändert werden. Einfacher ist es daher, nur eine Anwendung zu haben, welche diese Funktionalität anbietet. Dadurch bedarf es nicht mehr der Anpassung von vielen Anwendungen, sondern nur noch von dieser einen.
-
-\section{Ausgangssituation}
-\label{sec:ausgangssituation}
-Bei der Ausgangssituation handelt es sich um ein fiktives Szenario, welches an ein reales Problem angelehnt ist.
-\\\\
-Das Unternehmen \textit{Auktionen GmbH}\ ist ein modernes und aktives Internet-Unternehmen, welches seit 1995 existiert. Wie aus dem Namen zu entnehmen, betreibt das Unternehmen eine Auktionsplattform im Internet. Diese wurde zunächst als monolithische Anwendung implementiert.
-\\\\
-Mit zunehmenden Nutzerzahlen und damit täglichen Benutzungen, stellte das Unternehmen fest, dass es zunehmend schwieriger wurde, auf das Verhalten der Nutzer in angemessener Zeit zu reagieren. Da die zentrale Anwendung ein monolithisches System war, war es zudem schwierig diese zu deployen.
-\\\\
-Muss eine neue Version herausgebracht werden, so bedeutet dies entweder die gesamte Infrastruktur für Wartungszwecke offline zu nehmen und die Anwendung neu zu deployen oder Server im Parallelbetrieb laufen zu lassen und jeden neuen Besucher auf die neue Version zu leiten. Die letzte Methode bietet jedoch einige Schwierigkeiten, denn es könnten Änderungen eingebaut worden sein, welche im Konflikt mit der alten Version stehen. Dann muss in jedem Fall die erste Variante gewählt werden und die gesamte Infrastruktur offline genommen werden.
-\\\\
-Beide Varianten der Produktivname von Änderungen sind jedoch zeitaufwendig und komplex. Nicht nur das Deployen könnte Probleme bereiten, sondern auch die darauf folgende Ausführung des Programms. Wird der Code in einer monolithischen Applikationen geändert, kann dies ebenfalls Auswirkungen auf bestehende Teile des Codes haben, welche vorher, ohne Probleme, funktionierten. Werden Tests vernachlässigt oder wird nicht ausreichend getestet, kann es leicht passieren, dass sich Fehler einschleichen, wodurch eine Version in Betrieb genommen wird, welche Fehler enthält. Darauf folgend müssten diese behoben werden und die Anwendung erneut deployed werden.
-\\\\
-Im Falle einer monolithischen Architektur bedeutet das viele Änderungen für neue Features. Oft passiert es daher, dass Codestücke zurückbleiben, welche nicht mehr benötigt werden. Irgendwann ist die Applikation daher so groß, dass sie nicht mehr wartbar ist und neue Features nur noch schwer zu implementieren sind. Entstehen Fehler in solch einer Anwendung ist es umso schwerer diese zu finden und zu beheben.
-\\\\
-Aus diesem Grund hat die \textit{Auktionen GmbH} sich entschlossen, die monolithische Strukturen nicht weiter zu entwickeln, sondern auf eine Service-orientierte Architektur umzustellen.
-
-\section{Vorgehen und Kapitel}
-\label{sec:vorgehen}
-Zunächst werden die Probleme bei der Verwendung von monolithischen Architekturen, unter dem Aspekt der Softwareentwicklung und Wartung analysiert. Darauf aufbauend soll die grundlegende Problematik herausgearbeitet werden. Anschließend werden die Grundlagen zur Verwendung von Service orientierten Architekturen und deren Vorteile, aufbauend auf die zuvor erläuterte Problematik, erklärt.
-\\
-Darauf folgend wird zunächst das Architekturparadigma "`SOA"' und anschließend das "`Microservice"' Paradigma betrachtet. Beide Paradigmen werden einzeln und unabhängig voneinander erläutert, um die spezifischen Eigenschaften beider Herangehensweisen herauszuarbeiten.
-\\
-Abschließend werden die gewonnen Kenntnisse zusammengetragen und ausgewertet. Dabei sollen beide Architekturparadigmen verglichen und bewertet werden. Zuletzt wird das Thema noch einmal zusammengefasst und ein Ausblick auf kommende Projekte bzw. die Bachelorarbeit gegeben.
+\section{Grundlagen}
+Wohlbekannte, aber für diese Arbeit besonders wichtige Resultate finden
+sich hier, wenn sie denn benötigt werden. Wichtig in diesem und in allen
+folgenden Kapiteln: {\bf Zitate angeben!!!} Wann immer etwas aus einem Buch,
+einer Veröffentlichung, einem Vortrag oder einer www-Page entnommen ist, 
+{\bf muss} dies durch eine entsprechende Angabe der Quelle im Text (z.B.
+\cite[vgl.][S.\ 23ff]{Lenze_Einfuehrung_2000}) sowie einer Angabe der vollständigen Quelle im
+Literaturverzeichnis kenntlich gemacht werden! Es ist absolut unzulässig,
+längere Passagen {\bf wörtlich} oder {\bf sinngemäß und nahezu wörtlich} aus
+einem anderen Dokument zu übernehmen, ohne dies präzise zu zitieren,
+auch wenn man die Referenz pauschal im Literaturverzeichnis angibt
+(Plagiat, nicht bestanden, keine Wiederholung möglich). Im Rahmen der 
+Erklärung am Ende der Bachelor-/Master-Arbeit verpflichtet sich die
+Studentin bzw.\ der 
+Student, dieser, im Rahmen wissenschaftlicher Arbeit fundamentalen Pflicht,
+alle Quellen angegeben zu haben und Zitate kenntlich gemacht zu haben,
+nachgekommen zu sein. \\
+Überwiegt bei einer Arbeit der Anteil korrekt
+zitierter, aber mehr oder weniger wörtlich übernommener Passagen, ist sie zwar
+im engeren Sinne kein Plagiat, allerdings auch kein Nachweis einer gemäß
+Prüfungsordnung zu 
+erbringenden selbstständigen wissenschaftlichen und fachpraktischen Leistung
+(nicht bestanden, Wiederholung möglich). 

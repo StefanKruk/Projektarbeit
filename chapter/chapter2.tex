@@ -1,22 +1,98 @@
-\chapter{Problemanalyse}
-\label{chap:analyse}
-Betrachtet man die Ausgangssituation aus Kapitel \secref{sec:ausgangssituation} wurde es zunehmend schwieriger die monolithische Anwendung zu warten. Schließlich wurde die Entscheidung getroffen, dass eine klassische monolithische Anwendung, dem Unternehmensziel nicht mehr behilflich ist. Es wurde daher beschlossen, die bisherige Struktur in eine Service-orientierte zu ändern.
+\chapter{Theorie neuronaler Netze}
+\label{chap:theorie}
 
-\section{Herausforderungen}
-\label{sec:herausforderung}
-Oft passiert es, dass ein Unternehmen große Vorstellungen von dem Unternehmensziel hat. Dies führt häufig dazu, dass Software entwickelt wird, welche weit über die aktuellen Anforderungen hinaus geht. Man möchte damit verhindern, Software an einem späteren Zeitpunkt neu zu entwickeln oder austauschen zu müssen. Jedoch kann dies zu großen Problemen führen sobald das Unternehmen wächst und den am Anfang genannten Vorstellungen näher kommt. In dieser Phase entstehen meistens Probleme, welche vorher nicht berücksichtigt worden sind, weil niemand sie kannte. Dadurch muss die vorhandene Software, welche ursprünglich für dieses Szenario ausgelegt war, geändert werden.
-\\\\
-Eine weitere Herausforderung besteht in der Umstellung auf eine Service-orientierte Architektur. Wurde, wie im Fall von der \textit{Auktionen GmbH}, zunächst auf ein monolithisches System gesetzt, ist die Umstellung auf ein Service-orientierte Architektur nicht trivial. Die bestehende Anwendung muss weiterentwickelt werden, während auf die neue Architektur umgestellt wird.
+\section{Die formalen Neuronen}
+In diesen Abschnitten geht es um die mathematischen Grundlagen der zu
+behandelnden Problemstellung. Hier können Definitionen und Sätze
+auftauchen, wobei die Sätze teils bewiesen werden sollten (falls einfach
+und für das weitere Verständnis wesentlich) oder ihre Beweise sauber
+zitiert werden. Beispiele: \\
+\begin{definition}[Formales Neuron]
+Ein formales Neuron ist eine Funktion
+$\kappa: \RR^n \to \RR^m$, die erzeugt wird durch die Verkettung 
+einer sogenannten {\sl Transferfunktion} 
+$\sigma: \RR \to \RR$ mit einer sogenannten
+{\sl Aktivierungsfunktion} $A: \RR^n \to \RR$:
+\begin{equation}
+\begin{array}{rl}
+\kappa: \ \ \ & \RR^n \to \RR^m \ , \\
+        & \ \ \ \vec x \mapsto 
+        \big( \sigma(A(\vec x)), \sigma(A(\vec x)), \ \ldots \ ,
+                               \sigma(A(\vec x)) \big) \ . 
+\end{array} 
+\end{equation}			       
+\end{definition}
 
-\section{Die zu untersuchende Fragestellung}
-\label{sec:dasProblem}
-Das Problem besteht darin, eine Anwendung flexibel und einfach erweiterbar zu gestalten, damit ein Unternehmen schnell auf veränderte Bedürfnisse der Nutzer reagieren kann. Die Time-to-Market Zeitspanne muss daher möglichst gering gehalten werden. Damit solch eine Software ebenfalls gut wartbar ist, sollten Redundanzen möglichst vermieden werden. Das heißt, eine Funktionalität ist nur einmal im gesamten Unternehmen vorhanden. So können zum Beispiel alle Codestücke einer bestimmten Berechnung in ein Modul gepackt werden, wodurch diese  nur an einer zentralen Stellen geändert werden muss.
-\\\\
-Um dieses Vorgehen zu vereinfachen hat man sich dazu entschieden, derartige Codestücke in eigene Module/Applikationen (Dienste) zu verpacken und diese über eine Schnittstelle anzubieten. Das sorgt dafür, dass jede Software, welche dieses Modul benötigt, sie nicht mehr eigenständig implementieren muss, sondern den dafür vorgesehenen Dienst aufrufen kann, um die nötigen Informationen zu erhalten. Hierbei spricht man von einer Service-orientierten Architektur. Sowohl SOA als auch Microservice kommen in diesem Szenario in Betracht .Es stellen sich dementsprechend folgende Fragen:
-\begin{enumerate}
-    \item Welche Unterschiede existieren zwischen den Paradigmen?
-    \item Welche Vor- und Nachteile hat das jeweilige Paradigma?
-    \item Gibt es Grenzen oder Beschränkungen bei der Benutzung der genannten Paradigmen?
-    \item In wie weit helfen die Paradigmen die angesprochenen Problematiken zu lösen?
-\end{enumerate}
-     
+\begin{theorem}[Dichtheitssatz für hyperbolische Aktivierung]
+Es sei $f: \RR^n \to \RR$ stetig, $K \subset \RR^n$ kompakt
+und $\sigma: \RR \to \RR$ eine stetige Sigmoidalfunktion.
+Dann gibt es für alle $\epsilon > 0$ Parameter
+\begin{equation}
+\begin{array}{rl}
+& q \in \NN, \\
+& d_{kp} \in \RR, \ \ 1 \le k \le n , \ 1 \le p \le q , \\
+& \rho_p \in \RR, \ \ \ 1 \le p \le q , \\
+& g_p \in \RR, \ \ \ 1 \le p \le q , 
+\end{array}\end{equation}
+so dass für alle $\vec x \in K$ gilt
+\begin{equation}
+\left| f(\vec x ) - \sum_{p=1}^q g_p \sigma 
+\left( \rho_p \prod\limits_{k=1}^n (x_k-d_{kp}) \right) \right| \ < \ \epsilon .
+\end{equation}
+Definiert man nun
+\begin{equation}
+\sigma_{\pi}(\vec x ) := \sigma(\prod_{k=1}^n x_k) \ ,
+\end{equation}
+so lässt sich dies auch kurz schreiben als
+\begin{equation}
+H_{\sigma}  :=	\overline{span} \; \left\{ \sigma_{\pi}(\rho ( \vec x - \vec d \, )) \; : \;
+\vec d \in \RR^n, \; \rho \in \RR \right\}	=  C(\RR^n ) \ ,
+\end{equation}
+wobei $\overline{span}$ den Abschluss bezüglich der Topologie der
+gleichmäßigen Konvergenz auf kompakten Mengen bezeichnet.
+\end{theorem}
+\noindent
+\begin{proof}
+Vergleiche die Originalarbeiten \cite{Lenze_Note_1994,Pinkus_TDI_1996} oder \cite[][S.\ 163ff]{Lenze_Einfuehrung_2003}.
+\end{proof}
+\\
+\noindent
+Auch Zeichnungen (vgl. \autoref{fig:neuron}) können sinnvoll sein und
+eingebunden werden: 
+
+\begin{figure}[htb]
+%\centerline{\includegraphics[width=8cm]{feubild1}}
+\caption[Reales Neuron]{\label{fig:neuron}Reales Neuron (Schematische Skizze)}
+\end{figure}
+
+\section{Die Topologie neuronaler Strukturen}
+
+\section{Der Ausführ-Modus}
+
+\section{Der Lern-Modus}
+Um Algorithmen zu erläutern kann es sinnvoll sein Pseudocode zu verwenden. Ein Beispiel dafür ist der \autoref{pseu:berechne}. 
+\begin{pseudocode} 
+\caption{Berechne $y = x^n$}
+\label{pseu:berechne}
+\begin{algorithmic}[1]
+    \Require $n \geq 0 \vee x \neq 0$
+    \Ensure $y = x^n$
+    \State $y \Leftarrow 1$
+    \If{$n < 0$}
+        \State $X \Leftarrow 1 / x$
+        \State $N \Leftarrow -n$
+    \Else
+        \State $X \Leftarrow x$
+        \State $N \Leftarrow n$
+    \EndIf
+    \While{$N \neq 0$}
+        \If{$N$ ist gerade}
+            \State $X \Leftarrow X \times X$
+            \State $N \Leftarrow N / 2$
+        \Else
+            \State $y \Leftarrow y \times X$
+            \State $N \Leftarrow N - 1$
+        \EndIf
+    \EndWhile
+\end{algorithmic}
+\end{pseudocode}

@@ -72,6 +72,9 @@ acs-*.bib
 *.glg
 *.glo
 *.gls
+*.slg
+*.syg
+*.syi
 
 # gnuplottex
 *-gnuplottex-*
@@ -154,6 +157,3 @@ pythontex-files-*/
 # endfloat
 *.ttt
 *.fff
-
-# Latexian
-TSWLatexianTemp*
