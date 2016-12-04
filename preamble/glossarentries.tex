@@ -2,45 +2,12 @@
 % ****************************** Glossarie ************************************
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Befehle für Symbole
-\newglossaryentry{symb:Pi}{
-    name=$\pi$,
-    description={Die Kreiszahl.},
-    sort=symbolpi, type=symbolslist
-}
-\newglossaryentry{symb:Phi}{
-    name=$\varphi$,
-    description={Ein beliebiger Winkel.},
-    sort=symbolphi, type=symbolslist
-}
-\newglossaryentry{symb:Lambda}{
-    name=$\lambda$,
-    description={Eine beliebige Zahl, mit der der nachfolgende Ausdruck
-        multipliziert wird.},
-    sort=symbollambda, type=symbolslist
-}
-
 %Befehle für Glossar
-\newglossaryentry{glos:AD}{
-    name=Active Directory,
-    description={Active Directory ist in einem Windows 2000/" "Windows
-        Server 2003-Netzwerk der Verzeichnisdienst, der die zentrale
-        Organisation und Verwaltung aller Netzwerkressourcen erlaubt. Es
-        ermöglicht den Benutzern über eine einzige zentrale Anmeldung den
-        Zugriff auf alle Ressourcen und den Administratoren die zentral
-        organisierte Verwaltung, transparent von der Netzwerktopologie und
-        den eingesetzten Netzwerkprotokollen. Das dafür benötigte
-        Betriebssystem ist entweder Windows 2000 Server oder
-        Windows Server 2003, welches auf dem zentralen
-        Domänencontroller installiert wird. Dieser hält alle Daten des
-        Active Directory vor, wie z.B. Benutzernamen und
-        Kennwörter.}
+\newglossaryentry{glos:Docker}{
+    name=Docker,
+    description={Docker ist ein Werkzeug, um Anwendungen mit Hilfe von Betriebssystemvirtualisierungen zu isolieren. Dafür werden sogennante Docker-Images genutzt, in denen die virtuelle Umgebung definiert und konfiguriert wird. Dabei kann eine Anwendung automatisch Installiert und gestartet werden. Docker arbeitet dabei auf Basis eines Linux Kernels. Anders als bei virtuellen Maschinen, welche zum Beispiel mit Hilfe von VirtualBox erstellt werden können, ist eine vollständige Isolation des Systemes nicht möglich. Alle Docker-Images auf einem System, teilen sich den Linux Kernel des zugrunde liegenden Systems. Im Falle von Windows wird dafür eine virtuelle Maschine, mit einem Linux Kernel gestartet, auf welchem die Images laufen.}
 }
-\newglossaryentry{glos:AntwD}{name=Antwortdatei, description={Informationen zum
-        Installieren einer Anwendung oder des Betriebssystems.}}
-
-%Befehle für Abkürzungen
-\newacronym{MS}{MS}{Microsoft}
-\newacronym{CD}{CD}{Compact Disc}
-%Eine Abkürzung mit Glossareintrag
-\newacronym{AD}{AD}{Active Directory\protect\glsadd{glos:AD}}
+\newglossaryentry{glos:Vagrant}{
+    name=Vagrant, 
+    description={Vagrant ist ein Werkzeug zum erstellen von Standardisierten virtuellen Maschinen mit Hilfe von VirtualBox oder VMWare. Neben dem erstellen kann man mit Hilfe von Vagrant die virtuellen Maschinen steuern. In Kombination mit Docker, ist es ein Mächtiges Werkzeug zum einfachen erstellen von Systemen}
+}

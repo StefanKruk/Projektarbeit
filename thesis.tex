@@ -25,11 +25,11 @@
 \setcounter{page}{1}
 \pagenumbering{roman}
 
-\input{misc/tables}
-
 \include{misc/abstract}
 
-%\include{misc/glossar}
+\input{misc/tables}
+
+\include{misc/glossar}
 
 % ***************************** MAIN MATTER ***********************************
 \pagestyle{fancy}
@@ -41,15 +41,23 @@
 
 \include{chapter/Grundlagen}
 
+\include{chapter/SOA}
+
+\include{chapter/Microservice}
+
+\include{chapter/Unterschiede}
+
+\include{chapter/Fazit}
+
 % ***************************** BIBLIOGRAPHY **********************************
 \baselineskip=14pt
 \addcontentsline{toc}{chapter}{\protect\numberline{}\bibname}
 \bibliography{bib/thesis}
 
 % ******************************* APPENDIX ************************************
-\appendix
-\baselineskip=18pt
-\include{misc/appendix}
+%\appendix
+%\baselineskip=18pt
+%\include{misc/appendix}
 
 % ***************************** BACK MATTER ***********************************
 \pagestyle{empty}
