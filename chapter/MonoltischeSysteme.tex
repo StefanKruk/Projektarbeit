@@ -1,21 +1,37 @@
 \chapter{Problemanalyse von Monolithischen Systemen/Anwendungen}
 \label{chap:ProblemanalyseMonolithischeSysteme}
-In der klassischen Softwareentwicklung sind monolithische Anwendungen, oft die Grundlage für komplexe Systeme. Dabei besitzt die Anwendung alle nötigen Ressourcen und Eigenschaften, um eine bestimmte Aufgabe zu erfüllen. Dies fängt an bei der Datenverwaltung, wie zum Beispiel der Persistierung und dem laden von Daten. Dies kann zum Beispiel durch eine Datenbankschnittstelle umgesetzt werden. Dabei wird jedoch meistens nur eine einzelne Datenbank, wie zum Beispiel eine Oracle Datenbank, unterstützt. Neben der Datenverwaltung gehören noch weitere Aufgaben zu einer Anwendung, wie zum Beispiel das durchführen von verschiedenen Berechnungen auf Grundlage der vorhandenen Daten. Damit ein Benutzer, eine Anwendung benutzen kann, muss zudem ein Frontend vorhanden sein. Dies kann zum Beispiel durch eine Internetbrowser-Seite geschehen oder durch eine native Desktop Darstellung.
-
-%\begin{figure}[htb]
-%    \centering 
-%    \includegraphics[width=\linewidth]{content/images/MonolithischeAnwendung}\
-%    \caption{Darstellung einer monolithischen Anwendung}
-%    \label{fig:integrations-pyramide} 
-%\end{figure} 
-
+In der klassischen Softwareentwicklung sind monolithische Anwendungen, oft die Grundlage für komplexe Systeme. Dabei besitzt die Anwendung alle nötigen Ressourcen und Eigenschaften, um eine bestimmte Aufgabe zu erfüllen. Dies fängt an bei der Datenverwaltung, wie zum Beispiel der Persistierung und dem laden von Daten. Dies kann beispielsweise durch eine Datenbankschnittstelle umgesetzt werden. Dabei wird jedoch meistens nur eine einzelnes Datenbanksystem unterstützt. Neben der Datenverwaltung gehören noch weitere Aufgaben zu einer Anwendung, wie zum Beispiel das durchführen von verschiedenen Berechnungen auf Grundlage der vorhandenen Daten. Damit ein Benutzer, eine Anwendung benutzen kann, muss zudem eine Benutzerinterface vorhanden sein. Dies kann zum Beispiel durch eine Internetseite  oder durch eine native Desktop Darstellung geschehen.
 
 \section{Herausforderungen bei der Verwendung von monolithischen Systemen}
 \label{sec:HerausforderungenMonolithisch}
-Zu beginn der Entwicklung, stellt das erstellen einer Anwendung, auf Basis eines Pflichtenheftes keine große Herausforderung da. Es können die Anforderungen an das neue System analysiert werden und darauf aufbauend eine Programmiersprache und die interne Architektur gewählt werden.
+Zu Beginn der Entwicklung, stellt das Erstellen einer Anwendung, auf Basis eines Pflichtenheftes keine große Herausforderung dar. Es können die Anforderungen an das neue System analysiert werden und darauf aufbauend eine Programmiersprache und die interne Architektur gewählt werden.
 \\\\
-Werden hingegeben, bei einer bestehenden Anwendung, neue Anforderungen gestellt, ist man zunächst einmal an den zuvor gewählten Technologiestack gebunden. Das Korrigieren von Fehlern ist relativ einfach, im Vergleich zur Anpassbarkeit und Erweiterbarkeit des Systemes. Je nach Größe der Anwendung, kann dadurch die Umsetzung der neuen Anforderungen problematisch werden, sofern diese nicht mit den bestehenden internen Architekturen vereinbar sind. In diesem Fall kann die Anforderung dazu führen, dass die Anwendung, umgeschrieben werden muss und im schlimmsten Falle neu geschrieben werden muss.
+Werden hingegeben, bei einer bestehenden Anwendung, neue Anforderungen gestellt, ist man zunächst einmal an den zuvor gewählten Technologie Stack gebunden. Das Korrigieren von Fehlern ist relativ einfach, im Vergleich zur Anpassbarkeit und Erweiterbarkeit des Systems. Je nach Größe der Anwendung, kann dadurch die Umsetzung der neuen Anforderungen problematisch werden, sofern diese nicht mit den bestehenden internen Architekturen vereinbar sind. In diesem Fall kann die Anforderung dazu führen, dass die Anwendung, umgeschrieben werden muss und im schlimmsten Falle neu geschrieben werden muss.
+\\\\
+Ein weiteres Problem besteht in der parallelen Weiterentwicklung.
+\begin{quotation}
+    \frqq Es gibt Teams, die an verschiedenen neuen Features arbeiten. Aber die parallele Arbeit ist kompliziert: Die Struktur der Software ist dafür zu schlecht. Die einzelnen Module sind zu schlecht separiert und haben zu viele Abhängigkeiten untereinander. \flqq\ \cite[S. 16]{EWolff2016:Microservices}
+\end{quotation}
+Ohne eine Versionsverwaltung ist das parallele Arbeiten nicht möglich, da ansonsten die Gefahr zu groß ist, Programmteile von anderen Teams, ungewollt zu überschreiben. Ein weiteres Problem besteht bei der Durchführung von Integrationstests.
+
+\begin{quotation}
+    \frqq Wenn der Deployment-Monolith durch einen Integrationstest läuft, dürfen in dem Test nur die Änderungen eines Teams enthalten sein. Es gab Versuche, mehrere Änderungen auf einmal zu testen. Dann war bei einem Fehler nicht klar, woher das Problem kam, und es gab lange und komplexe  Fehleranalysen.\flqq\ \cite[S. 16]{EWolff2016:Microservices}
+\end{quotation}
+Dadurch entsteht ein Flaschenhals, da andere Teams warten müssen, bis die Integrationstests erfolgreich durchlaufen wurden.
+
 
 \subsection{Skalierung}
 \label{subsec:SkalierungMonolithisch}
-Skalierung ist ein wichtiges Thema von Webanwendungen. Greifen viele Benutzer auf ein und die selbe Anwendung zu, so kann es passieren, dass dies das System überlastet und alle Benutzer länger auf die Antwort des Systems warten muss. Dies kann man nicht immer durch leistungsstarke Hardware ausgleichen. Oft muss daher mehrere Instanzen des Systems existieren und ein Load Balancer die Benutzer auf die Instanzen verteilen. Nicht immer ist es jedoch möglich in kurzer Zeit eine neue Instanz zu starten, sodass zu jederzeit eine feste Anzahl von Instanzen vorhanden sein muss. Dies ist nicht nur schwer zu warten, sondern auch Kostenintensiv, da die Hardware dauerhaft in gebrauch ist. PaaS Systeme, bei denen man nach genutzter Rechenleistung zahlt, können daher sehr Kostenintensiv werden, müssten zu jederzeit, zum teil ungenutzte, Instanzen eines Systemes vorhanden sein.
+Skalierung ist ein wichtiges Thema von Webanwendungen. Greifen viele Benutzer auf ein und dieselbe Anwendung zu, so kann es dazu führen, dass dies das System überlastet und alle Benutzer länger auf die Antwort des Systems warten müssen. Um dies zu verhindern, müssen Anwendungen skaliert werden.
+
+\begin{quotation}
+    \frqq Skalierbarkeit bedeutet, dass ein System mehr Last bearbeiten kann, wenn es mehr Ressourcen bekommt.\flqq\ \cite[S. 150]{EWolff2016:Microservices}
+\end{quotation}
+
+Es gibt nach \cite[S. 150]{EWolff2016:Microservices} zwei verschiedene Arten der Skalierbarkeit:
+\begin{itemize}
+    \item \textit{Horizontale Skalierbarkeit} bedeutet, dass mehr Ressourcen zur Verfügung stehen, die jeweils einen Teil der Last bearbeiten, die Anzahl der Ressourcen steigt also.
+    \item \textit{Vertikale Skalierbarkeit} bedeutet, dass leistungsfähigere Ressourcen genutzt werden, um mehr Last handzuhaben. Eine einzelne Ressource wird also mehr Last abarbeiten. Die Anzahl der Ressourcen bleibt konstant.
+\end{itemize}
+
+Beide Arten der Skalierbarkeit haben ihre Vor- und Nachteile. Welche Art benutzt wird, muss im individuell entschieden werden, jedoch ist die Vertikale Skalierung bei Monolithen, meistens deutlich einfacher, als die Horizontale Skalierung.

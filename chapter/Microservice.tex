@@ -1,18 +1,24 @@
 \chapter{Microservices}
 \label{chap:Microservices}
-Ein Microservices-System besteht aus vielen verteilten Anwendungen (Dienste), welche man selber ebenfalls Microservices nennt. Dabei wird versucht, eine komplexe Anwendungen, in einzelne Dienste aufzuteilen.
+Ein Microservices-System besteht aus vielen verteilten Anwendungen (Dienste), welche man selber ebenfalls Microservices nennt. Dabei wird versucht, komplexe Anwendungen, in einzelne Dienste aufzuteilen.
 
 \begin{quotation}
     \frqq Modularisierung ist nichts Neues. Schon lange werden große Systeme in kleine Module unterteilt, um Software einfacher zu erstellen, zu verstehen und weiterzuentwickeln. Das Neue: Microservices nutzen als Module einzelne Programme, die als eigene Prozesse laufen. Der Ansatz basiert auf der UNIX-Philosophie. Sie lässt sich auf drei Aspekte reduzieren:\flqq\cite[S. 2]{EWolff2016:Microservices}
 \end{quotation}
 
+Weiter nach \cite[S. 2]{EWolff2016:Microservices}:
 \begin{itemize}
     \item Ein Programm soll nur eine Aufgabe erledigen, und das soll es gut machen.
     \item Programme sollen zusammenarbeiten können.
     \item Nutze eine universelle Schnittstelle. In UNIX sind das beispielsweise Textströme.
 \end{itemize}
+
 Diese Art der Aufteilung wurde schon lange von großen Unternehmen wie Amazon oder Google genutzt, jedoch fehlte lange Zeit ein Begriff für dieses Paradigma.
-\\\\
+
+\begin{quotation}
+    \frqq 2006 hielt Werner Vogels (CTO, Amazon) einen Vortrag auf der JAOO-Konferenz, wo er die Amazon Cloud und Amazons partnermodell vorstellte [1]. Dabei erwähnte er das CAP-Theorem - heute Basis für NoSQL. Und dann sprach er von kleinen Teams, die Services mit eigenener Datenbank entwickeln und auch betreiben. Diese Organisationen nennen wir heute DevOps und die Architektur Microservices.\flqq\ \cite[S. 1]{EWolff2016:Microservices}
+\end{quotation}
+
 Der Begriff Microservices ist nicht eindeutig definiert. Als erste Näherung dienen, nach Eberhard Wolff \cite[S. 2]{EWolff2016:Microservices}, folgende Kriterien:
 
 \begin{itemize}
@@ -35,13 +41,13 @@ Grundsätzlich kann man Microservices in drei Kategorien einteilen:
 
 \section{Aufbau von Microservices}
 \label{sec:Aufbau}
-Wie bereits erwähnt, sind Microservices eigenständige Dienste. Sie müssen so gebaut sein, dass sie möglichst ohne Abhängigkeiten funktionieren. Um das zu realisieren dürfen Microservices nur lose gekoppelt sein. Damit ist gemeint, dass der Dienst seine Aufgabe selbständig erledigen kann ohne weiter Dienste in Anspruch zu nehmen. Bei "`Self-Contained Systems"' ist ebenfalls ist ebenfalls eine UI vorhanden. Damit ist das System für sich selbständig und stellt ebenfalls alle nötigen Eigenschaften bereit für die Darstellung von Informationen. Müssen jedoch andere Dienste verwendet werden, sollte darauf geachtet werden, dass diese austauschbar bleiben und nicht fest mit miteinander verbunden sind. Ist ein Dienst fest mit einem anderen verbunden, sollte die Notwendigkeit des Dienstes infrage gestellt werden.
+Wie bereits erwähnt, sind Microservices eigenständige Dienste. Sie müssen so gebaut sein, dass sie möglichst ohne Abhängigkeiten funktionieren. Um das zu realisieren dürfen Microservices nur lose gekoppelt sein. Damit ist gemeint, dass der Dienst seine Aufgabe selbständig erledigen kann ohne weiter Dienste in Anspruch zu nehmen. Bei "`Self-Contained Systems"' ist ebenfalls eine UI vorhanden. Damit ist das System in sich abgeschlossen und stellt  alle nötigen Eigenschaften bereit, welche für die Darstellung von Informationen benötigt werden. Müssen jedoch andere Dienste verwendet werden, sollte darauf geachtet werden, dass diese austauschbar bleiben und nicht fest mit miteinander verbunden sind. Ist ein Dienst fest mit einem anderen verbunden, sollte die Notwendigkeit des Dienstes infrage gestellt werden.
 \\\\
-In direkter Konkurrenz stehen konsumierende Dienste, welche produzierende Dienste verwenden müssen, um die eigenen Aufgaben fertig zu stellen. Konsumierende Dienste werden jedoch häufig als Middleware verwendet, um mehrere Daten aufzubereiten. Ein Konsumierender Dienst könnte zum Beispiel die Aufgabe haben eine Webseite darzustellen oder Informationen zu aggregieren.
+In direkter Konkurrenz stehen konsumierende Dienste, welche produzierende Dienste verwenden müssen, um die eigenen Aufgaben fertig zu stellen. Konsumierende Dienste werden häufig als Middleware verwendet, um mehrere Daten aufzubereiten. Ein Konsumierender Dienst könnte zum Beispiel die Aufgabe haben eine Webseite darzustellen oder Informationen zu aggregieren.
 \\\\
-Damit ein Dienst selbständig bleibt, besitzt dieser alle dafür notwendigen Ressourcen. Hierzu zählt, unter anderem, eine eigene Datenbank. Dadurch kann das Schema der Datenbank frei verändert werden, ohne, dass weitere Teile des Systems beeinflusst werden. Es ist jedoch darauf zu achten, dass die Schnittstelle des Dienstes, worüber dieser von anderen Diensten ansprechbar ist, nicht grundlegend verändert wird.
+Damit ein Dienst selbständig bleibt, besitzt dieser alle dafür notwendigen Ressourcen. Hierzu zählt, unter anderem, eine eigene Datenbank. Dadurch kann das Schema der Datenbank frei verändert werden, ohne, dass weitere Teile des Systems beeinflusst werden. Es ist jedoch darauf zu achten, dass die Schnittstelle des Dienstes, worüber dieser von anderen Diensten ansprechbar ist, nicht grundlegend verändert werden oder die Dienste, welche diese Schnittstelle verwenden, ebenfalls geändert werden. Letzteres ist beispielsweise der Fall, wenn sich Fachlichkeiten des Systemes ändern, da diese in einigen Fällen, über mehrere Microservices verteilt sind. Jedoch besteht hierbei weiterhin die Gefahr, dass einzelne Dienste, die Schnittstelle nutzen, um einzelne Informationen abzurufen, jedoch nichts mit den Fachlichkeiten zu tun hat. In diesem Fall ist zu beachten, dass die Schnittstelle weiterhin das liefert, was zu erwarten ist.
 \\\\
-Geht man von \textit{Self-Contained Systems} aus, besitzen Microservices zusätzlich noch eigene UI-Elemente. Dadurch ist nur noch ein aggregierender Dienst notwendig, welcher alle Informationen zusammenfasst.
+Geht man von \textit{Self-Contained Systems} aus, besitzen Microservices zusätzlich noch eigene UI-Elemente. Dadurch kann der Microservice, seine Informationen selber darstellen und damit bestimmen, wie diese dargestellt werden.
 
 \begin{figure}[htb]
 	\centering 
@@ -59,17 +65,22 @@ Geht man von \textit{Self-Contained Systems} aus, besitzen Microservices zusätz
     Die Größe von Services sollte jedoch nicht von zentraler Bedeutung sein, denn eine untere Grenze gibt es für Services nicht. "Wohl aber eine obere Grenze: Wenn der Microservice so groß ist, dass er von einem Team nicht mehr weiterentwickelt werden kann, ist sie zu groß. Ein Team sollte dabei eine Größe haben, wie sie für agile Prozesse besonders gut funktioniert. Das sind typischerweise drei bis neun Personen.\flqq\cite[S. 34]{EWolff2016:Microservices}
 \end{quotation}
 
-Bei der Größe eines Services ist darauf zu achten, das ein Service nicht zu viele oder zu wenige Funktionen besitzt. Wie bereits beschrieben, sind Microservices modulare, lose gekoppelte Services. Wird ein Service zu klein angesetzt, können daraus Abhängigkeiten zu anderen Services entstehen und damit das Gesetzt der losen Kopplung verletzten. Besitzt hingegen ein Service zu viele Funktionen, wird es meistens nicht mehr als Microservice angesehen, da es nicht eine, sondern mehrere Aufgaben übernimmt und diese wahrscheinlich nicht mehr gut erledigen kann.
+Bei der Größe eines Services ist darauf zu achten, dass ein Service nicht zu viele oder zu wenige Funktionen besitzt. Wie bereits beschrieben, sind Microservices modulare, lose gekoppelte Services. Wird ein Service zu klein angesetzt, können daraus Abhängigkeiten zu anderen Services entstehen und damit das Gesetzt der losen Kopplung verletzten. Besitzt hingegen ein Service zu viele Funktionen, wird es meistens nicht mehr als Microservice angesehen, da es nicht eine, sondern mehrere Aufgaben übernimmt und diese wahrscheinlich nicht mehr gut erledigen kann.
 
 \section{Orchestration vs Choreographie}
 \label{sec:orchestrationvschoreographie}
-Möchte man ein Microservice System aufbauen, stellt sich die Frage, wie einzelne Services strukturiert werden und wie diese untereinander kommunizieren sollen. Ein bestimmter Vorgang startet in der Regel bei einem Service. Nun muss man entscheiden ob weitere Services hinzugezogen, beziehungsweise informiert werden müssen.
+Möchte man ein Microservice System aufbauen, stellt sich die Frage, wie einzelne Services strukturiert werden und wie diese untereinander kommunizieren sollen. Ein bestimmter Vorgang startet in der Regel bei einem Service. Nun muss entschieden werden, ob weitere Services hinzugezogen, beziehungsweise informiert werden müssen.
 Je nach Anwendungsfall muss man sich zwischen Service Orchestration und Choreographie entscheiden. Dabei ist es fast unmöglich ein ganzes Microservice-System aus nur einem der beiden Varianten zu bauen.
 
 % [Seite 66 EWolff2016] Technologische Wahlfreiheit
 \subsection{Herausforderung}
 \label{sec:Herausforderung}
-Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle anderen Microservices nicht mehr funktionieren. Um das zu verhindern muss klar definiert werden, was Microservices in dieser Situation tun sollen. Zusätzlich muss, sofern Datenbankoperationen eine wichtige Rolle spielen, das Problem der einheitlichen Transaktion gelöst werden. Wenn zum Beispiel eine Operation Daten über verschiedene Microservices in Datenbanken schreibt, muss bei nicht Erreichbarkeit oder dem Auftreten eines Fehlers in einem Microservices ein einheitlicher Rollback durchgeführt werden, um keine inkonsistente Dateien im System zu erzeugen.
+Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle anderen Microservices nicht mehr funktionieren. Um das zu verhindern muss klar definiert werden, was Microservices in dieser Situation tun sollen. Zusätzlich muss, sofern Datenbankoperationen eine wichtige Rolle spielen, das Problem der einheitlichen Transaktion gelöst werden. Wenn zum Beispiel eine Operation Daten über verschiedene Microservices in Datenbanken schreibt, muss bei nicht Erreichbarkeit oder dem Auftreten eines Fehlers in einem Microservices ein einheitliches Rollback durchgeführt werden, um keine inkonsistente Dateien im System zu erzeugen.
+
+\begin{quotation}
+    \frqq Transaktion haben die ACID-Eigenschaften. [..] Innerhalb eines Microservice können Änderungen in einer Transaktion stattfinden. Ebenso kann die Konsistenz der Daten in einem Microservice sehr einfach garantiert werden. Über einen Microservice hinaus wird das schwierig. Dann ist eine übergreifende Koordination notwendig. Bei einem Zurückrollen einer Transaktion müssten alle Änderungen in allen Microservices rückgängig gemacht werden.\flqq\ \cite[S. 35]{EWolff2016:Microservices}
+\end{quotation}
+
 \\\\
 Daneben muss sichergestellt werden, dass Nachrichten erfolgreich verarbeitet werden und auch bei mehrfachen senden einer Nachricht keine Fehler auftreten. Dafür müssen Microservices Idempotent sein. Das Heißt, dass eine Wiederholte Aktion (mit gleichen Daten) nicht zu unterschiedlichen Resultaten führt. Wird keine Idempotenz sichergestellt, kann dies zu unerwarteten und unerwünschten Ereignissen führen.
 \\\\
@@ -84,7 +95,7 @@ Damit die Schnittstellen genutzt werden können, müssen die Kommunikationskanä
 	\caption{Monolithisch vs Microservice Architektur\\}
 	\label{fig:MonoVSMicroArchitektur} 
 \end{figure}
-Im Unterschied zu monolithischen Anwendungen, bei der alles in einer Anwendung ist, sind Microservices einer Fachlichkeit zugeordnet und werden von den jeweiligen Teams entwickelt und verwaltet. Wird eine neue Funktion benötigt, welche nicht in der eigenen Fachlichkeit liegt, muss das entsprechende Team damit beauftragt werden, diese zu implementieren.
+Im Unterschied zu monolithischen Anwendungen, bei der alles in einer Anwendung ist, sind Microservices Module eines gesamten Systems und werden von den jeweiligen Teams entwickelt und verwaltet. Wird eine neue Funktion benötigt, welche nicht in der eigenen Fachlichkeit liegt, muss das entsprechende Team damit beauftragt werden, diese zu implementieren, bzw. in einem bestehenden Microservice anzupassen.
 
 \section{PUSH- VS PULL-Architektur}
 \label{sec:PushPullArchitektur}
@@ -95,10 +106,10 @@ Eine PULL-Architektur basiert auf einen einfachen Request-Replay-Schema. Dements
 Der Browser macht eine Anfrage an einen Server, dieser wiederum verarbeitet die Anfrage und liefert eine Antwort (Replay) zurück. Dies hat den Vorteil, dass nicht lange auf eine Antwort gewartet werden muss und sich die teilhabenden Kommunikationspartner gegenseitig kennen. Ein Nachteil jedoch ist es, dass dadurch weitgehend eine synchrone Kommunikation stattfindet und eine Antwort häufig nicht gleichzeitig an mehrere Empfänger senden kann.
 \\\\
 \textbf{PUSH-Architektur}\\
-Eine PUSH-Architektur wird eingesetzt, wenn man verschiedene Kommunikationspartner über bestimmte Ereignisse informieren möchte oder eine Rückantwort ist nicht erforderlich. Zum Beispiel muss eine Registrierung in unserem fiktiven Unternehmen möglich sein. Dabei sendet der Microservice der für die Registrierung zuständig ist eine einfache Event-Nachricht, wie Benutzer XY hat sich Registriert. Im Hintergrund erhalten anderer Microservices diese Nachricht und führen zusätzliche Aktionen durch, wie das erstellen des Warenkorbs oder das anlegen des Profils.
+Eine PUSH-Architektur wird eingesetzt, wenn man verschiedene Kommunikationspartner über bestimmte Ereignisse informieren möchte oder eine Rückantwort ist nicht erforderlich. Zum Beispiel muss eine Registrierung in unserem fiktiven Unternehmen möglich sein. Dabei sendet der Microservice der für die Registrierung zuständig ist eine einfache Event-Nachricht, wie Benutzer XY hat sich Registriert. Im Hintergrund erhalten anderer Microservices diese Nachricht und führen zusätzliche Aktionen durch, wie das Erstellen des Warenkorbs oder das Anlegen des Profils.
 \\\\
 Bei der PUSH-Architektur stehen meist nicht die Kommunikationspartner, sondern die Informationen im Vordergrund. Dafür wird meistens ein eigenständiger Service (Broadcaster) eingesetzt, der die Verteilung dieser Informationen übernimmt. Dabei kann ein Service als Informationsprovider dienen, zum Beispiel ein Nachrichten-Feed (von einer Nachrichtenseite). Alle anderen Services abonnieren den Broadcaster und erhalten dadurch alle Nachrichten, die der Informationsprovider sendet.
 \\\\
-Es gibt jedoch auch den Fall, dass die Kommunikation sternförmig um den Broadcaster angeordnet sind. Dadurch ist jeder Service der diesen abonniert, sowohl Provider, als auch Consumer. Anders als bei PULL-basierten Systemen kann hier nicht durchgehend sichergestellt werden, dass alle Nachrichten von allen Konsumenten gleichzeitig gelesen und ggf. verarbeitet werden. Jedoch können so Informationen innerhalb eines Microservice-Systems relativ zuverlässig verteilt werden.
+Es gibt jedoch auch den Fall, dass die Kommunikation sternförmig um den Broadcaster angeordnet ist. Dadurch ist jeder Service der diesen abonniert, sowohl Provider, als auch Consumer. Anders als bei PULL-basierten Systemen kann hier nicht durchgehend sichergestellt werden, dass alle Nachrichten von allen Konsumenten gleichzeitig gelesen und ggf. verarbeitet werden. Jedoch können so Informationen innerhalb eines Microservice-Systems relativ zuverlässig verteilt werden.
 \\\\
-Der Vorteil von PUSH-Architekturen ist, dass eine asynchrone Informationsverbreitung aufgebaut werden kann. Zudem können Serviceausfälle, solange es nicht der Boradcaster oder wichtige Microservices sind, überbrückt werden, indem der Broadcaster die Nachrichten für eine bestimmte Zeit vorhält und so der Microservice, welcher nicht erreichbar war, die Nachrichten trotzdem noch erhält.
+Der Vorteil von PUSH-Architekturen ist, dass eine asynchrone Informationsverbreitung aufgebaut werden kann. Zudem können Serviceausfälle, solange es nicht der Broadcaster oder wichtige Microservices sind, überbrückt werden, indem der Broadcaster die Nachrichten für eine bestimmte Zeit vorhält. Dadurch kann ein ausgefallener Microservice, die Nachricht zu einem späteren Zeitpunkt entgegennehmen und verarbeiten.
