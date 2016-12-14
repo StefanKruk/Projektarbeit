@@ -6,7 +6,7 @@ Ein Microservices-System besteht aus vielen verteilten Anwendungen (Dienste), we
     \frqq Modularisierung ist nichts Neues. Schon lange werden große Systeme in kleine Module unterteilt, um Software einfacher zu erstellen, zu verstehen und weiterzuentwickeln. Das Neue: Microservices nutzen als Module einzelne Programme, die als eigene Prozesse laufen. Der Ansatz basiert auf der UNIX-Philosophie. Sie lässt sich auf drei Aspekte reduzieren:\flqq\cite[S. 2]{EWolff2016:Microservices}
 \end{quotation}
 
-Weiter nach \cite[S. 2]{EWolff2016:Microservices}:
+Weiter nach \cite[S. 2]{EWolff2016:Microservices} haben Microservices folgende Eigenschaften:
 \begin{itemize}
     \item Ein Programm soll nur eine Aufgabe erledigen, und das soll es gut machen.
     \item Programme sollen zusammenarbeiten können.
@@ -16,7 +16,7 @@ Weiter nach \cite[S. 2]{EWolff2016:Microservices}:
 Diese Art der Aufteilung wurde schon lange von großen Unternehmen wie Amazon oder Google genutzt, jedoch fehlte lange Zeit ein Begriff für dieses Paradigma.
 
 \begin{quotation}
-    \frqq 2006 hielt Werner Vogels (CTO, Amazon) einen Vortrag auf der JAOO-Konferenz, wo er die Amazon Cloud und Amazons partnermodell vorstellte [1]. Dabei erwähnte er das CAP-Theorem - heute Basis für NoSQL. Und dann sprach er von kleinen Teams, die Services mit eigenener Datenbank entwickeln und auch betreiben. Diese Organisationen nennen wir heute DevOps und die Architektur Microservices.\flqq\ \cite[S. 1]{EWolff2016:Microservices}
+    \frqq 2006 hielt Werner Vogels (CTO, Amazon) einen Vortrag auf der JAOO-Konferenz, wo er die Amazon Cloud und Amazons partnermodell vorstellte [1]. Dabei erwähnte er das CAP-Theorem - heute Basis für NoSQL. Und dann sprach er von kleinen Teams, die Services mit eigenener Datenbank entwickeln und auch betreiben. Diese Organisationen nennen wir heute DevOps und die Architektur Microservices.\flqq\ \cite[S. 13]{EWolff2016:Microservices}
 \end{quotation}
 
 Der Begriff Microservices ist nicht eindeutig definiert. Als erste Näherung dienen, nach Eberhard Wolff \cite[S. 2]{EWolff2016:Microservices}, folgende Kriterien:
@@ -81,8 +81,7 @@ Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle an
     \frqq Transaktion haben die ACID-Eigenschaften. [..] Innerhalb eines Microservice können Änderungen in einer Transaktion stattfinden. Ebenso kann die Konsistenz der Daten in einem Microservice sehr einfach garantiert werden. Über einen Microservice hinaus wird das schwierig. Dann ist eine übergreifende Koordination notwendig. Bei einem Zurückrollen einer Transaktion müssten alle Änderungen in allen Microservices rückgängig gemacht werden.\flqq\ \cite[S. 35]{EWolff2016:Microservices}
 \end{quotation}
 
-\\\\
-Daneben muss sichergestellt werden, dass Nachrichten erfolgreich verarbeitet werden und auch bei mehrfachen senden einer Nachricht keine Fehler auftreten. Dafür müssen Microservices Idempotent sein. Das Heißt, dass eine Wiederholte Aktion (mit gleichen Daten) nicht zu unterschiedlichen Resultaten führt. Wird keine Idempotenz sichergestellt, kann dies zu unerwarteten und unerwünschten Ereignissen führen.
+Daneben muss sichergestellt werden, dass Nachrichten erfolgreich verarbeitet werden und auch bei mehrfachen senden einer Nachricht darf keine Fehler auftreten. Dafür müssen Microservices Idempotent sein. Das Heißt, dass eine Wiederholte Aktion (mit gleichen Daten) nicht zu unterschiedlichen Resultaten führt. Wird keine Idempotenz sichergestellt, kann dies zu unerwarteten und unerwünschten Ereignissen führen.
 \\\\
 Eine weitere Herausforderung besteht in dem Grundkonzept von Microservices. Da nicht definiert ist, welche Programmiersprache für Microservices verwendet wird, kann ein Service zum Beispiel in Java, ein anderes in Scala oder Python geschrieben werden. Es muss daher dafür gesorgt werden, dass die einzelnen Services untereinander interoperabel sind. Um das zu gewährleisten, müssen die Schnittstellen möglichst einheitlich und auf dem gleichen Protokoll aufbauend programmiert werden. Hier bieten REST-Schnittstellen eine gute Lösung. Diese beruhen auf dem HTTP-Protokoll. Zusätzlich bietet das HTTP-Protokoll die Möglichkeit, ein einheitliches Medium, wie zum Beispiel XML oder JSON, als Informationsträger zu nutzen. Dabei kann theoretisch jeder Microservice mit jedem anderen Microservice kommunizieren, sofern die Schnittstellen einheitlich definiert sind.
 \\\\

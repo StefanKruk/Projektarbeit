@@ -1,25 +1,25 @@
 \chapter{SOA}
 \label{chap:soa}
-Der Begriff SOA ist nicht eindeutig definiert. Je nachdem welche Person man in einem Unternehmen befragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\cite[vgl. Seite 6]{100QA}
+Der Begriff SOA ist nicht eindeutig definiert. Je nachdem welche Person man in einem Unternehmen befragt, erhält man unter Umständen eine komplett andere Definition. \frqq Die meisten Definitionen stimmen jedoch zum größten Teil überein und stehen nicht im Konflikt mit einander.\flqq\ \ \cite[vgl. Seite 6]{100QA}
 
 Für einen Kaufmann ist SOA etwas Anderes als für einen Analysten. Um die unterschiedlichen Sichten auf SOA besser zu verstehen, werden zunächst einmal einige Definitionen nach \cite{100QA}\ genannt:
 \begin{enumerate}
        \item \frqq To the chief information officer (CIO), SOA is a journey that
-       promises to reduce the lifetime cost of the application portfolio [...].\flqq \cite[vgl. Seite 6]{100QA}
+       promises to reduce the lifetime cost of the application portfolio [...].\flqq\  \cite[vgl. Seite 6]{100QA}
     
        \item \frqq To the business executive, SOA is a set of services that can be exposed to their customers, partners, and other parts of the organization. Business capabilities, function, and business logic can be combined and recombined to serve the needs of the business now and tomorrow. Applications serve the business because they are composed
        of services that can be quickly modified or redeployed in new
        business contexts, allowing the business to quickly respond to changing
-       customer needs, business opportunities, and market conditions.\flqq \cite[vgl. Seite 6]{100QA}
+       customer needs, business opportunities, and market conditions.\flqq\  \cite[vgl. Seite 6]{100QA}
        
-       \item \frqq To the business analyst, SOA is a way of unlocking value, because business processes are no longer locked in application silos. Applications no longer operate as inhibitors to changing business needs.\flqq \cite[vgl. Seite 6]{100QA}
+       \item \frqq To the business analyst, SOA is a way of unlocking value, because business processes are no longer locked in application silos. Applications no longer operate as inhibitors to changing business needs.\flqq\  \cite[vgl. Seite 6]{100QA}
        
        \item \frqq To the chief architect or enterprise architect, SOA is a means to
        create dynamic, highly configurable and collaborative applications
        built for change. SOA reduces IT complexity and rigidity. SOA becomes the solution to stop the gradual entropy that makes applications
        brittle and difficult to change. SOA reduces lead times and costs
        because reduced complexity makes modifying and testing applications
-       easier when they are structured using services.\flqq \cite[vgl. Seite 6]{100QA}
+       easier when they are structured using services.\flqq\  \cite[vgl. Seite 6]{100QA}
 \end{enumerate}
 Jeder der genannten Rollen hat eine eigene Definition von dem was SOA ist. Jede der Definitionen ist jedoch nur ein Teil dessen für was SOA verwendet werden kann, denn SOA ist ein Paradigma und kein festes Modell. Es dient zur Orientierung, gibt jedoch keine feste Richtung vor. Dabei ist das Ziel von SOA nicht die Entwicklung zu vereinfachen oder voran zu bringen, sondern die unternehmensweiten Geschäftsprozesse zu standardisieren und vereinheitlichen.
 
@@ -27,7 +27,7 @@ Jeder der genannten Rollen hat eine eigene Definition von dem was SOA ist. Jede 
 \label{sec:BusinessAndIT}
 IT darf nie zum Selbstzweck existieren. Sie wird immer zur Unterstützung der Geschäftsprozesse eingesetzt. Oft existieren bereits verschiedene kommerzielle Systeme und Eigenentwicklungen. Mit SOA soll dafür gesorgt werden, dass diese Systeme möglichst effizient miteinander arbeiten können.
 \begin{quotation}
-    \frqq The complexity of the technology infrastructure at many companies in the financial services sector makes it very hard to leverage IT services in a coordinated way across the enterprise. Many large companies have either merged or acquired other very large companies resulting in the integration of new business units with very different work cultures and widely different information infrastructurse. The need to be able to trust and understand the information about the business across its many disaggregated parts has been a prime motivator for change in the IT infrastructure at these companies.\flqq \cite[S. 17]{SOAForDummies}
+    \frqq The complexity of the technology infrastructure at many companies in the financial services sector makes it very hard to leverage IT services in a coordinated way across the enterprise. Many large companies have either merged or acquired other very large companies resulting in the integration of new business units with very different work cultures and widely different information infrastructurse. The need to be able to trust and understand the information about the business across its many disaggregated parts has been a prime motivator for change in the IT infrastructure at these companies.\flqq\  \cite[S. 17]{SOAForDummies}
 \end{quotation}
 
 Mit SOA wird die IT-Infrastruktur eines Unternehmens in zwei Teile geteilt. Auf der einen Seite existiert die Geschäftsschicht mit der Geschäftslogik und auf der anderen Seite die IT-Schicht, welche die Computing-Ressourcen verwaltet. Durch diesen Aufbau ist es nicht nötig, dass ein Business Manager die IT-Schicht verstehen muss.
@@ -39,7 +39,11 @@ Damit diese Schichtentrennung funktioniert, wird darauf geachtet, dass in der Ge
 \section{Unternehmenskomponenten}
 \label{sec:UnternehmensKomponenten}
 Unternehmenskomponenten sind ein zentraler Bestandteil von SOA. Die Informationen aus den Komponenten, müssen durch APIs abgerufen werden können. Dienste in einem SOA-System sind nicht, wie anzunehmen, die Unternehmensanwendungen selber, sondern Adapter, welche für die Steuerung der jeweiligen Anwendungen verantwortlich sind. Dabei dient der Adapter nicht nur als API Exposure Gateway, sondern sorgt auch dafür, dass keine Fehlerhaften Anfragen an das System geschickt werden. Spricht man bei SOA von Diensten, ist meistens der Adapter, zusammen mit den Unternehmenskomponenten gemeint. Wird der Begriff "`Dienst"' im Zusammenhang mit SOA verwendet, ist damit der Adapter und die Anwendung bzw. Unternehmenskomponente gemeint.
-\\\\
+
+\begin{quotation}
+	\frqq Die SOA-Services werden nicht neu implementiert, sondern sind schon in den Anwendungen im Unternehmen vorhanden. Eine SOA-Einführung macht diese Services außerhalb der Anwendungen verfügbar. Durch die Aufteilung der Anwendungen in Services wird deren Nutzung in verschiedenen Zusammenhängen ermöglicht. [..] Auf Basis der einzelnen Services ist es möglich, Geschäftsprozesse abzubilden und dabei die Services wiederzuverwenden. Dazu ist nur eine Orchestrierung der einzelnen Services notwendig.\flqq\ \cite[S. 84]{EWolff2016:Microservices}
+\end{quotation}
+
 Damit die Geschäftsprozesse mit Hilfe von SOA abgebildet werden können, müssen daher zunächst einmal die dazu gehörenden Komponenten identifiziert werden. beginnend mit den Wichtigsten.
 
 \begin{figure}[htb]
