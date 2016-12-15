@@ -1,12 +1,12 @@
 \chapter{Fazit}
 \label{chap:Fazit}
-Ziel dieser Arbeit war es, die Gemeinsamkeiten und Unterschiede zwischen SOA und Microservices herauszuarbeiten. Dazu wurden die Vor- und Nachteile der beiden Paradigmen hinsichtlich Prozessisolierung, Skalierung, Deployment, Wartbarkeit (Korrigierbarkeit, Erweiterbarkeit, Anpassbarkeit, Verbesserung), Entwicklung/Testbarkeit und die Bindung an Technologiestacks herausgearbeitet und anschließend verglichen werden.
+Ziel dieser Arbeit war es, die Gemeinsamkeiten und Unterschiede zwischen SOA und Microservices herauszuarbeiten. Dazu wurden die Vor- und Nachteile der beiden Paradigmen hinsichtlich Prozessisolierung, Skalierung, Deployment, Wartbarkeit (Korrigierbarkeit, Erweiterbarkeit, Anpassbarkeit, Verbesserung), Entwicklung/Testbarkeit und die Bindung an Technologiestacks analysiert und anschließend verglichen.
 \\\\
 Nach der Analyse und dem Vergleich der beiden Paradigmen, kann man sagen, dass die Herangehensweise beider Architekturmodelle auf unterschiedlichen Ebenen arbeiten, jedoch das gleiche Ziel verfolgen. Beide Ansätze sollen das Umsetzten neuer Anforderungen vereinfachen.
 
 Bei einem Microservice-System wird dies erreicht, in dem Anwendungen in kleinere Dienste aufgeteilt werden, wodurch die Entwicklung vereinfacht werden soll. Durch die Aufteilung können unterschiedliche Teams an neuen Funktionen arbeiten und deployen, ohne unbedingt auf andere Teams warten zu müssen.
 
-SOA verfolgt hingegen das Ziel, die gesamte Unternehmens-IT zu vereinheitlichen und in einzelne Services aufzuteilen. Dabei wird eine Abstraktionsschicht über den vorhandenen Services eingeführt, um diese neu zu kombinieren. Damit soll erreicht werden, dass eine flexible Integration der vorhandenen Anwendungen möglich ist und nur die Informationen dargestellt und verarbeitet werden, welche wirklich benötigt werden.
+SOA verfolgt hingegen das Ziel, die gesamte Unternehmens-IT zu vereinheitlichen und in einzelne Services aufzuteilen. Dabei wird eine Abstraktionsschicht über den vorhandenen Services eingeführt, um diese neu kombinieren zu können. Damit soll erreicht werden, dass eine flexible Integration der vorhandenen Anwendungen möglich ist und nur die Informationen dargestellt und verarbeitet werden, welche wirklich benötigt werden.
 \\\\
 SOA und Microservices schließen sich nicht gegenseitig aus. Microservice-Systeme können Teil eines SOA-Systems sein und ihre Aufgaben in diesen einbinden. Dabei wird ein Microservice-System wie eine vollständige Anwendung behandelt. Der  Unterschied ist jedoch, dass meistens deutlich mehr Schnittstellen zur Verfügung gestellt werden können, aufgrund der internen Struktur.
 \begin{figure}[htb]
@@ -17,7 +17,7 @@ SOA und Microservices schließen sich nicht gegenseitig aus. Microservice-System
     \label{fig:MicroservicesSOAAndAPIsCombined} 
 \end{figure}
 
-Möchte man eine Service-orientierte Architektur einsetzten, muss zunächst einmal die Frage gestellt werden, welchen Zweck damit erfüllt werden soll und welches Einsatzgebiet abgedeckt werden soll. Während mit Microservices die Entwicklung vereinfacht werden soll, wird mit SOA versucht die vorhandenen Unternehmensanwendungen zu strukturieren.
+Möchte man eine Service-orientierte Architektur einsetzten, muss zunächst einmal die Frage gestellt werden, welcher Zweck damit erfüllt werden soll und welches Einsatzgebiet abgedeckt werden soll. Während mit Microservices die Entwicklung vereinfacht werden soll, wird mit SOA versucht die vorhandenen Unternehmensanwendungen zu strukturieren.
 \\\\
 Außerdem darf der Aufwand bei der Einführung eines neuen Architekturmusters nicht unterschätzt werden. Möchte ein Unternehmen beispielsweise SOA einführen, müssen alle Systeme im Unternehmen so angepasst werden, dass sie als Dienste verwendet werden können. Die Einführung von SOA betrifft somit das gesamte Unternehmen. Dabei ist das \textit{Gesetzt von Conway} zu beachten, wodurch häufig die Abteilungen eines Unternehmens neu strukturiert werden müssen, um SOA einzuführen. 
 

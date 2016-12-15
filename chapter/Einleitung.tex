@@ -1,6 +1,6 @@
 \chapter{Einleitung}
 \label{chap:Einleitung}
-Die Idee der Aufteilung eines komplexen Softwaresystemes ist nicht neu. Monolithische Systeme bestehen meistens aus mehreren Modulen, welche zusammen zu einer ausführbaren Datei gepackt werden. Es kann jedoch auch möglich, dass Module in eigene Bibliotheken verpackt werden, welche zur Laufzeit geladen werden. Da die Bibliotheken für die korrekte Ausführung der Software notwendig sind, müssen diese mit ausgeliefert werden. Müssen einzelne Programmteile verändert (korrigiert, erweitert, angepasst oder verbessert) werden, muss jede Software, welche diesen Programmteil verwendet neu gebaut und ausgeliefert werden. Dies kann einen erheblichen Aufwand bedeuten, wenn dieser Programmteil in einer großen Anzahl von Software verwendet wird. Daher wurde die Idee entwickelt, Fachlichkeiten in einzelne Dienste (Services) auszulagern und zentral zu verwalten. Das Konzept der Verteilten Anwendungen wurde erstellt.
+Die Idee der Aufteilung eines komplexen Softwaresystemes ist nicht neu. Monolithische Systeme bestehen meistens aus mehreren Modulen, welche zusammen zu einer ausführbaren Datei gepackt werden. Dabei können Module in eigenen Pakete (Bibliotheken) verpackt werden. Diese werden daraufhin zur Laufzeit geladen. Müssen einzelne Programmteile verändert (korrigiert, erweitert, angepasst oder verbessert) werden, muss jede Software, welche diesen Programmteil verwendet neu gebaut und ausgeliefert werden. Dies kann einen erheblichen Aufwand bedeuten, wenn dieser Programmteil in einer großen Anzahl von Software verwendet wird. Daher wurde die Idee entwickelt, Fachlichkeiten in einzelne Dienste (Services) auszulagern und zentral zu verwalten. Das Konzept der verteilten Anwendungen wurde erstellt.
 \\\\
 Dieses Konzept wurde nach und nach weiterentwickelt. Zwei Paradigmen, welche diesem Ansatz folgen sind SOA (Service-orientierte Architektur) und Microservices. Beide Paradigmen setzten auf einzelne Services, welche ihre Funktionalitäten über APIs anbieten.
 
@@ -10,9 +10,9 @@ Dieses Konzept wurde nach und nach weiterentwickelt. Zwei Paradigmen, welche die
 \subsection*{SOA und "`Service-orientierte Architektur"'}
 Sowohl \gls{glos:SOA} als auch \gls{glos:Microservice} zählen zu dem Paradigmen der "`Service-orientierten Architekturen"'.
 
-Die Abkürzung SOA wird hier sowohl für das Paradigma "`Service-orientierte Architektur"' verwendet, wie auch für die spezielle Herangehensweise.
+Die Abkürzung SOA wird hier sowohl für das Paradigma "`Service-orientierte Architektur"', wie auch für die spezielle Herangehensweise verwendet.
 
-Um die beiden Thematiken in dieser Arbeit abzugrenzen wird der Begriff "`SOA"' für die Herangehensweise verwendet und die ausgeschriebene Variante zur Kennzeichnung des allgemeinen Paradigmas.
+Um die beiden Thematiken in dieser Arbeit abzugrenzen wird der Begriff "`SOA"' für die Herangehensweise und die ausgeschriebene Variante zur Kennzeichnung des allgemeinen Paradigmas genutzt.
 
 \section{Zielsetzung und Aufgabenstellung}
 \label{sec:ZielsetzungUndAufgabenstellung}
@@ -20,7 +20,7 @@ Ziel dieser Projektarbeit ist es, die Unterschiede und Gemeinsamkeiten von SOA u
 
 \section{Vorgehensweise}
 \label{sec:Vorgehensweise}
-Zu beginn wird eine Problemanalyse von monolithischen Systemen durchgeführt. Danach werden die allgemeinen Grundlagen für die Verwendung von Verteilten Systemen und die damit verbundenen Probleme erläutert. In diesem Zusammenhang werden die Unterschiede zu monolithischen Systemen herausgearbeitet. Auf dieser Basis werden die Paradigmen SOA und Microservices vorgestellt und genauer beleuchtet.
+Zu beginn wird eine Problemanalyse von monolithischen Systemen durchgeführt. Danach werden die allgemeinen Grundlagen für die Verwendung von verteilten Systemen und die damit verbundenen Probleme erläutert. In diesem Zusammenhang werden die Unterschiede zu monolithischen Systemen herausgearbeitet. Auf dieser Basis werden die Paradigmen SOA und Microservices vorgestellt und genauer beleuchtet.
 \\\\
 Darauf aufbauend werden die Einsatzmöglichkeiten der jeweiligen Paradigmen analysiert und die dafür nötigen Architekturen und Schnittstellen herausgearbeitet. Insbesondere soll ermittelt werden, welche Plattformen und Voraussetzungen für den Einsatz der jeweiligen Paradigmen notwendig sind. Außerdem werden die Vor- und Nachteile der Paradigmen, hinsichtlich der Prozessisolierung, Skalierung, Deployment, Wartbarkeit (insbesondere der Korrigierbarkeit, Erweiterbarkeit, Anpassbarkeit, Verbesserung), Entwicklung/Testbarkeit und der Bindung an Technologiestacks herausgearbeitet und mit einander verglichen.
 \\\\
