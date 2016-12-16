@@ -28,22 +28,23 @@ Der Begriff Microservices ist nicht eindeutig definiert. Als erste Näherung die
     \item Microservices haben einen eigenen Datenhaushalt: eine eigene Datenbank - oder ein vollständig getrenntes Schema in einer gemeinsamen Datenbank.
     \item Microservices können eigene Unterstützungsdienste mitbringen, beispielsweise eine Suchmaschine oder eine spezielle Datenbank. Natürlich gibt es eine gemeinsame Basis für alle Microservices - beispielsweise die Ausführung virtueller Maschinen.
     \item Microservices sind eigenständige Prozesse - oder virtuelle Maschinen, um auch die Unterstützungsdienste mitzubringen.
-    \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise RE
-    ST sein - oder Messaging-Lösungen.
+    \item Dementsprechend müssen Microservices über das Netzwerk kommunizieren. Dazu nutzen Microservices Protokolle, die lose Kopplung unterstützen. Das kann beispielsweise REST sein - oder Messaging-Lösungen.
 \end{itemize}
 
-Grundsätzlich kann man Microservices in drei Kategorien einteilen:
+Grundsätzlich kann man daher Microservices in drei Kategorien einteilen:
 \begin{description}
     \item[Producer] Ein Service der etwas produziert oder auf eine Anfrage reagiert. Das reicht von Daten aus einer Datenbank zu extrahieren bis hin zu komplexen Berechnungen.
     \item[Consumer] Ein Service oder eine Anwendung, welche einen oder mehrere produzierende Services verwendet und entweder weiterverarbeitet oder ausgibt. Im Falle der Weiterverarbeitung ist ein Consumer ebenfalls ein Producer.
     \item[Self-Contained System (SCS)] \frqq "`Microservice mit UI"' oder "'Self-Contained System"' wie es Stefan Tilkov nennt, sind in sich abgeschlossene Systeme. [..] Sie enthalten eine UI und sollten möglichst nicht mit anderen SCS kommunizieren.\flqq \cite[vgl S. 55]{EWolff2016:Microservices}.
 \end{description}
 
+Ein Self-Contained System ist die optimale Form eines Microservices, da keine weiteren Microservices benötigt werden, um die eigenen Daten darzustellen. Dadurch werden keine anderen Services vorausgesetzt und eine lose Kopplung der Dienste ist möglich.
+
 \section{Aufbau von Microservices}
 \label{sec:Aufbau}
 Wie bereits erwähnt, sind Microservices eigenständige Dienste. Sie müssen so gebaut sein, dass sie möglichst ohne Abhängigkeiten funktionieren. Um das zu realisieren dürfen Microservices nur lose gekoppelt sein. Damit ist gemeint, dass der Dienst seine Aufgabe selbständig erledigen kann ohne weiter Dienste in Anspruch zu nehmen. Bei "`Self-Contained Systems"' ist ebenfalls eine UI vorhanden. Damit ist das System in sich abgeschlossen und stellt  alle nötigen Eigenschaften bereit, welche für die Darstellung von Informationen benötigt werden. Müssen jedoch andere Dienste verwendet werden, sollte darauf geachtet werden, dass diese austauschbar bleiben und nicht fest mit miteinander verbunden sind. Ist ein Dienst fest mit einem anderen verbunden, sollte die Notwendigkeit des Dienstes infrage gestellt werden.
 \\\\
-In direkter Konkurrenz stehen konsumierende Dienste, welche produzierende Dienste verwenden müssen, um die eigenen Aufgaben fertig zu stellen. Konsumierende Dienste werden häufig als Middleware verwendet, um mehrere Daten aufzubereiten. Ein Konsumierender Dienst könnte zum Beispiel die Aufgabe haben eine Webseite darzustellen oder Informationen zu aggregieren.
+Produzierende Dienste sind meistens auf der untersten Ebene des Systems zu finden und stellen Dienste mit, in sich abgeschlossenen, Aufgaben dar. Konsumierende Dienste sind in der darüber liegenden Schicht zu finden. Sie wird meistens als Middleware verwendet, um Informationen zu aggregieren, zusammenzuführen oder aufzubereiten.
 \\\\
 Damit ein Dienst selbständig bleibt, besitzt dieser alle dafür notwendigen Ressourcen. Hierzu zählt, unter anderem, eine eigene Datenbank. Dadurch kann das Schema der Datenbank frei verändert werden, ohne, dass weitere Teile des Systems beeinflusst werden. Es ist jedoch darauf zu achten, dass die Schnittstelle des Dienstes, worüber dieser von anderen Diensten ansprechbar ist, nicht grundlegend verändert werden oder die Dienste, welche diese Schnittstelle verwenden, ebenfalls geändert werden. Letzteres ist beispielsweise der Fall, wenn sich Fachlichkeiten des Systemes ändern, da diese in einigen Fällen, über mehrere Microservices verteilt sind. Jedoch besteht hierbei weiterhin die Gefahr, dass einzelne Dienste, die Schnittstelle nutzen, um einzelne Informationen abzurufen, jedoch nichts mit den Fachlichkeiten zu tun hat. In diesem Fall ist zu beachten, dass die Schnittstelle weiterhin das liefert, was zu erwarten ist.
 \\\\
@@ -52,20 +53,29 @@ Geht man von \textit{Self-Contained Systems} aus, besitzen Microservices zusätz
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\linewidth]{content/images/javaee-microservices}\
-	\quelle\url{http://blog.arungupta.me/monolithic-microservices-refactoring-javaee-applications/}
-	\caption{Microservice Architektur\\}
+	\quelle\url{http://blog.arungupta.me/monolithic-microservices-refactoring-javaee-applications/} (Stand 16.12.2016)
+	\caption{Beispiel einer Microservice Architektur einer Shopping Anwendung}
 	\label{fig:MicroserviceArchitektur} 
 \end{figure}
 
 \section{Gr"o\ss e von Microservices}
 \label{sec:groesseMicroservice}
 \begin{quotation}
-    \frqq Der Name "`Microservices"' verrät schon, dass es um die Servicegröße geht - offensichtlich sollen die Services klein sein."\cite[S. 31]{EWolff2016:Microservices} Es gibt verschiedene Möglichkeiten die Größe von Programmen zu ermitteln. Eine Variante ist zum Beispiel das Zählen von  Lines of Code (LOC), jedoch hat diese Methode auch Nachteile. Denn die Anzahl der Codezeilen hängen stark von der verwendeten Programmiersprache ab. Einige Programmiersprachen benötigen mehr Zeilen Code, um eine bestimmte Tätigkeit abzubilden, als andere.
-    \\
-    Die Größe von Services sollte jedoch nicht von zentraler Bedeutung sein, denn eine untere Grenze gibt es für Services nicht. "Wohl aber eine obere Grenze: Wenn der Microservice so groß ist, dass er von einem Team nicht mehr weiterentwickelt werden kann, ist sie zu groß. Ein Team sollte dabei eine Größe haben, wie sie für agile Prozesse besonders gut funktioniert. Das sind typischerweise drei bis neun Personen.\flqq\cite[S. 34]{EWolff2016:Microservices}
+    \frqq Der Name "`Microservices"' verrät schon, dass es um die Servicegröße geht - offensichtlich sollen die Services klein sein.\flqq\ \cite[S. 31]{EWolff2016:Microservices}
+\end{quotation}
+Es gibt verschiedene Möglichkeiten die Größe von Programmen zu ermitteln. Eine Variante ist zum Beispiel das Zählen von  Lines of Code (LOC), jedoch hat diese Methode auch Nachteile.
+
+\begin{quotation}
+	\frqq Er hängt von der verwendeten Programmiersprache ab. Einige Sprachen benötigen mehr Code, um dasselbe auszudrücken - und Microservices sollen gerade nicht den Technologie-Stack fest definieren. Dementsprechend ist eine Definition anhand dieser Metrik kaum sinnvoll.\flqq\ \cite[S. 31]{EWolff2016:Microservices}
 \end{quotation}
 
-Bei der Größe eines Services ist darauf zu achten, dass ein Service nicht zu viele oder zu wenige Funktionen besitzt. Wie bereits beschrieben, sind Microservices modulare, lose gekoppelte Services. Wird ein Service zu klein angesetzt, können daraus Abhängigkeiten zu anderen Services entstehen und damit das Gesetzt der losen Kopplung verletzten. Besitzt hingegen ein Service zu viele Funktionen, wird es meistens nicht mehr als Microservice angesehen, da es nicht eine, sondern mehrere Aufgaben übernimmt und diese wahrscheinlich nicht mehr gut erledigen kann.
+Die Größe von Services sollte jedoch nicht von zentraler Bedeutung sein, denn eine untere Grenze gibt es für Services nicht.
+
+\begin{quotation}
+    \frqq Wohl aber eine obere Grenze: Wenn der Microservice so groß ist, dass er von einem Team nicht mehr weiterentwickelt werden kann, ist sie zu groß. Ein Team sollte dabei eine Größe haben, wie sie für agile Prozesse besonders gut funktioniert. Das sind typischerweise drei bis neun Personen. Also darf ein Microservice auf keinen Fall so groß werden, dass ein Team ihn nicht mehr alleine weiterentwickeln kann.\flqq\ \cite[S. 33f]{EWolff2016:Microservices}
+\end{quotation}
+
+Bei der Größe eines Services ist darauf zu achten, dass ein Service nicht zu viele oder zu wenige Funktionen besitzt. Wie bereits beschrieben, sind Microservices modulare, lose gekoppelte Services. Wird ein Service zu klein angesetzt, können daraus Abhängigkeiten zu anderen Services entstehen und damit das Gesetzt der losen Kopplung verletzten. Besitzt hingegen ein Service zu viele Funktionen, wird es meistens nicht mehr als Microservice angesehen, da dadurch der Microservice mehr als eine Aufgabe übernimmt.
 
 \section{Orchestration vs Choreographie}
 \label{sec:orchestrationvschoreographie}
@@ -75,25 +85,26 @@ Je nach Anwendungsfall muss man sich zwischen Service Orchestration und Choreogr
 % [Seite 66 EWolff2016] Technologische Wahlfreiheit
 \subsection{Herausforderung}
 \label{sec:Herausforderung}
-Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle anderen Microservices nicht mehr funktionieren. Um das zu verhindern muss klar definiert werden, was Microservices in dieser Situation tun sollen. Zusätzlich muss, sofern Datenbankoperationen eine wichtige Rolle spielen, das Problem der einheitlichen Transaktion gelöst werden. Wenn zum Beispiel eine Operation Daten über verschiedene Microservices in Datenbanken schreibt, muss bei nicht Erreichbarkeit oder dem Auftreten eines Fehlers in einem Microservices ein einheitliches Rollback durchgeführt werden, um keine inkonsistente Dateien im System zu erzeugen.
+Der Ausfall eines Services kann im schlechtesten Fall dazu führen, dass alle anderen Microservices nicht mehr funktionieren. Um das zu verhindern muss klar definiert werden, was Microservices in dieser Situation tun sollen. Zusätzlich muss, sofern Datenbankoperationen eine wichtige Rolle spielen, das Problem der einheitlichen Transaktion gelöst werden. Wenn zum Beispiel eine Operation Daten über verschiedene Microservices in Datenbanken schreibt, muss bei nicht Erreichbarkeit oder dem Auftreten eines Fehlers in einem Microservices ein einheitliches Rollback durchgeführt werden, um keine inkonsistenten Daten im System zu erzeugen.
 
 \begin{quotation}
     \frqq Transaktion haben die ACID-Eigenschaften. [..] Innerhalb eines Microservice können Änderungen in einer Transaktion stattfinden. Ebenso kann die Konsistenz der Daten in einem Microservice sehr einfach garantiert werden. Über einen Microservice hinaus wird das schwierig. Dann ist eine übergreifende Koordination notwendig. Bei einem Zurückrollen einer Transaktion müssten alle Änderungen in allen Microservices rückgängig gemacht werden.\flqq\ \cite[S. 35]{EWolff2016:Microservices}
 \end{quotation}
 
-Daneben muss sichergestellt werden, dass Nachrichten erfolgreich verarbeitet werden und auch bei mehrfachen senden einer Nachricht darf keine Fehler auftreten. Dafür müssen Microservices Idempotent sein. Das Heißt, dass eine Wiederholte Aktion (mit gleichen Daten) nicht zu unterschiedlichen Resultaten führt. Wird keine Idempotenz sichergestellt, kann dies zu unerwarteten und unerwünschten Ereignissen führen.
+Daneben muss sichergestellt werden, dass Nachrichten erfolgreich verarbeitet werden und auch bei mehrfachen senden einer Nachricht darf keine Fehler auftreten. Dafür müssen Microservices Idempotent sein. Das heißt, dass eine wiederholte Aktion (mit gleichen Daten) nicht zu unterschiedlichen Resultaten führt. Wird keine Idempotenz sichergestellt, kann dies zu unerwarteten und unerwünschten Ereignissen führen.
 \\\\
 Eine weitere Herausforderung besteht in dem Grundkonzept von Microservices. Da nicht definiert ist, welche Programmiersprache für Microservices verwendet wird, kann ein Service zum Beispiel in Java, ein anderes in Scala oder Python geschrieben werden. Es muss daher dafür gesorgt werden, dass die einzelnen Services untereinander interoperabel sind. Um das zu gewährleisten, müssen die Schnittstellen möglichst einheitlich und auf dem gleichen Protokoll aufbauend programmiert werden. Hier bieten REST-Schnittstellen eine gute Lösung. Diese beruhen auf dem HTTP-Protokoll. Zusätzlich bietet das HTTP-Protokoll die Möglichkeit, ein einheitliches Medium, wie zum Beispiel XML oder JSON, als Informationsträger zu nutzen. Dabei kann theoretisch jeder Microservice mit jedem anderen Microservice kommunizieren, sofern die Schnittstellen einheitlich definiert sind.
 \\\\
-Damit die Schnittstellen genutzt werden können, müssen die Kommunikationskanäle dafür existieren. Nach dem Gesetz von Conway, bedeutet dies, dass die einzelnen Abteilungen bzw. Teams die nötigen Kanäle schaffen müssen.
-\newpage
+Damit die Schnittstellen genutzt werden können, müssen die Kommunikationskanäle dafür existieren. Nach dem Gesetz von Conway, bedeutet dies, dass die einzelnen Abteilungen bzw. Teams die nötigen Kanäle dafür schaffen müssen.
+
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\linewidth]{content/images/570495-slide1}\
-	\quelle\url{https://dzone.com/articles/scalable-cloud-computing-with-microservices}
+	\quelle\url{https://dzone.com/articles/scalable-cloud-computing-with-microservices} (Stand 16.12.2016)
 	\caption{Monolithisch vs Microservice Architektur\\}
 	\label{fig:MonoVSMicroArchitektur} 
 \end{figure}
+\newpage
 Im Unterschied zu monolithischen Anwendungen, bei der alles in einer Anwendung ist, sind Microservices Module eines gesamten Systems und werden von den jeweiligen Teams entwickelt und verwaltet. Wird eine neue Funktion benötigt, welche nicht in der eigenen Fachlichkeit liegt, muss das entsprechende Team damit beauftragt werden, diese zu implementieren, bzw. in einem bestehenden Microservice anzupassen.
 
 \section{PUSH- VS PULL-Architektur}

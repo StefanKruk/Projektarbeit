@@ -6,7 +6,7 @@ In der klassischen Softwareentwicklung sind monolithische Anwendungen oft die Gr
 \label{sec:HerausforderungenMonolithisch}
 Zu Beginn der Entwicklung stellt das Erstellen einer Anwendung, auf Basis eines Pflichtenheftes keine große Herausforderung dar. Es können die Anforderungen an das neue System analysiert werden und darauf aufbauend eine Programmiersprache und die interne Architektur gewählt werden.
 \\\\
-Werden hingegeben, bei einer bestehenden Anwendung, neue Anforderungen gestellt, ist man zunächst einmal an den zuvor gewählten Technologie Stack gebunden. Das Korrigieren von Fehlern ist relativ einfach, im Vergleich zur Anpassbarkeit und Erweiterbarkeit des Systems. Je nach Größe der Anwendung, kann dadurch die Umsetzung der neuen Anforderungen problematisch werden, sofern diese nicht mit den bestehenden internen Architekturen vereinbar sind. In diesem Fall kann die Anforderung dazu führen, dass die Anwendung, umgeschrieben werden muss und im schlimmsten Falle neu geschrieben werden muss.
+Werden hingegeben, bei einer bestehenden Anwendung, neue Anforderungen gestellt, ist man zunächst einmal an den zuvor gewählten Technologie-Stacks gebunden. Das Korrigieren von Fehlern ist relativ einfach, im Vergleich zur Anpassbarkeit und Erweiterbarkeit des Systems. Je nach Größe der Anwendung, kann dadurch die Umsetzung der neuen Anforderungen problematisch werden, sofern diese nicht mit den bestehenden internen Architekturen vereinbar sind. In diesem Fall kann die Anforderung dazu führen, dass die Anwendung umgeschrieben oder im schlimmsten Falle neu geschrieben werden muss.
 \\\\
 Ein weiteres Problem besteht in der parallelen Weiterentwicklung.
 \begin{quotation}
@@ -22,7 +22,7 @@ Dadurch entsteht ein Flaschenhals, da andere Teams warten müssen, bis die Integ
 
 \subsection{Skalierung}
 \label{subsec:SkalierungMonolithisch}
-Skalierung ist ein wichtiges Thema von Webanwendungen. Greifen viele Benutzer auf ein und dieselbe Anwendung zu, so kann es dazu führen, dass dies das System überlastet und alle Benutzer länger auf die Antwort des Systems warten müssen. Um dies zu verhindern, müssen Anwendungen skaliert werden.
+Skalierung ist ein wichtiges Thema von Webanwendungen. Greifen viele Benutzer auf eine Anwendung zu, so kann es dazu führen, dass dies das System überlastet und alle Benutzer länger auf die Antwort des Systems warten müssen. Um dies zu verhindern, müssen Anwendungen skaliert werden.
 
 \begin{quotation}
     \frqq Skalierbarkeit bedeutet, dass ein System mehr Last bearbeiten kann, wenn es mehr Ressourcen bekommt.\flqq\ \cite[S. 150]{EWolff2016:Microservices}
@@ -34,4 +34,4 @@ Es gibt nach \cite[S. 150]{EWolff2016:Microservices} zwei verschiedene Arten der
     \item \textit{Vertikale Skalierbarkeit} bedeutet, dass leistungsfähigere Ressourcen genutzt werden, um mehr Last handzuhaben. Eine einzelne Ressource wird also mehr Last abarbeiten. Die Anzahl der Ressourcen bleibt konstant.
 \end{itemize}
 
-Beide Arten der Skalierbarkeit haben ihre Vor- und Nachteile. Welche Art benutzt wird, muss im individuell entschieden werden, jedoch ist die Vertikale Skalierung bei Monolithen, meistens deutlich einfacher, als die Horizontale Skalierung.
+Beide Arten der Skalierbarkeit haben ihre Vor- und Nachteile. Welche Art benutzt wird, muss im individuell entschieden werden, jedoch ist die vertikale Skalierung bei Monolithen, meistens deutlich einfacher, als die horizontale Skalierung.

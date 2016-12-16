@@ -1,6 +1,6 @@
 \chapter[Grundlagen von Service-orientierten Systemen]{Allgemeine Grundlagen zur Verwendung von Service-orientierten Systemen}
 \label{chap:Grundlagen}
-Service-orientierte Systeme sollen Dienste innerhalb eines IT-Systems strukturieren. Es ist einzuordnen in dem Bereich der verteilten Systeme. Dabei bieten die Dienste entsprechende APIs an, um ihre jeweiligen Informationen bereitzustellen. Dies ist eine weitere Form der Modularisierung von Softwaresystemen.
+Service-orientierte Systeme sollen Dienste innerhalb eines IT-Systems strukturieren. Diese sind  im Bereich der verteilten Systeme einzuordnen. Dabei bieten die Dienste entsprechende APIs an, um ihre jeweiligen Informationen bereitzustellen. Dies ist eine weitere Form der Modularisierung von Softwaresystemen.
 
 \section{Verteilte Systeme}
 \label{sec:VerteilteAnwendungen}
@@ -11,13 +11,13 @@ Damit Service-orientierte Architekturen verstanden werden können, müssen zunä
 
 Im Falle von Service-orientierten Architekturen wird das System auf mehrere eigenständige Computer bzw. Anwendungen aufgeteilt. Ein Vorteil von verteilten Systemen ist, dass sie zum einen sehr dynamisch und schnell anpassbar sind, zum anderen jedoch auch die Komplexität von Software in einzelne Teile zerbricht, wodurch eine entfernte Präsentation möglich ist.
 \\\\
-Eines der wichtigsten und größten Probleme besteht dabei in der Kommunikation. Zum einen muss diese gewährleistet werden, zum anderen jedoch auch in angemessener Zeit erfolgen. Dabei muss ebenfalls darauf geachtet werden, dass Nachrichten erfolgreich zugestellt werden, selbst wenn einzelne Dienste temporär nicht erreichbar sind.
+Eines der wichtigsten und größten Probleme besteht dabei in der Kommunikation. Zum Einen muss diese gewährleistet werden, zum Anderen jedoch auch in angemessener Zeit erfolgen. Dabei muss ebenfalls darauf geachtet werden, dass Nachrichten erfolgreich zugestellt werden, selbst wenn einzelne Dienste temporär nicht erreichbar sind.
 \\\\
-Ein weiteres Problem besteht darin, zu erkennen, wann ein Dienst ausgefallen ist. Meistens erkennt man dies nur dadurch, dass ein Teilsystem nicht funktioniert. Das ausgefallene System zu identifizieren, stellt, wenn keine entsprechenden Vorkehrungen getroffen wurden, eine nicht zu unterschätzende Problematik da. Zudem kann eine lange Zeit vergehen, bis das Unternehmen feststellt, dass ein System ausgefallen ist. 
+Ein weiteres Problem besteht darin, zu erkennen, wann ein Dienst ausgefallen ist. Meistens erkennt man dies nur dadurch, dass ein Teilsystem nicht funktioniert. Das ausgefallene System zu identifizieren stellt, wenn keine entsprechenden Vorkehrungen getroffen wurden, eine nicht zu unterschätzende Problematik da. Zudem kann eine lange Zeit vergehen, bis das Unternehmen feststellt, dass ein System ausgefallen ist. 
 
 \subsection{Domain-Driven Design und Bounded Context}
 \label{sec:boundedContext}
-Domain-Driven Design (DDD) beschreibt dabei die Herangehensweise zur Modellierung von komplexer Software. Dabei ist die Modellierung maßgeblich an die umzusetzende Fachlichkeit gebunden und wird durch diese beeinflusst. Das Ziel jeglicher Software ist es, eine bestimmte Anwendungsdomäne zu unterstützen. Damit dies erfolgreich geschieht, muss Software harmonisch und in höchster Form interoperabel zur Anwendungsdomäne sein. Domain-Driven Design soll genau dies gewährleisten.
+Domain-Driven Design (DDD) beschreibt die Herangehensweise zur Modellierung von komplexer Software. Dabei ist die Modellierung maßgeblich an die umzusetzende Fachlichkeit gebunden und wird durch diese beeinflusst. Das Ziel jeglicher Software ist es, eine bestimmte Anwendungsdomäne zu unterstützen. Damit dies erfolgreich geschieht, muss Software harmonisch und in höchster Form interoperabel zur Anwendungsdomäne sein. Domain-Driven Design soll genau dies gewährleisten.
 \\\\
 Arbeitet man mit Service-Orientierten Architekturen, versucht man fachliche Komponenten, welche zu einem bestimmten Kontext gehören, möglichst nahe beieinander zu halten. Man spricht hierbei von \textit{Bounded Context}. 
 \begin{quotation}
@@ -31,15 +31,16 @@ Arbeitet man mit Service-Orientierten Architekturen, versucht man fachliche Komp
     \caption[Bounded Context]{Bounded Context\\}
     \label{fig:BoundedContext}  
 \end{figure} 
+\newpage
 In dieser Grafik wird noch einmal der Begriff Bounded Context genauer verdeutlicht. Es existieren zwei eigenständige Prozesse. Auf der linken Seite der Sales Kontext und auf der rechten Seite der Support Kontext. Jeder Kontext besitzt verschiedene \gls{glos:Services}, welche benötigt werden um den Prozess durchführen zu können. Lediglich zwischen den \textit{Customer} und \textit{Product} Services besteht eine Verbindung der beiden Prozesse.
 
 \subsection{Das Gesetzt von Conway}
 \label{subsec:conway}
-Spricht man von "`Service-orientierten Architekturen"', sollte das \glqq Gesetzt von Conway\grqq\ nicht fehlen, da es Prinzipien beschreibt, nach denen eine Unternehmens-Architektur entworfen wird.
+Spricht man von "`Service-orientierten Architekturen"', sollte das \glqq Gesetzt von Conway\grqq\ nicht fehlen. Es beschreibt Prinzipien, nach denen eine Unternehmens-Architektur entworfen wird.
 \\\\
 Melvin Conway ist ein amerikanischer Informatiker und formulierte seine Beobachtungen bezüglich der Kommunikationsstrukturen und Organisationen innerhalb eines Unternehmens. Seine Beobachtung, auch \glqq Gesetzt von Conway\grqq\ genannt lautet wie folgt:
 \begin{quotation}
-    \textit{Organisationen, die Systeme designen, können nur solche Designs entwerfen, welche die Kommunikationsstruktur dieser Organisationen abbilden.}
+    \frqq Organisationen, die Systeme designen, können nur solche Designs entwerfen, welche die Kommunikationsstruktur dieser Organisationen abbilden.\flqq\ \cite[S. 39]{EWolff2016:Microservices}
 \end{quotation}
 
 Conway möchte damit ausdrücken, dass die internen Kommunikationswege wichtig bei der Planung der Architektur sind. Jedes Team innerhalb einer Organisation trägt zu der Entwicklung der Architektur bei. Damit Teams untereinander kommunizieren können, sind Schnittstellen erforderlich. Dabei müssen Kommunikationswege nicht immer offiziell sein. Oft gibt es informelle Kommunikationsstrukturen, die ebenfalls in diesem Kontext betrachtet werden können.
@@ -78,7 +79,7 @@ Anders als bei der Orchestration können Services bei der Choreographie beliebig
     \caption[Choreographie]{Choreographie}
     \label{fig:ServiceChoreography}  
 \end{figure}
-So ist, wie in Abbildung \ref{fig:ServiceChoreography} zu erkennen, eine beliebige Kommunikation zwischen den einzelnen Diensten möglich.
+Die Abbildung zeigt eine Beispiels Kommunikation zwischen Diensten. Ebenfalls ist eine Kommunikation zwischen A und C, sowie B und D möglich. 
 
 \section{Abgrenzung von monolithischen Systemen}
 \label{sec:AbgrenzungVonMonolithischenSystemen}
@@ -88,12 +89,14 @@ Durch die Verwendung von Services, ist es möglich, dass sowohl unterschiedliche
 \begin{figure}[htb]
     \centering 
     \includegraphics[width=\linewidth]{content/images/fichtner_microservices_1}\
-    \quelle\url{https://jaxenter.de/wp-content/uploads/2016/10/fichtner_microservices_1.jpg}
+    \quelle\url{https://jaxenter.de/wp-content/uploads/2016/10/fichtner_microservices_1.jpg} (Stand 16.12.2016)
     \caption{Monolithisches vs Service-orientiertes System}
     \label{fig:BoundedContext}  
 \end{figure}
-Zusätzlich zu den oben genannten unterschieden, sieht man in der Abbildung außerdem ein Monitoring-System. Während bei einem Monolithen, nur ein Monitoring-System benötigt wird, muss bei einem Service-orientiertem System, jeder Service ein Monitoring-System besitzen. Bei großen Systemen, müssen zudem die Monitoring-Informationen gebündelt werden und zentral einsehbar sein. Daraus ist ersichtlich, dass das Monitoring bei einer monolithischen Anwendung deutlich geringer ist, als in einem Service-orientieren System.
+Zusätzlich zu den oben genannten unterschieden, sieht man in der Abbildung außerdem ein Monitoring-System. Während bei einem Monolithen, nur ein Monitoring-System benötigt wird, muss bei einem Service-orientiertem System, jeder Service ein Monitoring-System besitzen. 
 
 \begin{quotation}
 	\frqq Das Monitoring und die Verarbeitung der Logdateien müssen damit umgehen, dass die Daten auf verschiedenen Servern anfallen. Also müssen die Informationen zentral konsolidiert werden.\flqq\ \cite[S. 18]{EWolff2016:Microservices}
 \end{quotation}
+
+Daraus ergibt sich in einem Service-orientieren System weiterer Aufwand, da die Konsolidierung der Logdateien nicht ausreicht. Es muss zusätzlich dafür gesorgt, werden, dass eine Logdatei eindeutig einem Service zugeordnet werden kann.

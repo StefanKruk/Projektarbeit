@@ -10,7 +10,7 @@
 % - Deployment
 % - Wartbarkeit (insbesondere der Korrigierbarkeit, Erweiterbarkeit, Anpassbarkeit, Verbesserung)
 % - Entwicklung/Testbarkeit 
-% - Bindung an Technologie Stacks
+% - Bindung an Technologie-Stacks
 \section{Einsatzgebiet}
 \label{sec:Einsatzgebiet}
 Sowohl SOA, als auch Microservices sind Paradigmen aus der Service-orientierten Architektur, verfolgen jedoch unterschiedliche Ansätze. Während das Microservice-Paradigma die Softwareentwicklungsabteilung unterstützen soll, soll mit Hilfe von SOA die Kommunikation zwischen den Anwendungen und den Abteilungen standardisiert und optimiert werden.
@@ -51,7 +51,7 @@ Zum anderen bedeutet diese Aufteilung, dass oft eine große Menge an Information
 \begin{figure}[htb]
     \centering 
     \includegraphics[width=\linewidth]{content/images/figure2}\
-    \quelle\url{https://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html}
+    \quelle\url{https://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html} (Stand 16.12.2016)
     \caption{Technische und Funktionale Sicht von SOA}
     \label{fig:TechnicalAndFunctionalViewsOfSOA} 
 \end{figure}
@@ -60,7 +60,7 @@ In einer Microservice-Architektur, besitzt ein Microservice nur eine Aufgabe und
 \begin{figure}[htb]
     \centering 
     \includegraphics[width=\linewidth]{content/images/MonolithicVsMicroservice}\
-    \quelle\url{https://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html}
+    \quelle\url{https://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html} (Stand 16.12.2016)
     \caption{Monolithische vs Microservice Applikation}
     \label{fig:MonolithicVsMicroservice} 
 \end{figure}
@@ -89,7 +89,7 @@ Folgende Abbildung zeigt jedoch, dass eine vollständige Isolation, häufig nich
 \begin{figure}[htb]
     \centering 
     \includegraphics[width=300px]{content/images/figure6}\
-    \quelle\url{https://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html}
+    \quelle\url{https://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html} (Stand 16.12.2016)
     \caption{Microservice Architektur}
     \label{fig:MicroserviceArchitekturInGreenField} 
 \end{figure}
@@ -128,11 +128,11 @@ SOA-Systeme besitzen deutlich größere Dienste als Microservice-Systeme. Existi
 \label{subsec:Wartbarkeit}
 Im Laufe der Zeit wachsen die Anforderungen an einen Dienst, wodurch dieser angepasst, verbessert oder erweitert werden muss. Zur Wartung gehört jedoch auch das korrigieren von Fehlern, welches einer der einfachsten Aufgaben in einem Service-orientierten System ist, da sich dadurch meistens, nicht die Schnittstellen, Umgebung oder die Konfiguration des Dienstes ändert. Anders sieht dies jedoch beim Anpassen, Verbessern oder Erweitern aus.
 \\\\
-Das Anpassen einer Anwendung kann sich von dem Verbessern oder Erweitern einer Anwendung unterscheiden. Zum Beispiel reicht es aus die Mehrwertsteuer in einer Anwendung zu ändern, welches eine Anpassung darstellt, jedoch keine Verbesserung oder Erweiterung. Das Anpassen ist durch die kaum veränderten Strukturen relativ leicht. Anders sieht dies jedoch bei Verbesserungen oder Erweiterungen aus. Beide Änderungen sorgen für eine Veränderung der internen Struktur des Quelltextes. Zusätzlich ist man an den vorgegebenen Technologie Stacks gebunden. Oft sind Verbesserungen oder Erweiterungen nicht ohne das Verändern der Quelltextstruktur möglich.
+Das Anpassen einer Anwendung kann sich von dem Verbessern oder Erweitern einer Anwendung unterscheiden. Zum Beispiel reicht es aus die Mehrwertsteuer in einer Anwendung zu ändern, welches eine Anpassung darstellt, jedoch keine Verbesserung oder Erweiterung. Das Anpassen ist durch die kaum veränderten Strukturen relativ leicht. Anders sieht dies jedoch bei Verbesserungen oder Erweiterungen aus. Beide Änderungen sorgen für eine Veränderung der internen Struktur des Quelltextes. Zusätzlich ist man an den vorgegebenen Technologie-Stacks gebunden. Oft sind Verbesserungen oder Erweiterungen nicht ohne das Verändern der Quelltextstruktur möglich.
 \\\\
 Während in einem SOA-System der Dienst aus einer Anwendung und einem Adapter besteht und damit ein fast monolithisches System abbildet. Besteht ein Microservice-System aus viele unterschiedlichen Diensten. In beiden Systemen ist es möglich, in kürzester Zeit Fehler zu korrigieren, sofern die nötigen Voraussetzungen gegeben sind. Das Anpassen, Verbessern oder Erweitern eines Dienstes, gestaltet sich jedoch einfacher in einem Microservice-System, als in einem SOA-System. Aufgrund der Größe von Microservices, kann ein Microservice von Grund auf neu erstellt werden, sollte dies nötig sein. Muss das System erweitert werden, können neue Microservices erstellt, welche die neuen Anforderungen bzw. Fachlichkeiten abbilden. Durch die Autarkheit von Microservices, können diese deployed werden, ohne die Interoperabilität des bestehenden Systems zu gefährden oder zu beeinflussen. Anschließend müssen gegebenenfalls einzelne Dienste angepasst werden, um die neuen Funktionalitäten, in das bestehende System, einzubinden.
 
-\subsection{Bindung an Technologie Stacks}
+\subsection{Bindung an Technologie-Stacks}
 \label{subsec:BindungAnTechnologiestacks}
 In beiden Paradigmen, sollten Dienste eine standardisierte Schnittstelle besitzen, damit diese, durch andere Dienste verwendet werden können. Zusätzlich ist dadurch eine Wiederverwendung des Dienstes möglich. Das verwenden einer standardisierten Schnittstelle schränkt jedoch die Auswahl der einzusetzenden Technologien ein. Zudem ist das verwenden einer standardisierten Schnittstelle nicht immer möglich.
 \\\\
@@ -150,7 +150,7 @@ Stellt sich heraus, dass eine Technologie, Sprache oder Framework sich nicht fü
 
 Das einsetzten neuer Technologien besitzt jedoch auch Gefahren. So ist die Versuchung groß, experimentelle oder ungetestete Technologien in Produktion einzusetzen, ohne zuvor zu testen, welche Auswirkungen die Technologie auf das System hat.
 \\\\
-Ein Dienst in einem SOA-System beinhaltet eine monolithische Anwendung. Die Schnittstellen werden durch Adapter bereitgestellt. Diese müssen mit der Anwendung interagieren können, wodurch der Adapter oft in derselben Sprache geschrieben werden muss, wie die zu interagierenden Anwendung. Aufgrund der Größe von Monolithen ist es nicht möglich, diese in kürzester Zeit auszuwechseln. Zudem muss man sich bei der Entwicklung einer Anwendung, auf einen Technologie Stack festlegen. Dadurch ist man bei der Weiterentwicklung oder Wartung der Anwendung an diesen gebunden. Eine neue Technologie einzuführen, würde bedeuten die Struktur der Anwendung zu verändern.
+Ein Dienst in einem SOA-System beinhaltet eine monolithische Anwendung. Die Schnittstellen werden durch Adapter bereitgestellt. Diese müssen mit der Anwendung interagieren können, wodurch der Adapter oft in derselben Sprache geschrieben werden muss, wie die zu interagierenden Anwendung. Aufgrund der Größe von Monolithen ist es nicht möglich, diese in kürzester Zeit auszuwechseln. Zudem muss man sich bei der Entwicklung einer Anwendung, auf einen Technologie-Stacks festlegen. Dadurch ist man bei der Weiterentwicklung oder Wartung der Anwendung an diesen gebunden. Eine neue Technologie einzuführen, würde bedeuten die Struktur der Anwendung zu verändern.
 
 \subsection{Entwicklung}
 \label{subsec:Entwicklung}

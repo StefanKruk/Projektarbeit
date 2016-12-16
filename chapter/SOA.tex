@@ -38,18 +38,18 @@ Damit diese Schichtentrennung funktioniert, wird darauf geachtet, dass in der Ge
 
 \section{Unternehmenskomponenten}
 \label{sec:UnternehmensKomponenten}
-Unternehmenskomponenten sind ein zentraler Bestandteil von SOA. Die Informationen aus den Komponenten, müssen durch APIs abgerufen werden können. Dienste in einem SOA-System sind nicht, wie anzunehmen, die Unternehmensanwendungen selber, sondern Adapter, welche für die Steuerung der jeweiligen Anwendungen verantwortlich sind. Dabei dient der Adapter nicht nur als API Exposure Gateway, sondern sorgt auch dafür, dass keine Fehlerhaften Anfragen an das System geschickt werden. Spricht man bei SOA von Diensten, ist meistens der Adapter, zusammen mit den Unternehmenskomponenten gemeint. Wird der Begriff "`Dienst"' im Zusammenhang mit SOA verwendet, ist damit der Adapter und die Anwendung bzw. Unternehmenskomponente gemeint.
+Unternehmenskomponenten sind ein zentraler Bestandteil von SOA. Die Informationen aus den Komponenten, müssen durch APIs abgerufen werden können. Dienste in einem SOA-System sind nicht, wie anzunehmen, die Unternehmensanwendungen selber, sondern Adapter, welche für die Steuerung der jeweiligen Anwendungen verantwortlich sind. Dabei dient der Adapter nicht nur als \gls{glos:APIExposureGateway}, sondern sorgt auch dafür, dass keine fehlerhaften Anfragen an das System geschickt werden. Spricht man bei SOA von Diensten, ist meistens der Adapter, zusammen mit den Unternehmenskomponenten gemeint. Wird der Begriff "`Dienst"' im Zusammenhang mit SOA verwendet, ist damit der Adapter und die Anwendung bzw. Unternehmenskomponente gemeint.
 
 \begin{quotation}
 	\frqq Die SOA-Services werden nicht neu implementiert, sondern sind schon in den Anwendungen im Unternehmen vorhanden. Eine SOA-Einführung macht diese Services außerhalb der Anwendungen verfügbar. Durch die Aufteilung der Anwendungen in Services wird deren Nutzung in verschiedenen Zusammenhängen ermöglicht. [..] Auf Basis der einzelnen Services ist es möglich, Geschäftsprozesse abzubilden und dabei die Services wiederzuverwenden. Dazu ist nur eine Orchestrierung der einzelnen Services notwendig.\flqq\ \cite[S. 84]{EWolff2016:Microservices}
 \end{quotation}
 
-Damit die Geschäftsprozesse mit Hilfe von SOA abgebildet werden können, müssen daher zunächst einmal die dazu gehörenden Komponenten identifiziert werden. beginnend mit den Wichtigsten.
+Damit die Geschäftsprozesse mit Hilfe von SOA abgebildet werden können, müssen zunächst einmal die dazu gehörenden Komponenten identifiziert werden.
 
 \begin{figure}[htb]
     \centering 
     \includegraphics[width=\linewidth]{content/images/UnternehmensKomponenten}\
-    \quelle\url{http://www.jot.fm/issues/issue_2008_05/column5/}
+    \quelle\url{http://www.jot.fm/issues/issue_2008_05/column5/} (Stand 16.12.2016)
     \caption[Unternehmens Komponenten]{Unternehmens Komponenten\\}
     \label{fig:UnternehmensKomponenten}  
 \end{figure} 
@@ -58,12 +58,12 @@ Daraus ergeben sich anschließend die Komponenten, welche untereinander kommuniz
 
 \section{Enterprise-Service Bus - ESB}
 \label{sec:esb}
-Der Begriff "`Enterprise-Service Bus"' (ESB) wird oft im Zusammenhang mit SOA verwendet. Der ESB ist jedoch kein Teil von SOA, sondern nur ein Mittel zum Zweck, um die Kommunikation zu vereinheitlichen und ein Exposure Gateway bereitzustellen. Der Enterprise-Service Bus dient dabei als Nachrichtenkomponente, welcher die Nachrichten entgegennimmt und an die jeweiligen Empfänger weiterleitet. Es dient ebenfalls als Transformator von Nachrichten, um die Interoperabilität sicherzustellen. Dabei liegen auf der einen Seite des ESB die Services und auf der anderen Seite die Anwendungen.
+Der Begriff "`Enterprise-Service Bus"' (ESB) wird oft im Zusammenhang mit SOA verwendet. Der ESB ist jedoch kein Teil von SOA, sondern nur ein Mittel, um die Kommunikation zu vereinheitlichen und ein Exposure Gateway bereitzustellen. Der Enterprise-Service Bus dient dabei als Nachrichtenkomponente, welcher die Nachrichten entgegennimmt und an die jeweiligen Empfänger weiterleitet. Es dient ebenfalls als Transformator von Nachrichten, um die Interoperabilität sicherzustellen. Dabei liegen auf der einen Seite des ESB die Services und auf der anderen Seite die Anwendungen.
 
 \begin{figure}[htb]
     \centering 
     \includegraphics[width=\linewidth]{content/images/ESB}\
-    \caption[ESB]{Enterprise Service Bus}
+    \caption[ESB]{Darstellung einse Enterprise Service Bus, mit Diensten und Frontend Anwendungen}
     \label{fig:esb}  
 \end{figure}
 \newpage
