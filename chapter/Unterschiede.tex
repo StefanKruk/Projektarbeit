@@ -17,7 +17,7 @@ Sowohl SOA, als auch Microservices sind Paradigmen aus der Service-orientierten 
 \\\\
 Mit Hilfe des Microservice Paradigmas wird die Struktur einer Anwendung in mehrere, kleinere Dienste aufgeteilt. Dadurch ist es möglich neue Technologien einzusetzen und gegebenenfalls zu ersetzten, sollten diese nicht den gewünschten Erfolg bringen.
 \\\\
-Anders sieht es mit SOA aus. Hierbei werden Adapter für Anwendungen, wie Kommerzielle Systeme oder Eigenentwicklungen, entwickelt, welche zusammen mit der Anwendung als Dienst dienen. Der Adapter stellt eine Schnittstelle für die Funktionalität der Anwendung bereit und übernimmt das steuern der Anwendung und das abfangen von Fehleingaben.
+Anders sieht es mit SOA aus. Hierbei werden Adapter für Anwendungen, wie kommerzielle Systeme oder Eigenentwicklungen, entwickelt, welche zusammen mit der Anwendung als Dienst dienen. Der Adapter stellt eine Schnittstelle für die Funktionalität der Anwendung bereit und übernimmt das Steuern der Anwendung und das Abfangen von Fehleingaben.
 
 \begin{quotation}
 	\frqq Aber der wichtigste Unterschied zwischen SOA und Microservices ist die Ebene, auf der die Architekturen ansetzen. Die Architektur einer SOA betrachtet das gesamte Unternehmen, SOA definiert, wie eine Vielzahl von Systemen in der Enterprise-IT interagieren. Microservices hingegen sind eine Architektur für ein einzelnes System. Sie sind eine Alternative zu anderen Modularisierungstechnologien. [..] Eine vollständige SOA umfasst die gesamte Unternehmens-IT.\flqq\ \cite[S. 90]{EWolff2016:Microservices}
@@ -69,7 +69,7 @@ Dies bedeutet jedoch häufig, dass weitere Microservices notwendig sind, um Info
 \\\\
 Da in einer SOA-Architektur, als auch in einer Microservice-Architektur, die Services Schnittstellen anbieten müssen, damit diese über das Netzwerk angesprochen werden können. Muss dafür gesorgt werden, dass die Interoperabilität, mit Hilfe der Schnittstellen, gewährleistet wird.
 \\\\
-Dadurch, dass die Kommunikation über Schnittstellen erfolgt, kann, sofern diese Standardisiert sind und Beispielsweise als SOAP/HTTP oder REST/HTTP umgesetzt wurden, der Dienst Plattform unabhängig deployed werden. Da jedoch monolithische Anwendungen oft sehr umfangreich sind, werden diese meistens für ein bestimmtes Betriebssystem gebaut. Microservices hingegen sind kleine autarke Dienste, Dadurch ist es möglich diese Plattform unabhängig zu deployen. Hier drauf wird in weiter unten, unter \ref{subsec:BindungAnTechnologiestacks} \nameref{subsec:BindungAnTechnologiestacks}, genauer eingegangen.
+Dadurch, dass die Kommunikation über Schnittstellen erfolgt, kann, sofern diese standardisiert sind und beispielsweise als SOAP/HTTP oder REST/HTTP umgesetzt wurden, der Dienst plattformunabhängig deployed werden. Da jedoch monolithische Anwendungen oft sehr umfangreich sind, werden diese meistens für ein bestimmtes Betriebssystem gebaut. Microservices hingegen sind kleine autarke Dienste, dadurch ist es möglich diese Plattform unabhängig zu deployen. Hier drauf wird unter \ref{subsec:BindungAnTechnologiestacks} \nameref{subsec:BindungAnTechnologiestacks} genauer eingegangen.
 
 \section{Vor- und Nachteile}
 \label{sec:VorUndNachteile}
@@ -78,7 +78,7 @@ Dadurch, dass die Kommunikation über Schnittstellen erfolgt, kann, sofern diese
 \label{subsec:Prozessisiolierung}
 Ein wichtiger Grundsatz von Service-orientierten Systemen ist, dass Dienste autark bleiben. Um dies zu erreichen, darf nur eine lose Kopplung zwischen einzelne Dienste stattfinden. Dies wird durch Zustandslose Schnittstellen und Eigenständigkeit erreicht. Damit ist gemeint, dass jeder Dienst seine Aufgaben, zum größten Teil alleine durchführen kann ohne auf andere Dienste angewiesen zu sein.
 \\\\
-Eine Vollständige Autarkheit ist in einem Microservice System nicht möglich. Trotzdem wird versucht Aufgaben möglichst zu Isolieren.
+Eine Vollständige Autarkheit ist in einem Microservice System nicht möglich. Trotzdem wird versucht Aufgaben möglichst zu isolieren.
 
 \begin{quotation}
 	\frqq Microservices setzten auf Isolation: Idealerweise wird eine Benutzerinteraktion vollständig in einem Microservice abgearbeitet und es ist kein Aufruf eines anderen Microservices notwendig.\flqq\ \cite[S. 90]{EWolff2016:Microservices}
@@ -94,7 +94,7 @@ Folgende Abbildung zeigt jedoch, dass eine vollständige Isolation, häufig nich
     \label{fig:MicroserviceArchitekturInGreenField} 
 \end{figure}
 \newpage
-Bei SOA hingegen besteht ein Dienst, wie bereits in \ref{sec:UnternehmensKomponenten} \nameref{sec:UnternehmensKomponenten} erwähnt, aus einer vollständigen Anwendung und einem Adapter, welcher die Steuerung der Anwendung über APIs bereitstellt. Dadurch, dass eine Anwendung alle nötigen Fachlichkeiten und Ressourcen, für die Ausführung der Anwendung besitzt, ist der Dienst vollständig Autark. Lediglich die Frontend-Anwendungen sind auf die APIs und damit auf die Backend-Anwendungen angewiesen. Fällt zum Beispiel eine Anwendung aus, kann es dazu führen, dass das gesamte System nicht mehr funktioniert, da die Dienste häufig in eine Wertschöpfungskette eingebunden sind.
+Bei SOA hingegen besteht ein Dienst, wie bereits in \ref{sec:UnternehmensKomponenten} \nameref{sec:UnternehmensKomponenten} erwähnt, aus einer vollständigen Anwendung und einem Adapter, welcher die Steuerung der Anwendung über APIs bereitstellt. Dadurch, dass eine Anwendung alle nötigen Fachlichkeiten und Ressourcen, für die Ausführung der Anwendung besitzt, ist der Dienst vollständig autark. Lediglich die Frontend-Anwendungen sind auf die APIs und damit auf die Backend-Anwendungen angewiesen. Fällt zum Beispiel eine Anwendung aus, kann es dazu führen, dass das gesamte System nicht mehr funktioniert, da die Dienste häufig in eine Wertschöpfungskette eingebunden sind.
 
 \subsection{Deployment}
 \label{subsec:Deployment}
@@ -110,11 +110,11 @@ Dadurch, dass Microservices kleine autarke Dienste sind, ist es oft nicht nötig
 	\frqq Durch die Umsetzung der Microservices entsteht zunächst zusätzliche Komplexität: Die vielen Micorservices benötigen eigene Infrastrukturen\flqq\ \cite[S. 18]{EWolff2016:Microservices}
 \end{quotation}
 
-Dienste in einem SOA-System hingegen sind häufig ganze Anwendungen. Diese erfordern oft eine aufwändige Konfiguration, welche nicht immer mit Hilfe von Konfigurationsdateien vorgenommen werden können. Einige Anwendungen dürfen nur durch den Hersteller oder durch ihn Zertifizierte Unternehmen Installiert und/oder Konfiguriert werden. Dadurch ist ein automatisches Deployment nicht möglich und auch ein manuelles Deployment wird erschwert.
+Dienste in einem SOA-System hingegen sind häufig ganze Anwendungen. Diese erfordern oft eine aufwändige Konfiguration, welche nicht immer mit Hilfe von Konfigurationsdateien vorgenommen werden können. Einige Anwendungen dürfen nur durch den Hersteller oder durch ihn Zertifizierte Unternehmen installiert und/oder konfiguriert werden. Dadurch ist ein automatisches Deployment nicht möglich und auch ein manuelles Deployment wird erschwert.
 
 \subsection{Skalierung}
 \label{subsec:Skalierung}
-Nicht immer können stark genutzte Anwendungen, durch Aufwertung oder Erweiterung von Hardware, belastbarer gemacht werden. Kritische oder Zentrale Anwendungen eines Unternehmens sind nicht nur stark genutzt, sondern dürfen nicht ausfallen. Durch Hardware, kann nicht durchgängig sichergestellt werden, dass eine Anwendung erreichbar ist. Um diese Problematiken entgegen zu wirken, muss Skaliert werden. Dabei werden mehrere Instanzen eines Systems parallel betrieben.
+Nicht immer können stark genutzte Anwendungen, durch Aufwertung oder Erweiterung von Hardware, belastbarer gemacht werden. Kritische oder zentrale Anwendungen eines Unternehmens sind nicht nur stark genutzt, sondern dürfen nicht ausfallen. Durch Hardware, kann nicht durchgängig sichergestellt werden, dass eine Anwendung erreichbar ist. Um diese Problematiken entgegen zu wirken, muss skaliert werden. Dabei werden mehrere Instanzen eines Systems parallel betrieben.
 
 \begin{quotation}
 	\frqq Skalierbarkeit bedeutet nur, dass die Last auf mehrere Knoten verteilt werden kann. Wie das System tatsächlich auf Last reagiert, ist offen. Wichtiger ist eigentilch, dass sich das System tatsächlich einer steigenden last anpasst. Dazu ist es notwendig, dass ein Microservice abhängig von der Last neue Instanzen starten, auf die Last verteilt werden kann.\flqq\ \cite[S. 151]{EWolff2016:Microservices}
@@ -122,7 +122,7 @@ Nicht immer können stark genutzte Anwendungen, durch Aufwertung oder Erweiterun
 
 In einem Microservice-System, ist es möglich, in kürzester Zeit eine weitere Instanz eines Dienstes zu starten und zu betreiben. Dadurch kann in kürzester Zeit auf verschiedene Lasten von Diensten reagiert werden, ohne dass ein Mensch in das System eingreifen muss. Es ist bei einem Microservice-System möglich, wenig genutzte Dienste, nur bei Bedarf zu starten und nach einer gewissen Zeit der Inaktivität, zu stoppen. Kritische oder stark genutzte Dienste hingegen, besitzen meistens mehrere Instanzen, auf denen die Lasten verteilt werden. Dadurch wird ebenfalls eine Ausfallsicherheit gewährleistet.
 \\\\
-SOA-Systeme besitzen deutlich größere Dienste als Microservice-Systeme. Existiert kein standardisiertes und automatisiertes Konfigurationsmanagement, stellt sich die Skalierung von monolithischen Anwendungen, als schwieriger heraus, da häufig viele Einstellungen und Installationen manuell vorgenommen werden müssen. Dadurch ist eine einfache Skalierung nicht möglich. Daher werden häufig, weitere Instanzen, dauerhaft parallel betrieben, um die Last auf mehrere Instanzen zu verteilen. Sind monolithische Anwendungen nicht Zustandslos, wird dadurch das Skalieren ebenfalls erschwert.
+SOA-Systeme besitzen deutlich größere Dienste als Microservice-Systeme. Existiert kein standardisiertes und automatisiertes Konfigurationsmanagement, stellt sich die Skalierung von monolithischen Anwendungen, als schwieriger heraus, da häufig viele Einstellungen und Installationen manuell vorgenommen werden müssen. Dadurch ist eine einfache Skalierung nicht möglich. Daher werden häufig, weitere Instanzen, dauerhaft parallel betrieben, um die Last auf mehrere Instanzen zu verteilen. Sind monolithische Anwendungen nicht zustandslos, wird dadurch das Skalieren ebenfalls erschwert.
 
 \subsection{Wartbarkeit}
 \label{subsec:Wartbarkeit}
@@ -136,7 +136,7 @@ Während in einem SOA-System der Dienst aus einer Anwendung und einem Adapter be
 \label{subsec:BindungAnTechnologiestacks}
 In beiden Paradigmen, sollten Dienste eine standardisierte Schnittstelle besitzen, damit diese, durch andere Dienste verwendet werden können. Zusätzlich ist dadurch eine Wiederverwendung des Dienstes möglich. Das verwenden einer standardisierten Schnittstelle schränkt jedoch die Auswahl der einzusetzenden Technologien ein. Zudem ist das verwenden einer standardisierten Schnittstelle nicht immer möglich.
 \\\\
-In einem Microservice-System ist die Wiederverwendbarkeit ein wichtiges Thema. Dadurch wird man gezwungen, die Schnittstellen zu standardisieren. Oft werden hierfür REST-HTTP Schnittstellen, welche Sprachen unabhängig sind, verwendet. REST-HTTP basiert dabei auf dem HTTP-Protokoll. Dadurch kann die Schnittstelle in fast jeder Programmiersprache verwendet werden, wodurch ein Dienst ebenfalls in fast jeder Programmiersprache geschrieben werden kann. Durch die Größe eines Microservices ist es ebenfalls möglich, neue Technologien zu Testen und in der Produktion einzusetzen. Dabei können verschiedenen Sprachen, sowie Frameworks verwendet werden, um die Aufgabe zu erledigen. 
+In einem Microservice-System ist die Wiederverwendbarkeit ein wichtiges Thema. Dadurch wird man gezwungen, die Schnittstellen zu standardisieren. Oft werden hierfür REST-HTTP Schnittstellen, welche Sprachen unabhängig sind, verwendet. REST-HTTP basiert dabei auf dem HTTP-Protokoll. Dadurch kann die Schnittstelle in fast jeder Programmiersprache verwendet werden, wodurch ein Dienst ebenfalls in fast jeder Programmiersprache geschrieben werden kann. Durch die Größe eines Microservices ist es ebenfalls möglich, neue Technologien zu testen und in der Produktion einzusetzen. Dabei können verschiedenen Sprachen, sowie Frameworks verwendet werden, um die Aufgabe zu erledigen. 
 
 \begin{quotation}
 	\frqq Microservices bieten technologische Freiheiten. Weil Microservices nur über das Netzwerk miteinander kommunizieren, können sie in jeder beliebigen Sprache und Plattform umgesetzt werden, solange die Kommunikation mit den anderen Microservices möglich ist.\flqq\ \cite[S. 66]{EWolff2016:Microservices}
@@ -158,13 +158,13 @@ Damit ein Dienst in die jeweiligen Systeme eingebunden werden kann, muss dieser 
 \\\\
 Durch diese Unterschiede ist nicht nur die Größe des Entwicklerteams unterschiedlich, sondern auch der Entwicklungsprozess. Da ein Dienst in einem Microservice-System, nur von einem Team entwickelt werden sollte, stellt dies eine Begrenzung der Größe eines Dienstes dar. Dadurch ist in der Regel ein Microservice deutlich kleiner, als eine monolithische Anwendung, jedoch nicht immer einfacher zu entwickeln.
 \\\\
-Während bei einer monolithischen Anwendung, alle nötigen Abhängigkeiten in einem Projekt vorhanden sind, muss bei Microservices dafür gesorgt werden, dass die Abhängigkeiten korrekt aufgelöst werden, da diese in dem Bereich anderer Microservices  liegen. Damit die Abhängigkeiten korrekt aufgelöst werden können, muss ein Entwickler wissen, welche Abhängigkeiten die korrekten sind. In einem Microservice-System gibt es eine sehr große Menge an Diensten, welche verschiedene Aufgaben abbilden, daher ist es nicht immer einfach den richtigen Service auszuwählen. Zudem existieren weitere Probleme. Es ist schwierig, die Architektur eines Microservice-Systems anzupassen.
+Während bei einer monolithischen Anwendung, alle nötigen Abhängigkeiten in einem Projekt vorhanden sind, muss bei Microservices dafür gesorgt werden, dass die Abhängigkeiten korrekt aufgelöst werden, da diese in dem Bereich anderer Microservices  liegen. Damit die Abhängigkeiten korrekt aufgelöst werden können, muss ein Entwickler wissen, welche Abhängigkeiten benötigt werden. In einem Microservice-System gibt es eine sehr große Menge an Diensten, welche verschiedene Aufgaben abbilden, daher ist es nicht immer einfach den richtigen Service auszuwählen. Zudem existieren weitere Probleme. Es ist schwierig, die Architektur eines Microservice-Systems anzupassen.
 
 \begin{quotation}
 	\frqq Es müssen neue Microservices erstellt werden, was Änderungen in der Infrastruktur und zusätzliche Continuous-Deployment-Pipelines bedeutet. Gemeinsamer Code in Bibliotheken ist kaum eine sinnvolle Option. In einem Deployment-Monolithen wären solche Änderungen schnell gemacht: Oft automatisieren sogar die integrierten Entwicklungsumgebungen das Verschieben von Code oder andere Strukturänderungen. Durch die Automatisierung sind die Änderungen weniger aufwand und weniger fehleranfällig.\flqq\ \cite[S. 119f]{EWolff2016:Microservices}
 \end{quotation}
 
-Das Weiterentwickeln eines Microservice-Systems, ist hingegen häufig einfacher, als in einem SOA-System, da Teams unabhängig voneinander Entwickeln und deployen können.
+Das Weiterentwickeln eines Microservice-Systems, ist hingegen häufig einfacher, als in einem SOA-System, da Teams unabhängig voneinander entwickeln und deployen können.
 
 \begin{quotation}
 	\frqq Microservices haben vor allem Vorteile in sehr dynamischen Umgebungen. Durch das unabhängige Deployment der Microservices können Teams an verschiedenen Features parallel ohne große Koordination arbeiten.\flqq\ \cite[S. 120]{EWolff2016:Microservices}
@@ -179,7 +179,7 @@ Nach der Entwicklung eines Dienstes, muss dieser getestet werden, bevor der Dien
 	\frqq Es gibt verschiedene Arten von Tests, die unterschiedliche Risiken handhaben: Unit-Tests testen Bestandteile (Units) des Systems. Sie minimieren das Risiko, dass die Bestandteile Fehler enthalten.\flqq\ \cite[S. 219]{EWolff2016:Microservices}
 \end{quotation}
 
-Das Testen mit Unit-Tests ist in beiden Systemen möglich und sinnvoll, um die Grundlegenden Bestandteile des Dienstes zu testen. Da sowohl das Microservice-Paradigma, als auch das SOA-Paradigma auf ein verteiltes System aufbaut, muss die Interoperabilität der einzelnen Services getestet werden. Dies wird häufig mit Hilfe von Integrationstests durchgeführt.
+Das Testen mit Unit-Tests ist in beiden Systemen möglich und sinnvoll, um die grundlegenden Bestandteile des Dienstes zu testen. Da sowohl das Microservice-Paradigma, als auch das SOA-Paradigma auf ein verteiltes System aufbaut, muss die Interoperabilität der einzelnen Services getestet werden. Dies wird häufig mit Hilfe von Integrationstests durchgeführt.
 
 \begin{quotation}
 	\frqq Integrationstests testen die Bestandteile im Zusammenspiel. Damit sollen sie das Risiko verringern, dass in der Integration der Bestandteile Fehler enthalten sind.\flqq\ \cite[S. 220]{EWolff2016:Microservices}
@@ -187,4 +187,4 @@ Das Testen mit Unit-Tests ist in beiden Systemen möglich und sinnvoll, um die G
 
 Zudem sollte in jedem der beiden Systeme getestet werden, wie sich einzelne Services, beziehungsweise das gesamte System, bei zufälligen Ausfällen von verschiedenen Systemen, verhalten. Dies stellt eine besondere Herausforderung dar, da dies meistens nur in der Produktionsumgebung möglich ist. Netflix Inc., welches auf Microservices für ihren Dienst "`Netflix"' setzt, hat für diesen Zweck ein Werkzeug Namens "`chaosmonkey"' entwickelt, welches willkürlich Systeme innerhalb seines Dienstes "`Netflix"' abschaltet.\footnote{siehe \cite{chaosmonkey}}
 \\\\
-Zu den gerade genannten automatisierten Testmethoden, sollten zusätzlich manuelle Tests durchgeführt werden, da nicht alle Tests automatisiert durchgeführt werden können. Die Anforderung an eine UI sind nicht immer Funktionale, sondern häufig auch nicht-Funktionale Anforderungen, welche nicht automatisiert getestet werden können. Mit automatisierten Tests kann sichergestellt werden, dass die einzelnen Elemente auf der UI funktionieren. Es kann jedoch nicht sichergestellt werden, dass diese sinnvoll angeordnet und eindeutig sind.
+Zu den gerade genannten automatisierten Testmethoden, sollten zusätzlich manuelle Tests durchgeführt werden, da nicht alle Tests automatisiert durchgeführt werden können. Die Anforderung an eine UI sind nicht immer funktionale, sondern häufig auch nicht-funktionale Anforderungen, welche nicht automatisiert getestet werden können. Mit automatisierten Tests kann sichergestellt werden, dass die einzelnen Elemente auf der UI funktionieren. Es kann jedoch nicht sichergestellt werden, dass diese sinnvoll angeordnet und eindeutig sind.
